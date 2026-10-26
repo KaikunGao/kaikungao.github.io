@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>高凯堃 · AI 产品作品集</title>
+<meta name="description" content="高凯堃的 AI 产品作品集：ProteinWallet、ResearchFlow、留学生政策雷达三个项目，以及 LLM 新闻信号与投资组合决策研究。用 Claude Code 构建，产品决策自己做。">
+<meta property="og:title" content="高凯堃 · AI 产品作品集">
+<meta property="og:description" content="三个从 PRD 到上线的 AI 产品项目，一段数据与评测驱动的科研。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>◎</text></svg>">
+</head>
+<body>
+
+<nav class="nav"><div class="wrap">
+  <a class="brand" href="#top">高凯堃</a>
+  <ul>
+    <li><a href="#projects">项目</a></li>
+    <li><a href="#research">科研</a></li>
+    <li><a href="#way">工作方式</a></li>
+    <li><a href="#contact">联系</a></li>
+  </ul>
+</div></nav>
+
+<main class="wrap" id="top">
+
+<header class="hero">
+  <div>
+    <h1>高凯堃</h1>
+    <p class="role">AI 产品经理 · 实习候选人</p>
+    <p class="pitch">用 Claude Code 把想法做成可运行、可评测的产品。最关心的问题只有一个：模型在真实数据上到底表现如何。</p>
+    <ul class="facts">
+      <li>芝加哥大学 计算机科学硕士在读（人工智能方向）</li>
+      <li>威斯康星大学麦迪逊分校 数据科学、统计学双学位</li>
+      <li>2026.12 初回国，可线下全职实习 6 个月</li>
+    </ul>
+    <div class="contact" id="contact">
+      <a href="mailto:kaikungao48@gmail.com">邮箱 kaikungao48@gmail.com</a>
+      <span>微信 GKK00623</span>
+      <a href="https://github.com/KaikunGao" target="_blank" rel="noopener">GitHub KaikunGao</a>
+      <a class="no-print" href="assets/kaikun-gao-portfolio.pdf" target="_blank" rel="noopener">PDF 版作品集</a>
+    </div>
+  </div>
+  <img class="photo" src="assets/photo.jpg" alt="高凯堃">
+</header>
+
+<section id="projects">
+  <h2 class="sec-title">项目</h2>
+  <p class="sec-sub">每个项目按同一套格子展示：痛点、方案、评测、结果。数字都来自真实运行记录或公开数据核对。</p>
+
+  <!-- ProteinWallet -->
+  <article class="card">
+    <header>
+      <h3>蛋白钱包 ProteinWallet</h3>
+      <span class="badge">已上线</span>
+      <span class="meta">面向留学生的 AI 饮食记账工具 · 个人项目 · 2026.08 至今</span>
+    </header>
+    <p class="one-liner">拍一张小票，同时记账与记营养。自创核心指标"蛋白质单价（¢/g）"，把营养决策变成消费决策。</p>
+    <div class="demo">
+      <div class="grid4">
+        <div class="cell"><b class="k">痛点</b>有增肌需求、对生活费敏感的留学生，食堂和外卖场景无法称重；营养 App 不管钱，记账 App 不管营养。访谈与自身使用中反复出现"记了也不知道该不该买"。</div>
+        <div class="cell"><b class="k">方案</b>拍小票、拍餐食、一句话文字、自炊双记录 <span class="num">4 种输入</span>，单次记录目标 <span class="num">≤10 秒</span>；3 个页面跑通"记录→估算→差额→周报"。AI 只做识别，算术交给代码；输出统一为"区间 + 置信度 + 依据"。</div>
+        <div class="cell"><b class="k">评测</b>以 5 家连锁餐厅官方营养表为真值建评测集，定义区间命中率、区间相对宽度、小票解析准确率、用户修正率 4 项指标；首轮 17 样本区间命中率 <span class="num">100%</span>，高置信区间宽度 <span class="num">20%</span>。照片评测集扩建中。</div>
+        <div class="cell"><b class="k">结果与取舍</b>MVP 已上线。为控制幻觉与伦理风险主动砍掉饮食推荐、热量警告等 <span class="num">7 项功能</span>；以"周人均记录餐次"为北极星指标；下一步招募 5–8 名种子用户验证留存。</div>
+      </div>
+      <div>
+        <div class="phone" id="pw-demo">
+          <img src="assets/pw-onboarding.png" alt="ProteinWallet 上手页截图" width="220" height="476">
+          <button type="button" class="demo-btn" data-src="https://protein-wallet.vercel.app/">点击体验线上应用</button>
+        </div>
+        <p class="phone-note">点击后在手机框内加载真实应用</p>
+      </div>
+    </div>
+    <div class="links">
+      <a href="https://protein-wallet.vercel.app/" target="_blank" rel="noopener">线上产品 →</a>
+      <a href="https://github.com/KaikunGao/protein-wallet" target="_blank" rel="noopener">GitHub →</a>
+    </div>
+  </article>
+
+  <!-- ResearchFlow -->
+  <article class="card">
+    <header>
+      <h3>ResearchFlow</h3>
+      <span class="badge">开源</span>
+      <span class="meta">券商财务研究自动化平台 · 个人项目 · 2026.02 — 2026.05</span>
+    </header>
+    <p class="one-liner">把券商研究员财报季靠手工和脚本完成的数据整理、制图与点评填数产品化。</p>
+    <div class="flow">
+      <span>数据导入</span><i>→</i><span>标准化</span><i>→</i><span>指标计算</span><i>→</i><span>可视化</span><i>→</i><span>异常告警</span><i>→</i><span>报告生成</span>
+    </div>
+    <div class="grid4">
+      <div class="cell"><b class="k">痛点</b>复盘申万宏源医药组实习，锁定行业研究员与实习生为目标用户，提炼出财报季 <span class="num">4 类重复劳动</span>：底表重复更新、单季度拆分易错、点评段落机械填数、标准图重复制作。</div>
+      <div class="cell"><b class="k">方案</b>聚焦 A 股医药生物行业撰写 PRD，落地 <span class="num">8 个功能模块、33 个财务指标</span>；后端自动差分完成单季度拆分，缺数据时留空而非算错；可配置规则引擎默认 7 条告警；公司深度、同业对比等 4 类 Word 报告一键生成。借助 Claude Code 独立完成全栈开发。</div>
+      <div class="cell"><b class="k">评测</b>以恒瑞医药 2023、2024 年报公告逐项核对，营收与净利润口径完全一致，自算同比误差 <span class="num">≤0.01 pct</span>。</div>
+      <div class="cell"><b class="k">结果</b>接入东方财富公开接口，无 Wind 终端的用户也能使用；目前作为个人研究工具日常使用。下一步计划在券商研究团队做小范围试点，量化单家公司底表更新时间的变化。</div>
+    </div>
+    <div class="links">
+      <a href="https://github.com/KaikunGao/researchflow" target="_blank" rel="noopener">GitHub →</a>
+    </div>
+  </article>
+
+  <!-- Policy Radar -->
+  <article class="card">
+    <header>
+      <h3>留学生政策雷达</h3>
+      <span class="badge warn">进行中</span>
+      <span class="meta">面向在美留学生的官方政策变动监控与推送 · 2026.10 起</span>
+    </header>
+    <p class="one-liner">只盯官方页面的变化：政策一有官方变动，自动比对、中文摘要、附原文链接，推送给订阅者。不做政策问答，不做法律建议。</p>
+    <div class="grid4">
+      <div class="cell"><b class="k">痛点</b>签证与身份政策变动频繁，群聊和小红书最快但混杂谣言，"拟议"与"已生效"在转发中丢失；官方信息分散在十几处英文页面，没人天天盯。</div>
+      <div class="cell"><b class="k">方案</b>常驻 Agent 每 30 分钟监控官方信源白名单。变化检测、去噪、日期抽取、引用校验、发布决策全部由代码完成，模型只做分类与摘要；每条推送附原文引用，引用由代码核对确实存在于原文；高影响条目发布前有 15 分钟人工复核窗口。</div>
+      <div class="cell"><b class="k">评测</b>历史变动集与摘要评测集双人标注。上线标准：变化检出率 <span class="num">≥90%</span>、误报率 <span class="num">≤10%</span>、摘要忠实度 <span class="num">≥95%</span>、官方发布到推送 <span class="num">≤60 分钟</span>。</div>
+      <div class="cell"><b class="k">进度</b>PRD 与访谈提纲完成；信源适配器、快照存储、变化检测与去噪已实现并通过 42 项测试；11 月完成用户访谈、原型评审与上线，12 月公布订阅、打开率与留存数据。</div>
+    </div>
+    <ul class="rules">
+      <li>只用官方信源白名单，白名单变更有记录。</li>
+      <li>每条推送附原文链接和引用，引用由代码校验。</li>
+      <li>不解读法律后果，不给个案建议。</li>
+    </ul>
+  </article>
+</section>
+
+<section id="research">
+  <h2 class="sec-title">科研</h2>
+  <p class="sec-sub">LLM 辅助的序列决策与投资组合研究 · 导师：香港大学 Jinhong Du · 研究助理 · 2026.03 — 2026.06</p>
+  <article class="card research">
+    <ul style="margin:0; padding-left:18px;">
+      <li><b>搭建 workflow：</b>接入新闻、公告、宏观政策、资金流、融资融券、龙虎榜、行情 7 类数据源，清洗并对齐交易日，处理 <span class="num">4.1 万条文本</span>；一条命令串起 LLM 信号提取、多种子复跑、诊断与组合对比。</li>
+      <li><b>评测与结论：</b>结构化输出合规率 <span class="num">100%</span>、校准误差 ECE 0.047；同日 Spearman 0.15 显著而次日 IC 仅 0.03 不显著，判定文本信号"解释当日、不预测次日"，推动 LLM 定位为信息处理器而非收益预测器。</li>
+      <li><b>基线与消融：</b>设计 3 组基线并参与决策层调参；含 15 个基点交易成本下两阶段策略净收益 <span class="num">62%</span>，对等权 49%、沪深 300 21%；换手约束贡献约 7 个百分点，文本信号净贡献接近零。</li>
+    </ul>
+    <div class="links">
+      <a href="https://github.com/KaikunGao/llm-portfolio-research" target="_blank" rel="noopener">代码仓库（不含数据与密钥）→</a>
+    </div>
+  </article>
+</section>
+
+<section id="way">
+  <h2 class="sec-title">工作方式</h2>
+  <p class="sec-sub">写在前面，省得面试官从提交记录里猜。</p>
+  <div class="ways">
+    <div class="cell"><b class="k">用 Claude Code 构建</b>三个项目的大部分代码由 Claude Code 写出。我负责定义问题、写 PRD、设计评测、决定砍什么、验收结果；每一个取舍我都能讲清楚为什么。</div>
+    <div class="cell"><b class="k">评测先于上线</b>先建真值评测集和上线标准，再谈功能。ProteinWallet 的 17 样本评测、政策雷达的四项上线门槛，都在写第一行功能代码之前定下。</div>
+    <div class="cell"><b class="k">模型只做它擅长的事</b>识别、分类、摘要交给模型；算术、校验、发布决策交给代码。这是三个项目共同的架构原则，也是控制幻觉的主要手段。</div>
+    <div class="cell"><b class="k">日常工具</b>高频使用 Claude Code、Codex；持续观察 Coding Agent 与 Agent 产品形态的演进，并把观察写成竞品拆解。</div>
+  </div>
+</section>
+
+<footer class="wrap">
+  本页为静态站点，同样用 Claude Code 搭建。© 2026 高凯堃
+</footer>
+
+</main>
+<script>
+  // Load the live demo only on request: the app focuses its first input on load,
+  // which would otherwise scroll the whole page down to the phone frame.
+  document.querySelectorAll('.demo-btn').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var frame = btn.parentElement;
+      var iframe = document.createElement('iframe');
+      iframe.src = btn.dataset.src;
+      iframe.title = 'ProteinWallet 在线演示';
+      frame.innerHTML = '';
+      frame.appendChild(iframe);
+    });
+  });
+</script>
+</body>
+</html>

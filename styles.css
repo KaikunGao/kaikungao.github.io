@@ -1,0 +1,122 @@
+:root {
+  --bg: #fbfaf7;
+  --panel: #ffffff;
+  --ink: #1b1b1f;
+  --muted: #5f6368;
+  --line: #e6e3dc;
+  --accent: #0f6e63;
+  --accent-soft: #e4f1ee;
+  --tag: #f1efe9;
+  --warn: #9a6700;
+  --warn-soft: #fff4d6;
+  --max: 880px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #121316; --panel: #1b1c21; --ink: #ecebe6; --muted: #a3a6ad; --line: #2b2d34;
+    --accent: #6fc2b4; --accent-soft: #15302c; --tag: #24262d; --warn: #e2b55a; --warn-soft: #3a2f12;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #121316; --panel: #1b1c21; --ink: #ecebe6; --muted: #a3a6ad; --line: #2b2d34;
+  --accent: #6fc2b4; --accent-soft: #15302c; --tag: #24262d; --warn: #e2b55a; --warn-soft: #3a2f12;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font-family: -apple-system, "PingFang SC", "Hiragino Sans GB", "Noto Sans SC", "Microsoft YaHei", "Segoe UI", Roboto, sans-serif;
+  font-size: 16px; line-height: 1.7; -webkit-font-smoothing: antialiased;
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.wrap { max-width: var(--max); margin: 0 auto; padding: 0 16px; }
+
+/* top nav */
+.nav { position: sticky; top: 0; z-index: 10; background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+.nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 52px; }
+.nav .brand { font-weight: 600; color: var(--ink); }
+.nav ul { list-style: none; display: flex; gap: 18px; margin: 0; padding: 0; font-size: 14px; }
+.nav a { color: var(--muted); }
+
+/* hero */
+.hero { padding: 48px 0 28px; display: grid; grid-template-columns: 1fr auto; gap: 28px; align-items: start; }
+.hero h1 { font-size: 34px; margin: 0 0 6px; letter-spacing: .5px; }
+.hero .role { color: var(--accent); font-weight: 600; margin: 0 0 14px; }
+.hero .pitch { font-size: 18px; margin: 0 0 14px; max-width: 620px; }
+.hero .facts { color: var(--muted); font-size: 14px; margin: 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 6px 18px; }
+.hero .contact { margin-top: 16px; display: flex; flex-wrap: wrap; gap: 8px; }
+.hero .contact a, .hero .contact span { font-size: 14px; padding: 6px 12px; border: 1px solid var(--line); border-radius: 999px; background: var(--panel); color: var(--ink); }
+.photo { width: 128px; height: 128px; border-radius: 50%; object-fit: cover; border: 3px solid var(--panel); box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+
+/* sections */
+section { padding: 28px 0; }
+.sec-title { font-size: 22px; margin: 0 0 6px; }
+.sec-sub { color: var(--muted); margin: 0 0 18px; font-size: 15px; }
+
+/* project card */
+.card { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 22px; margin-bottom: 18px; }
+.card header { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 12px; margin-bottom: 4px; }
+.card h3 { font-size: 20px; margin: 0; }
+.card .meta { color: var(--muted); font-size: 14px; }
+.badge { font-size: 12px; padding: 2px 8px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); font-weight: 600; }
+.badge.warn { background: var(--warn-soft); color: var(--warn); }
+.card .one-liner { margin: 6px 0 14px; color: var(--muted); }
+.grid4 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.cell { background: var(--bg); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; font-size: 15px; }
+.cell b.k { display: block; font-size: 12px; letter-spacing: 1px; color: var(--accent); margin-bottom: 4px; }
+.num { font-weight: 700; color: var(--ink); }
+.links { margin-top: 14px; display: flex; flex-wrap: wrap; gap: 8px 16px; font-size: 14px; }
+.rules { margin: 0 0 12px; padding-left: 18px; font-size: 15px; }
+.flow { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin: 4px 0 14px; font-size: 13px; }
+.flow span { background: var(--tag); border-radius: 6px; padding: 3px 8px; }
+.flow i { color: var(--muted); font-style: normal; }
+
+/* demo */
+.demo { display: grid; grid-template-columns: 1fr 240px; gap: 18px; align-items: start; }
+.phone { position: relative; width: 240px; height: 500px; border: 10px solid #222; border-radius: 32px; overflow: hidden; background: #fff; box-shadow: 0 10px 30px rgba(0,0,0,.18); justify-self: end; }
+.phone img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
+.demo-btn { position: absolute; left: 50%; bottom: 18px; transform: translateX(-50%); white-space: nowrap; padding: 9px 14px; border: 0; border-radius: 999px; background: var(--accent); color: #fff; font-size: 13px; font-weight: 600; cursor: pointer; box-shadow: 0 4px 14px rgba(0,0,0,.2); }
+.demo-btn:hover { filter: brightness(1.08); }
+.phone iframe { width: 390px; height: 844px; border: 0; transform: scale(.5641); transform-origin: 0 0; background: #fff; }
+.phone-note { font-size: 12px; color: var(--muted); text-align: right; margin-top: 6px; }
+
+/* research */
+.research li { margin-bottom: 8px; }
+
+/* way of working */
+.ways { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.ways .cell { font-size: 15px; }
+
+footer { color: var(--muted); font-size: 13px; padding: 24px 0 40px; border-top: 1px solid var(--line); margin-top: 20px; }
+
+@media (max-width: 720px) {
+  .hero { grid-template-columns: 1fr; }
+  .photo { width: 96px; height: 96px; order: -1; }
+  .grid4, .ways { grid-template-columns: 1fr; }
+  .demo { grid-template-columns: 1fr; }
+  .phone { justify-self: center; }
+  .phone-note { text-align: center; }
+  .nav ul { gap: 12px; }
+}
+
+/* print: a clean PDF portfolio */
+@page { size: A4; margin: 12mm 14mm; }
+@media print {
+  :root { --bg: #fff; --panel: #fff; --ink: #000; --muted: #444; --line: #bbb; --accent: #0f6e63; --accent-soft: #eef5f3; --tag: #f1f1f1; }
+  .nav, .phone-note, .demo-btn, .no-print { display: none !important; }
+  .phone { width: 160px; height: 334px; border-width: 6px; box-shadow: none; justify-self: start; }
+  /* Heiti SC keeps a clean PDF text layer; PingFang and Songti map 高 etc. to Kangxi radicals, which breaks ATS text search */
+  body { font-size: 11.5px; line-height: 1.5; font-family: "Heiti SC", "Arial Unicode MS", "Noto Sans SC", "Microsoft YaHei", sans-serif; }
+  .wrap { max-width: none; padding: 0; }
+  .hero { padding: 0 0 12px; }
+  .hero h1 { font-size: 24px; }
+  section { padding: 10px 0; }
+  .card { break-inside: auto; padding: 12px 14px; margin-bottom: 10px; }
+  .card header, .cell, .phone, .research li, .ways .cell { break-inside: avoid; }
+  .sec-title { break-after: avoid; }
+  .grid4 { gap: 8px; }
+  .demo { grid-template-columns: 1fr; }
+  a[href^="http"]::after { content: " (" attr(href) ")"; color: #444; font-size: 11px; }
+  .contact a::after { content: none; }
+}
