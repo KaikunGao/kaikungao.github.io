@@ -45,7 +45,9 @@ h1, h2, h3 { line-height: 1.35; letter-spacing: .01em; }
 /* hero */
 .hero { padding: 52px 0 30px; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 32px; align-items: start; }
 .hero h1 { font-size: 36px; margin: 0 0 6px; font-weight: 700; }
-.hero .role { color: var(--accent); font-weight: 600; margin: 0 0 16px; }
+.hero .role { color: var(--accent); font-weight: 600; margin: 0 0 10px; }
+.hero .edu { list-style: none; margin: 0 0 16px; padding: 0; font-size: 14.5px; color: var(--muted); line-height: 1.7; }
+.hero .edu li b { color: var(--ink); font-weight: 600; margin-right: 8px; }
 .hero .strengths { margin: 4px 0 18px; padding-left: 18px; max-width: 640px; font-size: 15.5px; }
 .hero .strengths li { margin-bottom: 8px; }
 .hero .strengths b { color: var(--ink); }
@@ -123,21 +125,12 @@ section { padding: 30px 0; }
 /* research */
 .research li { margin-bottom: 10px; }
 
-/* timeline */
-.timeline { list-style: none; margin: 0; padding: 0; border-left: 2px solid var(--line); }
-.timeline li { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 14px; padding: 6px 0 6px 18px; position: relative; font-size: 15.5px; }
-.timeline li::before { content: ""; position: absolute; left: -6px; top: 16px; width: 10px; height: 10px; border-radius: 50%; background: var(--accent); border: 2px solid var(--bg); }
-.timeline .d { color: var(--muted); font-size: 14px; font-variant-numeric: tabular-nums; }
-.timeline .t b { font-weight: 600; }
-.timeline .t span { color: var(--muted); }
-
 /* skills */
 .skills { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
 .skill { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; }
 .skill b.k { display: block; font-size: 12px; letter-spacing: .12em; color: var(--accent); margin-bottom: 8px; }
 .tags { display: flex; flex-wrap: wrap; gap: 6px; }
 .tags span { background: var(--tag); border-radius: 6px; padding: 3px 10px; font-size: 13.5px; }
-.tags span.lite { background: transparent; border: 1px dashed var(--line); color: var(--muted); }
 
 /* way of working */
 .ways { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
@@ -177,7 +170,6 @@ pre { background: var(--tag); border-radius: 10px; padding: 12px 14px; font-size
   pre { font-size: 12px; }
   .phone, .cover { justify-self: center; }
   .phone-note, .cover-note { text-align: center; }
-  .timeline li { grid-template-columns: minmax(0, 1fr); gap: 2px; }
   .nav ul { gap: 12px; }
   .tbl td:first-child { white-space: normal; }
 }
@@ -194,7 +186,7 @@ pre { background: var(--tag); border-radius: 10px; padding: 12px 14px; font-size
   .hero h1 { font-size: 24px; }
   section { padding: 10px 0; }
   .card { break-inside: auto; padding: 12px 14px; margin-bottom: 10px; }
-  .card header, .cell, .phone, .cover, .research li, .ways .cell, .metrics, .skill, .timeline li { break-inside: avoid; }
+  .card header, .cell, .phone, .cover, .research li, .ways .cell, .metrics, .skill { break-inside: avoid; }
   .sec-title { break-after: avoid; }
   .grid4 { gap: 8px; }
   .phone { width: 160px; height: 334px; border-width: 6px; box-shadow: none; justify-self: start; }
