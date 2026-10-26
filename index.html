@@ -30,8 +30,8 @@
     <h1>高凯堃</h1>
     <p class="role">AI 产品经理 · 实习候选人</p>
     <ul class="edu">
-      <li><b>芝加哥大学</b>计算机科学硕士在读（人工智能方向）</li>
-      <li><b>威斯康星大学麦迪逊分校</b>数据科学、统计学双学位</li>
+      <li><span class="deg">硕士</span><b>芝加哥大学</b><span class="major">计算机科学（人工智能方向），在读</span></li>
+      <li><span class="deg">本科</span><b>威斯康星大学麦迪逊分校</b><span class="major">数据科学、统计学双学位</span></li>
     </ul>
     <ul class="strengths">
       <li><b>能独立闭环：</b>三个 AI 产品都是自己从痛点、PRD、原型做到上线，知道一个功能从想法到可用要经过哪些取舍。</li>
@@ -192,8 +192,12 @@
 
 <section id="research">
   <h2 class="sec-title">科研</h2>
-  <p class="sec-sub">LLM 辅助的序列决策与投资组合研究 · 导师：香港大学 Jinhong Du · 研究助理 · 2026.03 — 2026.06</p>
+  <p class="sec-sub">两段数据驱动的研究：一段关于 LLM 信号的边界，一段关于传统机器学习的特征与模型选择。</p>
   <article class="card research">
+    <header>
+      <h3>LLM 辅助的序列决策与投资组合研究</h3>
+      <span class="meta">导师：香港大学 Jinhong Du · 研究助理 · 2026.03 — 2026.06</span>
+    </header>
     <div class="metrics">
       <div class="metric"><b>4.1 万</b><span>处理的新闻、公告与政策文本</span></div>
       <div class="metric"><b>100%</b><span>结构化输出合规率</span></div>
@@ -207,6 +211,22 @@
     <div class="links">
       <a href="https://github.com/KaikunGao/llm-portfolio-research" target="_blank" rel="noopener">代码仓库（不含数据与密钥）</a>
     </div>
+  </article>
+  <article class="card research">
+    <header>
+      <h3>USDA 农场认证结果预测</h3>
+      <span class="meta">数据分析研究 · 研究助理 · 2025.06 — 2025.09</span>
+    </header>
+    <div class="metrics">
+      <div class="metric"><b>3.4 万+</b><span>USDA 农场记录</span></div>
+      <div class="metric"><b>78%</b><span>XGBoost 准确率</span></div>
+      <div class="metric"><b>0.84</b><span>AUC</span></div>
+    </div>
+    <ul style="margin:0; padding-left:18px;">
+      <li><b>数据与特征：</b>对 3.4 万余条 USDA 农场记录做预处理与特征工程，缺失值填补、独热编码、布尔标记，构建类别均衡的分类数据集。</li>
+      <li><b>模型比较：</b>实现并对比逻辑回归、决策树、随机森林、XGBoost 四种模型，分层 5 折交叉验证加超参数调优。</li>
+      <li><b>结论：</b>XGBoost 达到 78% 准确率、0.84 AUC；特征重要性显示农场规模与分销商身份是认证结果的关键预测因子。</li>
+    </ul>
   </article>
 </section>
 
