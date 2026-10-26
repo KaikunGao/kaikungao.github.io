@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>高凯堃 · AI 产品作品集</title>
-<meta name="description" content="高凯堃的 AI 产品作品集：ProteinWallet、ResearchFlow、留学生政策雷达三个项目，以及 LLM 新闻信号与投资组合决策研究。用 Claude Code 构建，产品决策自己做。">
+<meta name="description" content="高凯堃的 AI 产品作品集：ProteinWallet、ResearchFlow、留学生政策雷达三个项目，以及 LLM 新闻信号与投资组合决策研究。">
 <meta property="og:title" content="高凯堃 · AI 产品作品集">
 <meta property="og:description" content="三个从 PRD 到上线的 AI 产品项目，一段数据与评测驱动的科研。">
 <meta property="og:type" content="website">
@@ -29,14 +29,19 @@
   <div>
     <h1>高凯堃</h1>
     <p class="role">AI 产品经理 · 实习候选人</p>
-    <p class="pitch">用 Claude Code 把想法做成可运行、可评测的产品。最关心的问题只有一个：模型在真实数据上到底表现如何。</p>
+    <ul class="strengths">
+      <li><b>能独立闭环：</b>三个 AI 产品都是自己从痛点、PRD、原型做到上线，知道一个功能从想法到可用要经过哪些取舍。</li>
+      <li><b>评测与数据思维：</b>先定真值评测集和上线标准再做功能；科研里用数据判定 LLM 信号的边界，不凭感觉下结论。</li>
+      <li><b>工程与数据底子：</b>数据科学与统计学双学位、计算机硕士在读，看得懂代码、算得清指标，能和研发直接对话。</li>
+    </ul>
     <ul class="facts">
       <li>芝加哥大学 计算机科学硕士在读（人工智能方向）</li>
       <li>威斯康星大学麦迪逊分校 数据科学、统计学双学位</li>
       <li>2026.12 初回国，可线下全职实习 6 个月</li>
     </ul>
     <div class="contact" id="contact">
-      <a href="mailto:kaikungao48@gmail.com">邮箱 kaikungao48@gmail.com</a>
+      <span>电话 178-6576-9082</span>
+      <a href="mailto:m17865769082@163.com">邮箱 m17865769082@163.com</a>
       <span>微信 GKK00623</span>
       <a href="https://github.com/KaikunGao" target="_blank" rel="noopener">GitHub KaikunGao</a>
       <a class="no-print" href="assets/kaikun-gao-portfolio.pdf" target="_blank" rel="noopener">PDF 版作品集</a>
@@ -54,7 +59,7 @@
     <header>
       <h3>蛋白钱包 ProteinWallet</h3>
       <span class="badge">已上线</span>
-      <span class="meta">面向留学生的 AI 饮食记账工具 · 个人项目 · 2026.08 至今</span>
+      <span class="meta">面向留学生的 AI 饮食记账工具 · 个人项目 · 2026.07 — 2026.09</span>
     </header>
     <p class="one-liner">拍一张小票，同时记账与记营养。自创核心指标"蛋白质单价（¢/g）"，把营养决策变成消费决策。</p>
     <div class="demo">
@@ -62,7 +67,7 @@
         <div class="cell"><b class="k">痛点</b>有增肌需求、对生活费敏感的留学生，食堂和外卖场景无法称重；营养 App 不管钱，记账 App 不管营养。访谈与自身使用中反复出现"记了也不知道该不该买"。</div>
         <div class="cell"><b class="k">方案</b>拍小票、拍餐食、一句话文字、自炊双记录 <span class="num">4 种输入</span>，单次记录目标 <span class="num">≤10 秒</span>；3 个页面跑通"记录→估算→差额→周报"。AI 只做识别，算术交给代码；输出统一为"区间 + 置信度 + 依据"。</div>
         <div class="cell"><b class="k">评测</b>以 5 家连锁餐厅官方营养表为真值建评测集，定义区间命中率、区间相对宽度、小票解析准确率、用户修正率 4 项指标；首轮 17 样本区间命中率 <span class="num">100%</span>，高置信区间宽度 <span class="num">20%</span>。照片评测集扩建中。</div>
-        <div class="cell"><b class="k">结果与取舍</b>MVP 已上线。为控制幻觉与伦理风险主动砍掉饮食推荐、热量警告等 <span class="num">7 项功能</span>；以"周人均记录餐次"为北极星指标；下一步招募 5–8 名种子用户验证留存。</div>
+        <div class="cell"><b class="k">结果与取舍</b>MVP 已上线。为控制幻觉与伦理风险主动砍掉饮食推荐、热量警告等 <span class="num">7 项功能</span>；以"周人均记录餐次"为北极星指标，应用内已埋点记录用户修正率与单次记录耗时，真实使用数据将以此为准。</div>
       </div>
       <div>
         <div class="phone" id="pw-demo">
@@ -139,7 +144,6 @@
 
 <section id="way">
   <h2 class="sec-title">工作方式</h2>
-  <p class="sec-sub">写在前面，省得面试官从提交记录里猜。</p>
   <div class="ways">
     <div class="cell"><b class="k">用 Claude Code 构建</b>三个项目的大部分代码由 Claude Code 写出。我负责定义问题、写 PRD、设计评测、决定砍什么、验收结果；每一个取舍我都能讲清楚为什么。</div>
     <div class="cell"><b class="k">评测先于上线</b>先建真值评测集和上线标准，再谈功能。ProteinWallet 的 17 样本评测、政策雷达的四项上线门槛，都在写第一行功能代码之前定下。</div>
@@ -149,7 +153,7 @@
 </section>
 
 <footer class="wrap">
-  本页为静态站点，同样用 Claude Code 搭建。© 2026 高凯堃
+  © 2026 高凯堃
 </footer>
 
 </main>
