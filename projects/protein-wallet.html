@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>蛋白钱包 ProteinWallet · 项目详情</title>
+<meta name="description" content="ProteinWallet 的产品背景、核心指标、范围取舍、AI 方案、评测体系与数据指标。">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+<nav class="nav"><div class="wrap"><a class="brand" href="../index.html">高凯堃</a><ul><li><a href="../index.html#projects">项目</a></li><li><a href="../index.html#research">科研</a></li><li><a href="../index.html#way">工作方式</a></li></ul></div></nav>
+<main class="wrap detail">
+<a class="back" href="../index.html#projects">← 返回作品集</a>
+<h1>蛋白钱包 ProteinWallet</h1>
+<p class="meta">面向留学生的 AI 饮食记账工具 · 个人项目，产品设计与开发 · 2026.07 — 2026.09 · <a href="https://protein-wallet.vercel.app/" target="_blank" rel="noopener">线上产品</a> · <a href="https://github.com/KaikunGao/protein-wallet" target="_blank" rel="noopener">GitHub</a></p>
+<p class="lead">拍一张小票，同时记账与记营养。目标是跑通 MVP 闭环并建立一套可量化的 AI 评测体系。</p>
+<div class="metrics">
+  <div class="metric"><b>≤10 秒</b><span>单次记录目标</span></div>
+  <div class="metric"><b>17 / 17</b><span>首轮评测区间命中</span></div>
+  <div class="metric"><b>7 项</b><span>主动砍掉的功能</span></div>
+</div>
+<div class="toc"><a href="#bg">背景</a><a href="#metric">核心指标</a><a href="#scope">范围取舍</a><a href="#ai">AI 方案</a><a href="#eval">评测体系</a><a href="#data">数据指标</a><a href="#plan">迭代计划</a><a href="#stack">技术</a></div>
+
+<h2 id="bg">背景与痛点</h2>
+<p>有增肌需求、对生活费敏感的留学生，一天中大部分正餐发生在食堂和外卖场景，根本无法称重，传统营养 App 的"精确到克"从第一步就做不到。另一边，营养 App 不管钱，记账 App 不管营养，而留学生真正的决策是两者的交点：这顿饭的蛋白质值不值这个价。</p>
+<p>产品把"记一顿饭"压缩成一个动作：拍小票。小票同时包含金额和菜品，一次识别就完成记账与记餐。</p>
+
+<h2 id="metric">核心指标与设计哲学</h2>
+<p><b>蛋白质单价（¢/g protein）</b>：用户吃过的每样食物，一克蛋白质花多少美分。这是全产品唯一的自创指标，也是传播点：食堂烤鸡胸约 1.2¢/g，Chipotle 鸡肉碗约 2.8¢/g，某中餐外卖约 5.5¢/g，一眼看出钱该花在哪。周报里展示用户个人的"蛋白质单价排行榜"。</p>
+<div class="callout"><b>诚实的模糊。</b>所有营养估算一律输出"区间 + 置信度 + 估算依据"，永不假装精确。有官方营养数据的连锁餐窄区间、高置信度，标注"来自官方营养表"；食堂和中餐等无官方数据的餐食宽区间、中低置信度，标注"视觉估算"。区间和置信度始终显示在一级界面，不藏在二级页。市面产品"精确到个位卡路里"是假精确，这个产品反向设计。</div>
+
+<h2 id="scope">范围取舍：明确不做的事</h2>
+<p>每一条都是主动决策，不是没来得及做。</p>
+<table class="tbl">
+<tr><th>不做什么</th><th>理由</th></tr>
+<tr><td>超市菜价爬虫、实时价格追踪</td><td>爬虫脆弱且可能违反网站条款；自炊花销已由"买菜小票拍照"覆盖</td></tr>
+<tr><td>按食材精确累加自炊营养</td><td>回到"称重"老路，摩擦杀死记录；自炊统一走成品拍照目测，宽区间低置信度</td></tr>
+<tr><td>推荐"你该吃什么"</td><td>饮食推荐碰营养学专业责任，幻觉风险高且无资质背书；只做"现状 + 差额"，决策权留给用户</td></tr>
+<tr><td>热量上限警告、激进减重目标、评判性文案</td><td>营养追踪产品有把用户推向过度节食的风险，在设计层主动规避，这是产品的伦理边界</td></tr>
+<tr><td>假精确的单一数值</td><td>与"诚实的模糊"冲突</td></tr>
+<tr><td>微量营养素、脂肪与碳水细分</td><td>v1 只追热量和蛋白质，聚焦增肌与预算两个核心诉求</td></tr>
+<tr><td>社交、排行榜、好友比较</td><td>v1 是单人工具，先跑通个人闭环</td></tr>
+</table>
+<p>面试里最常被问的一条是"为什么砍掉饮食推荐，那不是更有用吗"。回答是：更有用，但风险不对称。推荐错了责任在产品，信息错了用户还能自己判断；在没有营养学背书的前提下，"告知现状"和"指导行为"是两个风险量级。</p>
+
+<h2 id="ai">AI 方案</h2>
+<h3>两级估算策略</h3>
+<ol>
+<li><b>先匹配已知数据。</b>识别出连锁品牌（小票商家名或照片特征）时，优先用内置的官方营养数据表。表里目前 5 家连锁的菜品逐条核对过官方来源：Chipotle、麦当劳、Shake Shack、Sweetgreen、KFC。</li>
+<li><b>无匹配时视觉估算。</b>模型按食物类型和份量目测给出宽区间，并被强制标为低置信度。</li>
+</ol>
+<p>模型只做识别，所有算术交给代码，这是抑制幻觉的主要手段。</p>
+<h3>输出格式</h3>
+<p>Prompt 要求模型只返回固定字段的 JSON，由 zod 校验后才进入界面：</p>
+<pre>{
+  "meal_name": "鸡肉碗",
+  "merchant": "Chipotle",
+  "amount_usd": 11.5,
+  "kcal_low": 650, "kcal_high": 800,
+  "protein_low_g": 45, "protein_high_g": 55,
+  "confidence": "high",
+  "basis": "Chipotle 官方营养表，按识别出的配料组合估算",
+  "source": "official_table"
+}</pre>
+<h3>Prompt 设计要点</h3>
+<ul>
+<li>宁宽勿窄：区间宽度与置信度挂钩，禁止输出单点值。</li>
+<li>禁止猜测金额：照片里没有价格时金额返回空，由用户补充。</li>
+<li>多菜品小票返回数组，每项单独估算。</li>
+<li>识别不出食物时返回明确的错误字段，前端引导重拍，绝不编造。</li>
+</ul>
+<h3>不确定性的界面表达</h3>
+<p>高置信度用实线边框加"官方数据"标签；中低置信度用虚线边框加"目测估算"标签。区间始终显示两端，不显示单一均值。</p>
+
+<h2 id="eval">评测体系</h2>
+<p>真值来自连锁餐厅公开的官方营养数据，零成本、可验证。四项指标和目标在写功能代码之前定下：</p>
+<table class="tbl">
+<tr><th>指标</th><th>定义</th><th>目标</th></tr>
+<tr><td>区间命中率</td><td>真实值落在输出区间内的比例</td><td>蛋白质 ≥ 85%</td></tr>
+<tr><td>区间相对宽度</td><td>（上限 − 下限）/ 中点，衡量区间是否宽到没用</td><td>高置信度条目 ≤ 30%</td></tr>
+<tr><td>小票解析准确率</td><td>金额、商家、菜品数全对的小票比例</td><td>≥ 90%</td></tr>
+<tr><td>用户修正率</td><td>确认卡片被手动修改的记录占比，线上持续监控</td><td>趋势下降</td></tr>
+</table>
+<div class="callout">关键权衡：命中率和宽度天然对抗。区间拉到无穷大，命中率 100% 但毫无用处。调 prompt 的过程就是在这条权衡曲线上找位置，每轮同时记两个数字。</div>
+<h3>首轮结果（2026-10-10，prompt v1）</h3>
+<table class="tbl">
+<tr><th>指标</th><th>全部</th><th>连锁样本</th><th>其他</th></tr>
+<tr><td>蛋白质区间命中率</td><td>100%（17/17）</td><td>100%（15/15）</td><td>100%（2/2）</td></tr>
+<tr><td>热量区间命中率</td><td>100%（17/17）</td><td>100%（15/15）</td><td>100%（2/2）</td></tr>
+<tr><td>蛋白区间相对宽度（高置信）</td><td>20%</td><td>20%</td><td>不适用</td></tr>
+<tr><td>蛋白区间相对宽度（低置信）</td><td>46%</td><td>21%</td><td>59%</td></tr>
+<tr><td>商家识别、金额正确</td><td>100%</td><td>100%</td><td>100%</td></tr>
+<tr><td>平均耗时</td><td>6.2 秒</td><td></td><td></td></tr>
+</table>
+<p>如实说明：首轮的 16 条文字样本与参考表同源，主要检验的是匹配和算术，不是视觉估算能力。照片评测集建好后需要重跑，预期命中率会下降，那才是真正的考题。</p>
+
+<h2 id="data">数据指标与埋点</h2>
+<ul>
+<li><b>北极星指标：</b>每用户每周记录餐次，目标 ≥ 10，即大部分正餐都记了。</li>
+<li><b>留存：</b>第二周还在记录的用户数。</li>
+<li><b>记录摩擦：</b>从打开到保存的中位耗时，目标 ≤ 15 秒。</li>
+<li><b>埋点实现：</b>v1 不接分析 SDK，记录开始、完成、修正和页面打开等事件写入本地事件表，随 JSON 导出一起收集。</li>
+</ul>
+
+<h2 id="plan">四周迭代计划</h2>
+<table class="tbl">
+<tr><th>周</th><th>目标</th></tr>
+<tr><td>第一周</td><td>最短闭环：文字输入 → 估算 → 今日页</td></tr>
+<tr><td>第二周</td><td>照片能力：拍小票、拍餐食、自炊双记录</td></tr>
+<tr><td>第三周</td><td>评测集与评测脚本、周报</td></tr>
+<tr><td>第四周</td><td>上线、种子用户指南</td></tr>
+</table>
+<p>每步验收标准写死，宁可砍功能不可延期；每个步骤完成后先跑验收再提交。</p>
+
+<h2 id="stack">技术与仓库</h2>
+<p>Next.js 16、TypeScript、Tailwind 4；Anthropic API 结构化输出加 zod 校验；IndexedDB 本地存储，单用户离线可用；PWA。部署在 Vercel。<a href="https://github.com/KaikunGao/protein-wallet" target="_blank" rel="noopener">仓库</a>里包含评测集、评测脚本和迭代日志。</p>
+<p><a class="back" href="../index.html#projects">← 返回作品集</a></p>
+</main>
+<footer class="wrap">© 2026 高凯堃</footer>
+</body>
+</html>

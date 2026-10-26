@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ResearchFlow · 项目详情</title>
+<meta name="description" content="ResearchFlow 的产品背景、目标用户、痛点与做法、模块设计、关键决策与效果验证。">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+<nav class="nav"><div class="wrap"><a class="brand" href="../index.html">高凯堃</a><ul><li><a href="../index.html#projects">项目</a></li><li><a href="../index.html#research">科研</a></li><li><a href="../index.html#way">工作方式</a></li></ul></div></nav>
+<main class="wrap detail">
+<a class="back" href="../index.html#projects">← 返回作品集</a>
+<h1>ResearchFlow</h1>
+<p class="meta">券商财务研究自动化平台 · 个人项目，产品设计与全栈开发 · 2026.02 — 2026.05 · <a href="https://github.com/KaikunGao/researchflow" target="_blank" rel="noopener">GitHub</a></p>
+<p class="lead">把券商研究员在财报季靠手工和脚本完成的数据整理、指标计算、制图与点评填数产品化，让研究员把时间花在判断上。</p>
+<div class="metrics">
+  <div class="metric"><b>33</b><span>统一口径的财务指标</span></div>
+  <div class="metric"><b>8</b><span>功能模块，全链路打通</span></div>
+  <div class="metric"><b>≤0.01 pct</b><span>对年报核对的同比误差</span></div>
+</div>
+<div class="toc"><a href="#bg">背景</a><a href="#users">用户</a><a href="#pain">痛点与做法</a><a href="#modules">模块</a><a href="#decisions">关键决策</a><a href="#verify">效果验证</a><a href="#next">边界与下一步</a></div>
+
+<h2 id="bg">背景</h2>
+<p>2024 年夏天在申万宏源医药组做数据分析实习，负责约 30 家公司财务跟踪底表的维护与财报季更新。复盘下来，研究员和实习生的大量时间消耗在非研究性的重复劳动上：从 Wind 或 Choice 导出三大报表再手工整理进 Excel，反复计算同一批增速和比率，为每篇报告重画同类趋势图，财报密集发布期人工逐家核对异常，再把数据、图、文字粘进报告模板。这些流程高度标准化，却没有一个面向研究员工作流的轻量工具。</p>
+<p>第一版聚焦 A 股医药生物行业：公司数量多、子行业分化明显，横向对比与异常监控的需求最突出。</p>
+
+<h2 id="users">目标用户</h2>
+<table class="tbl">
+<tr><th>角色</th><th>典型场景</th><th>核心诉求</th></tr>
+<tr><td>行业研究员</td><td>覆盖 10 到 30 家公司，季度和年度更新财务跟踪</td><td>快速更新数据、一键出图、第一时间发现异常</td></tr>
+<tr><td>金融数据分析师</td><td>为研究团队维护底表与指标口径</td><td>标准化、口径统一、可追溯</td></tr>
+<tr><td>研究助理、实习生</td><td>协助整理数据与制作报告图表</td><td>降低操作门槛，减少手工错误</td></tr>
+</table>
+
+<h2 id="pain">四类重复劳动与对应做法</h2>
+<table class="tbl">
+<tr><th>实习中的痛点</th><th>ResearchFlow 的做法</th></tr>
+<tr><td>底表重复更新</td><td>导入 Wind 或 Choice 导出文件即自动映射字段、换算为亿元、写入数据库；一键导出带累计、单季、比率、同比四个区块的标准底表</td></tr>
+<tr><td>单季度拆分易错</td><td>后端按相邻报告期累计值自动差分，缺上一期时留空而不是算错；同比与环比口径固定</td></tr>
+<tr><td>点评段落机械填数</td><td>自动生成营收、净利润、扣非、毛利率、费用率、单季度、现金流的数据描述段落，一键复制</td></tr>
+<tr><td>标准图重复制作</td><td>营收及增速、净利润及增速、利润率、期间费用率四张图，单季与累计切换，导出带标题、图例与资料来源的图片</td></tr>
+</table>
+
+<h2 id="modules">8 个功能模块</h2>
+<div class="flow"><span>数据导入</span><i>→</i><span>标准化</span><i>→</i><span>指标计算</span><i>→</i><span>可视化</span><i>→</i><span>异常告警</span><i>→</i><span>报告生成</span></div>
+<table class="tbl">
+<tr><th>模块</th><th>说明</th></tr>
+<tr><td>总览</td><td>子行业与报告期筛选，KPI、营收增速趋势、行业表现、公司概览、近期告警</td></tr>
+<tr><td>数据管理</td><td>导入 Excel 或 CSV；按证券代码从东方财富公开接口拉取三大报表；数据集管理与底表导出</td></tr>
+<tr><td>财报速览</td><td>单季度拆分、同比环比、点评数据段落、四张标准图、季度明细</td></tr>
+<tr><td>财务分析</td><td>33 个指标，覆盖规模、单季度、成长、盈利、费用、资产质量六类；子行业与区间筛选、趋势、排名</td></tr>
+<tr><td>公司对比</td><td>2 到 10 家公司多选，任意指标的柱状与折线对比</td></tr>
+<tr><td>异常监控</td><td>规则引擎，默认 7 条告警规则；导入后自动评估最新报告期；规则可增删改、阈值可调、告警可确认</td></tr>
+<tr><td>报告生成</td><td>公司深度、同业对比、定期跟踪、行业综述四类 Word 报告初稿，含表格、图表、点评段落与活跃告警</td></tr>
+<tr><td>设置</td><td>工作区名、署名、数据来源、默认口径、图表期数，作用于图表与报告</td></tr>
+</table>
+
+<h2 id="decisions">几个关键决策</h2>
+<ul>
+<li><b>缺数据时留空而非算错。</b>单季度拆分依赖上一期累计值，缺上一期时宁可空着，也不用错误口径凑一个数。研究员宁愿看到空格，也不能把错数写进报告。</li>
+<li><b>口径固定，不给自由公式。</b>团队内对同一指标口径不一致是实习里亲身遇到的问题，产品层面直接用统一定义的 33 个指标，而不是让用户自己写公式。</li>
+<li><b>公开数据降低门槛。</b>接入东方财富公开接口后，没有 Wind 终端的人也能按证券代码拉三大报表，这把工具的可用范围从研究所扩展到了任何个人投资者。</li>
+<li><b>不假装成功。</b>界面中所有演示数据明确标记，尚未开放的操作明确提示。</li>
+</ul>
+
+<h2 id="verify">效果验证</h2>
+<p>以恒瑞医药 2023 和 2024 年报公告为真值逐项核对公开数据源的结果：营收与净利润口径完全一致，自算同比与公告披露值的误差不超过 0.01 个百分点。核对脚本随仓库提交，可复现。</p>
+<p>目前作为个人研究工具日常使用；尚未在券商团队试点，下一步计划找 2 到 3 位研究员跑一轮月度跟踪，量化单家公司底表更新时间的变化。</p>
+
+<h2 id="next">明确未做的边界</h2>
+<ul>
+<li>告警推送渠道（邮件、企业微信），目前只在站内展示。</li>
+<li>报告的 PDF 导出与研究所模板样式，目前为通用 Word 样式。</li>
+<li>行情与估值数据，如 PE、PB。</li>
+<li>登录、权限与多用户。</li>
+<li>任何大模型调用。这个产品的价值在确定性的数据管道和规则，不在生成。</li>
+</ul>
+
+<h2>技术</h2>
+<p>前端 Next.js 16、TypeScript、Tailwind 4、shadcn/ui、Recharts；后端 Python、FastAPI、SQLite，openpyxl 读写 Excel，python-docx 生成报告，matplotlib 出图；数据来自 Wind 或 Choice 导出文件与东方财富公开接口。借助 Claude Code 独立完成全栈开发。</p>
+<p><a class="back" href="../index.html#projects">← 返回作品集</a></p>
+</main>
+<footer class="wrap">© 2026 高凯堃</footer>
+</body>
+</html>

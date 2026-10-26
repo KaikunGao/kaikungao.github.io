@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>留学生政策雷达 · 项目详情</title>
+<meta name="description" content="留学生政策雷达的背景、三条铁律、范围取舍、流程、评测体系、分歧决策与进度。">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+<nav class="nav"><div class="wrap"><a class="brand" href="../index.html">高凯堃</a><ul><li><a href="../index.html#projects">项目</a></li><li><a href="../index.html#research">科研</a></li><li><a href="../index.html#way">工作方式</a></li></ul></div></nav>
+<main class="wrap detail">
+<a class="back" href="../index.html#projects">← 返回作品集</a>
+<h1>留学生政策雷达</h1>
+<p class="meta">面向在美留学生的官方政策变动监控与推送 · 进行中 · 2026.10 起 · 3 人团队，产品负责人兼开发</p>
+<p class="lead">只盯官方页面的变化：美国签证与留学生身份政策一有官方变动，系统自动比对、生成中文摘要、附原文链接和状态标签，推送给订阅的中国留学生。不做政策问答，不做法律建议。</p>
+<div class="metrics">
+  <div class="metric"><b>13</b><span>白名单官方信源</span></div>
+  <div class="metric"><b>42</b><span>已通过的自动化测试</span></div>
+  <div class="metric"><b>≤60 分钟</b><span>发布到推送的时效目标</span></div>
+</div>
+<div class="toc"><a href="#bg">背景</a><a href="#rules">三条铁律</a><a href="#scope">范围取舍</a><a href="#flow">流程</a><a href="#eval">评测体系</a><a href="#decisions">分歧与决策规则</a><a href="#progress">进度</a></div>
+
+<h2 id="bg">背景</h2>
+<p>为什么只盯变化：问政策 ChatGPT 能答，但"今天有没有变、变在哪、生效了没"需要有人持续盯着十几个官方页面并做比对，这件事聊天窗口做不了，也没有人愿意天天做。</p>
+<p>政策变动有多频繁？用 Federal Register 官方接口检索含 "F-1 students" 的文件，近期命中 90 条，最新三条是：</p>
+<table class="tbl">
+<tr><th>日期</th><th>类型</th><th>标题</th></tr>
+<tr><td>2026-10-08</td><td>拟议规则</td><td>Optional Practical Training Fees</td></tr>
+<tr><td>2026-09-11</td><td>拟议规则</td><td>Eliminating the Discretionary 60-Day Grace Period</td></tr>
+<tr><td>2026-08-10</td><td>最终规则</td><td>9-11 Response and Biometric Entry-Exit Fee for H-1B and L-1 Visas</td></tr>
+</table>
+<p>每一条都会在留学生群里引发一轮截图转发和恐慌，而"拟议"和"生效"的区别在转发中通常丢失。学校国际办公室的邮件可靠但常滞后一到三天，且只覆盖与学校相关的内容；官方信息是英文、分散在 USCIS、国务院、DHS、使馆、学校等十几处。</p>
+
+<h2 id="rules">三条铁律</h2>
+<ol>
+<li>只用官方信源白名单，白名单变更要有记录。遇到反爬，例如国务院签证页面对脚本返回 403，不绕过，改为人工信源。</li>
+<li>每条推送必须附原文链接和原文引用片段，引用由代码校验确实存在于原文。</li>
+<li>不解读法律后果，不给个案建议。"对我有什么影响"只回答到"涉及人群、当前状态、关键日期"。</li>
+</ol>
+
+<h2 id="scope">范围取舍</h2>
+<h3>MVP 必做</h3>
+<table class="tbl">
+<tr><th>编号</th><th>需求</th><th>说明</th></tr>
+<tr><td>M1</td><td>信源监控</td><td>白名单 8 到 13 个，RSS 与 API 优先，网页抓取兜底</td></tr>
+<tr><td>M2</td><td>变化检测</td><td>新条目加页面关键区域变更，带去噪规则</td></tr>
+<tr><td>M3</td><td>相关性与分类</td><td>相关与否；人群、主题、状态、影响等级</td></tr>
+<tr><td>M4</td><td>中文摘要卡</td><td>三句话加原文引用加链接加状态标签</td></tr>
+<tr><td>M5</td><td>订阅与推送</td><td>邮件、网页时间线、RSS 输出；按人群和主题订阅</td></tr>
+<tr><td>M6</td><td>反馈</td><td>每条"有用、与我无关、有错误"一键反馈</td></tr>
+<tr><td>M7</td><td>高影响复核窗口</td><td>高影响条目发布前 15 分钟人工复核，过期自动放行</td></tr>
+</table>
+<h3>明确不做及理由</h3>
+<table class="tbl">
+<tr><th>不做</th><th>理由</th></tr>
+<tr><td>政策问答聊天</td><td>ChatGPT 能做；问答极易越界成法律建议</td></tr>
+<tr><td>法律建议、个案解读</td><td>合规风险，且不是差异点</td></tr>
+<tr><td>监控群聊和小道消息</td><td>信源不可控，正是谣言的来源</td></tr>
+<tr><td>多国政策</td><td>先验证美国这一条线的模式</td></tr>
+<tr><td>小程序、App</td><td>MVP 用网页加邮件验证渠道，再决定投入</td></tr>
+</table>
+
+<h2 id="flow">流程</h2>
+<pre>定时触发（RSS/API 每 30 分钟，网页每 2 小时）
+→ 拉取信源 → 保存原始快照 → 规范化为条目或段落
+→ 与上次快照比对 → 候选变化 → 去噪规则
+→ 模型任务 1：相关性与分类（结构化输出）
+   ├─ 不相关 → 归档（保留供评测）
+   └─ 相关 → 模型任务 2：生成摘要卡（结构化输出）
+→ 代码校验：引用片段 ⊂ 原文、日期与数字 ⊂ 原文、字段完整
+   ├─ 失败 → 重试一次 → 再失败进人工队列
+   └─ 通过 → 影响等级
+        ├─ 高 → 15 分钟人工复核窗口 → 放行 / 修改 / 拦截
+        └─ 中、低 → 直接发布
+→ 发布：写入时间线与 RSS；按订阅推送邮件
+→ 用户反馈 → 回流评测集与迭代</pre>
+<div class="callout">原则与 ProteinWallet 一脉相承：模型只做判相关和写摘要两件事，检测、去噪、日期抽取、引用校验、发布决策全部由代码与规则完成。</div>
+
+<h2 id="eval">评测体系</h2>
+<table class="tbl">
+<tr><th>评测集</th><th>来源</th><th>规模</th></tr>
+<tr><td>历史变动集</td><td>Federal Register、USCIS、使馆公告，回溯一年</td><td>正样本 50 条、负样本 50 条</td></tr>
+<tr><td>摘要评测集</td><td>对正样本生成摘要卡</td><td>30 条，双人标注</td></tr>
+<tr><td>页面去噪集</td><td>5 个页面型信源连续 7 天快照</td><td>全部变化人工标注</td></tr>
+</table>
+<table class="tbl">
+<tr><th>指标</th><th>定义</th><th>上线标准</th></tr>
+<tr><td>变化检出率</td><td>正样本被检测且判为相关的比例</td><td>≥ 90%</td></tr>
+<tr><td>误报率</td><td>已推送条目中被标注为不相关或无意义的比例</td><td>≤ 10%</td></tr>
+<tr><td>分类准确率</td><td>人群、主题、状态标签与标注一致</td><td>≥ 85%</td></tr>
+<tr><td>摘要忠实度</td><td>有依据的事实句占比</td><td>≥ 95%</td></tr>
+<tr><td>幻觉率</td><td>含无依据事实句的条目占比</td><td>≤ 3%</td></tr>
+<tr><td>时效</td><td>官方发布到推送的中位延迟</td><td>≤ 60 分钟</td></tr>
+</table>
+<p>双人独立标注，不一致由第三人仲裁；每轮 prompt 改动跑评测集并记录指标变化。评测阶段横向对比 Claude、GPT、DeepSeek、Qwen 的忠实度与成本，产出选型结论。</p>
+
+<h2 id="decisions">预判的分歧与决策规则</h2>
+<table class="tbl">
+<tr><th>分歧</th><th>两边</th><th>决策规则</th></tr>
+<tr><td>小道消息推不推</td><td>速度 vs 可靠</td><td>MVP 只推官方；v2 评估"待官方确认"层，前提是误报率已稳定 ≤ 10%</td></tr>
+<tr><td>即时推送 vs 每日汇总</td><td>时效 vs 打扰</td><td>按影响等级分流，高和中即时、低汇总；上线两周后用退订率和打开率复核</td></tr>
+<tr><td>要不要写"对你的影响"</td><td>用户想要 vs 法律风险</td><td>只到人群、状态、日期；若访谈显示强需求，引入学校国际办公室的建议链接，不自写建议</td></tr>
+<tr><td>高影响要不要人工复核</td><td>自动化 vs 出错代价</td><td>15 分钟窗口，过期自动放行；一致率连续两周 ≥ 95% 后缩短窗口</td></tr>
+</table>
+
+<h2 id="progress">进度与计划</h2>
+<table class="tbl">
+<tr><th>阶段</th><th>时间</th><th>内容</th><th>状态</th></tr>
+<tr><td>工程基础</td><td>10 月下旬</td><td>项目初始化、13 张表的数据模型、三类信源适配器、快照存储、变化检测与六类去噪规则，42 项自动化测试</td><td>已完成</td></tr>
+<tr><td>访谈与基线</td><td>10 月底至 11 月初</td><td>8 位留学生访谈，测知晓滞后、信息成本、误导次数三组基线</td><td>进行中</td></tr>
+<tr><td>方案与评审</td><td>11 月上旬</td><td>Figma 原型、需求评审、砍需求记录</td><td>计划</td></tr>
+<tr><td>分类、摘要与上线</td><td>11 月中下旬</td><td>模型分类与摘要、引用校验、邮件推送、评测集标注、公开上线</td><td>计划</td></tr>
+<tr><td>迭代与复盘</td><td>11 月底至 12 月</td><td>第一轮迭代，公布订阅、打开率、留存与时效数据</td><td>计划</td></tr>
+</table>
+<p>上线后系统自动运行，不依赖本人在场，数据持续积累。</p>
+<p><a class="back" href="../index.html#projects">← 返回作品集</a></p>
+</main>
+<footer class="wrap">© 2026 高凯堃</footer>
+</body>
+</html>

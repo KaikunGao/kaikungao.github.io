@@ -18,8 +18,9 @@
   <ul>
     <li><a href="#projects">项目</a></li>
     <li><a href="#research">科研</a></li>
+    <li><a href="#timeline">经历</a></li>
+    <li><a href="#skills">技能</a></li>
     <li><a href="#way">工作方式</a></li>
-    <li><a href="#contact">联系</a></li>
   </ul>
 </div></nav>
 
@@ -52,7 +53,7 @@
 
 <section id="projects">
   <h2 class="sec-title">项目</h2>
-  <p class="sec-sub">每个项目按同一套格子展示：痛点、方案、评测、结果。数字都来自真实运行记录或公开数据核对。</p>
+  <p class="sec-sub">每个项目按同一套格子展示：痛点、方案、评测、结果。数字都来自真实运行记录或公开数据核对，点"查看详情"看 PRD 片段、砍掉的需求和评测表。</p>
 
   <!-- ProteinWallet -->
   <article class="card">
@@ -63,11 +64,18 @@
     </header>
     <p class="one-liner">拍一张小票，同时记账与记营养。自创核心指标"蛋白质单价（¢/g）"，把营养决策变成消费决策。</p>
     <div class="demo">
-      <div class="grid4">
-        <div class="cell"><b class="k">痛点</b>有增肌需求、对生活费敏感的留学生，食堂和外卖场景无法称重；营养 App 不管钱，记账 App 不管营养。访谈与自身使用中反复出现"记了也不知道该不该买"。</div>
-        <div class="cell"><b class="k">方案</b>拍小票、拍餐食、一句话文字、自炊双记录 <span class="num">4 种输入</span>，单次记录目标 <span class="num">≤10 秒</span>；3 个页面跑通"记录→估算→差额→周报"。AI 只做识别，算术交给代码；输出统一为"区间 + 置信度 + 依据"。</div>
-        <div class="cell"><b class="k">评测</b>以 5 家连锁餐厅官方营养表为真值建评测集，定义区间命中率、区间相对宽度、小票解析准确率、用户修正率 4 项指标；首轮 17 样本区间命中率 <span class="num">100%</span>，高置信区间宽度 <span class="num">20%</span>。照片评测集扩建中。</div>
-        <div class="cell"><b class="k">结果与取舍</b>MVP 已上线。为控制幻觉与伦理风险主动砍掉饮食推荐、热量警告等 <span class="num">7 项功能</span>；以"周人均记录餐次"为北极星指标，应用内已埋点记录用户修正率与单次记录耗时，真实使用数据将以此为准。</div>
+      <div>
+        <div class="metrics">
+          <div class="metric"><b>≤10 秒</b><span>单次记录目标</span></div>
+          <div class="metric"><b>17 / 17</b><span>首轮评测区间命中</span></div>
+          <div class="metric"><b>7 项</b><span>主动砍掉的功能</span></div>
+        </div>
+        <div class="grid4">
+          <div class="cell"><b class="k">痛点</b>有增肌需求、对生活费敏感的留学生，食堂和外卖场景无法称重；营养 App 不管钱，记账 App 不管营养。</div>
+          <div class="cell"><b class="k">方案</b>拍小票、拍餐食、一句话文字、自炊双记录 <span class="num">4 种输入</span>；3 个页面跑通"记录→估算→差额→周报"。AI 只做识别，算术交给代码；输出统一为"区间 + 置信度 + 依据"。</div>
+          <div class="cell"><b class="k">评测</b>以 5 家连锁餐厅官方营养表为真值建评测集，定义区间命中率、区间相对宽度、小票解析准确率、用户修正率 4 项指标；首轮命中率 <span class="num">100%</span>，高置信区间宽度 <span class="num">20%</span>。</div>
+          <div class="cell"><b class="k">结果与取舍</b>MVP 已上线。砍掉饮食推荐、热量警告等功能以控制幻觉与伦理风险；以"周人均记录餐次"为北极星指标，应用内已埋点记录修正率与单次耗时。</div>
+        </div>
       </div>
       <div>
         <div class="phone" id="pw-demo">
@@ -78,8 +86,9 @@
       </div>
     </div>
     <div class="links">
-      <a href="https://protein-wallet.vercel.app/" target="_blank" rel="noopener">线上产品 →</a>
-      <a href="https://github.com/KaikunGao/protein-wallet" target="_blank" rel="noopener">GitHub →</a>
+      <a class="more" href="projects/protein-wallet.html">查看详情 →</a>
+      <a href="https://protein-wallet.vercel.app/" target="_blank" rel="noopener">线上产品</a>
+      <a href="https://github.com/KaikunGao/protein-wallet" target="_blank" rel="noopener">GitHub</a>
     </div>
   </article>
 
@@ -91,17 +100,43 @@
       <span class="meta">券商财务研究自动化平台 · 个人项目 · 2026.02 — 2026.05</span>
     </header>
     <p class="one-liner">把券商研究员财报季靠手工和脚本完成的数据整理、制图与点评填数产品化。</p>
-    <div class="flow">
-      <span>数据导入</span><i>→</i><span>标准化</span><i>→</i><span>指标计算</span><i>→</i><span>可视化</span><i>→</i><span>异常告警</span><i>→</i><span>报告生成</span>
-    </div>
-    <div class="grid4">
-      <div class="cell"><b class="k">痛点</b>复盘申万宏源医药组实习，锁定行业研究员与实习生为目标用户，提炼出财报季 <span class="num">4 类重复劳动</span>：底表重复更新、单季度拆分易错、点评段落机械填数、标准图重复制作。</div>
-      <div class="cell"><b class="k">方案</b>聚焦 A 股医药生物行业撰写 PRD，落地 <span class="num">8 个功能模块、33 个财务指标</span>；后端自动差分完成单季度拆分，缺数据时留空而非算错；可配置规则引擎默认 7 条告警；公司深度、同业对比等 4 类 Word 报告一键生成。借助 Claude Code 独立完成全栈开发。</div>
-      <div class="cell"><b class="k">评测</b>以恒瑞医药 2023、2024 年报公告逐项核对，营收与净利润口径完全一致，自算同比误差 <span class="num">≤0.01 pct</span>。</div>
-      <div class="cell"><b class="k">结果</b>接入东方财富公开接口，无 Wind 终端的用户也能使用；目前作为个人研究工具日常使用。下一步计划在券商研究团队做小范围试点，量化单家公司底表更新时间的变化。</div>
+    <div class="demo">
+      <div>
+        <div class="metrics">
+          <div class="metric"><b>33</b><span>统一口径的财务指标</span></div>
+          <div class="metric"><b>8</b><span>功能模块，全链路打通</span></div>
+          <div class="metric"><b>≤0.01 pct</b><span>对年报核对的同比误差</span></div>
+        </div>
+        <div class="flow">
+          <span>数据导入</span><i>→</i><span>标准化</span><i>→</i><span>指标计算</span><i>→</i><span>可视化</span><i>→</i><span>异常告警</span><i>→</i><span>报告生成</span>
+        </div>
+        <div class="grid4">
+          <div class="cell"><b class="k">痛点</b>复盘申万宏源医药组实习，锁定行业研究员与实习生为目标用户，提炼出财报季 <span class="num">4 类重复劳动</span>：底表重复更新、单季度拆分易错、点评段落机械填数、标准图重复制作。</div>
+          <div class="cell"><b class="k">方案</b>聚焦 A 股医药生物行业撰写 PRD；后端自动差分完成单季度拆分，缺数据时留空而非算错；可配置规则引擎默认 7 条告警；4 类 Word 报告一键生成。借助 Claude Code 独立完成全栈开发。</div>
+          <div class="cell"><b class="k">评测</b>以恒瑞医药 2023、2024 年报公告逐项核对，营收与净利润口径完全一致，自算同比误差 ≤0.01 pct。</div>
+          <div class="cell"><b class="k">结果</b>接入东方财富公开接口，无 Wind 终端也能用；目前作为个人研究工具日常使用。下一步在券商研究团队做小范围试点，量化单家公司底表更新时间的变化。</div>
+        </div>
+      </div>
+      <div>
+        <div class="cover">
+          <div class="win" aria-hidden="true">
+            <div class="bar"><i></i><i></i><i></i></div>
+            <div class="body">
+              <div class="side"><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+              <div class="main">
+                <div class="kpis"><div class="kpi"><b>+12.4%</b><span>营收同比</span></div><div class="kpi"><b>84.6%</b><span>毛利率</span></div><div class="kpi"><b>3</b><span>活跃告警</span></div></div>
+                <div class="chart"><i style="height:38%"></i><i style="height:46%"></i><i style="height:52%"></i><i style="height:60%"></i><i style="height:74%"></i><i style="height:88%"></i></div>
+                <div class="cap"><span>单季度营收</span><span>资料来源：公司公告</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="cover-note">界面示意：财报速览页</p>
+      </div>
     </div>
     <div class="links">
-      <a href="https://github.com/KaikunGao/researchflow" target="_blank" rel="noopener">GitHub →</a>
+      <a class="more" href="projects/researchflow.html">查看详情 →</a>
+      <a href="https://github.com/KaikunGao/researchflow" target="_blank" rel="noopener">GitHub</a>
     </div>
   </article>
 
@@ -113,17 +148,44 @@
       <span class="meta">面向在美留学生的官方政策变动监控与推送 · 2026.10 起</span>
     </header>
     <p class="one-liner">只盯官方页面的变化：政策一有官方变动，自动比对、中文摘要、附原文链接，推送给订阅者。不做政策问答，不做法律建议。</p>
-    <div class="grid4">
-      <div class="cell"><b class="k">痛点</b>签证与身份政策变动频繁，群聊和小红书最快但混杂谣言，"拟议"与"已生效"在转发中丢失；官方信息分散在十几处英文页面，没人天天盯。</div>
-      <div class="cell"><b class="k">方案</b>常驻 Agent 每 30 分钟监控官方信源白名单。变化检测、去噪、日期抽取、引用校验、发布决策全部由代码完成，模型只做分类与摘要；每条推送附原文引用，引用由代码核对确实存在于原文；高影响条目发布前有 15 分钟人工复核窗口。</div>
-      <div class="cell"><b class="k">评测</b>历史变动集与摘要评测集双人标注。上线标准：变化检出率 <span class="num">≥90%</span>、误报率 <span class="num">≤10%</span>、摘要忠实度 <span class="num">≥95%</span>、官方发布到推送 <span class="num">≤60 分钟</span>。</div>
-      <div class="cell"><b class="k">进度</b>PRD 与访谈提纲完成；信源适配器、快照存储、变化检测与去噪已实现并通过 42 项测试；11 月完成用户访谈、原型评审与上线，12 月公布订阅、打开率与留存数据。</div>
+    <div class="demo">
+      <div>
+        <div class="metrics">
+          <div class="metric"><b>13</b><span>白名单官方信源</span></div>
+          <div class="metric"><b>42</b><span>已通过的自动化测试</span></div>
+          <div class="metric"><b>≤60 分钟</b><span>发布到推送的时效目标</span></div>
+        </div>
+        <div class="grid4">
+          <div class="cell"><b class="k">痛点</b>签证与身份政策变动频繁，群聊和小红书最快但混杂谣言，"拟议"与"已生效"在转发中丢失；官方信息分散在十几处英文页面，没人天天盯。</div>
+          <div class="cell"><b class="k">方案</b>常驻 Agent 每 30 分钟监控官方信源白名单。变化检测、去噪、日期抽取、引用校验、发布决策全部由代码完成，模型只做分类与摘要；高影响条目发布前有 15 分钟人工复核窗口。</div>
+          <div class="cell"><b class="k">评测</b>历史变动集与摘要评测集双人标注。上线标准：变化检出率 ≥90%、误报率 ≤10%、摘要忠实度 ≥95%、官方发布到推送 ≤60 分钟。</div>
+          <div class="cell"><b class="k">进度</b>PRD 与访谈提纲完成；信源适配器、快照存储、变化检测与去噪已实现；11 月完成用户访谈、原型评审与上线，12 月公布订阅、打开率与留存数据。</div>
+        </div>
+      </div>
+      <div>
+        <div class="cover">
+          <div class="push" aria-hidden="true">
+            <div class="pt"><small>拟议规则 · OPT</small>DHS 拟对 OPT 设立收费</div>
+            <p><b>发生了什么：</b>DHS 在 Federal Register 发布拟议规则。</p>
+            <p><b>涉及谁：</b>F-1 在读、计划申请 OPT 的学生。</p>
+            <p><b>关键日期：</b>评论期截止以原文为准；尚未生效。</p>
+            <div class="quote">"Optional Practical Training Fees" — Proposed Rule, 2026-10-08</div>
+            <span class="st">拟议，未生效</span>
+            <div class="src">来源：Federal Register · 本条为信息整理，不构成法律建议</div>
+            <div class="fb"><span>有用</span><span>与我无关</span><span>有错误</span></div>
+          </div>
+        </div>
+        <p class="cover-note">推送卡片示意，格式取自 PRD</p>
+      </div>
     </div>
     <ul class="rules">
       <li>只用官方信源白名单，白名单变更有记录。</li>
       <li>每条推送附原文链接和引用，引用由代码校验。</li>
       <li>不解读法律后果，不给个案建议。</li>
     </ul>
+    <div class="links">
+      <a class="more" href="projects/policy-radar.html">查看详情 →</a>
+    </div>
   </article>
 </section>
 
@@ -131,15 +193,44 @@
   <h2 class="sec-title">科研</h2>
   <p class="sec-sub">LLM 辅助的序列决策与投资组合研究 · 导师：香港大学 Jinhong Du · 研究助理 · 2026.03 — 2026.06</p>
   <article class="card research">
+    <div class="metrics">
+      <div class="metric"><b>4.1 万</b><span>处理的新闻、公告与政策文本</span></div>
+      <div class="metric"><b>100%</b><span>结构化输出合规率</span></div>
+      <div class="metric"><b>62%</b><span>含成本两阶段策略净收益</span></div>
+    </div>
     <ul style="margin:0; padding-left:18px;">
-      <li><b>搭建 workflow：</b>接入新闻、公告、宏观政策、资金流、融资融券、龙虎榜、行情 7 类数据源，清洗并对齐交易日，处理 <span class="num">4.1 万条文本</span>；一条命令串起 LLM 信号提取、多种子复跑、诊断与组合对比。</li>
-      <li><b>评测与结论：</b>结构化输出合规率 <span class="num">100%</span>、校准误差 ECE 0.047；同日 Spearman 0.15 显著而次日 IC 仅 0.03 不显著，判定文本信号"解释当日、不预测次日"，推动 LLM 定位为信息处理器而非收益预测器。</li>
-      <li><b>基线与消融：</b>设计 3 组基线并参与决策层调参；含 15 个基点交易成本下两阶段策略净收益 <span class="num">62%</span>，对等权 49%、沪深 300 21%；换手约束贡献约 7 个百分点，文本信号净贡献接近零。</li>
+      <li><b>搭建 workflow：</b>接入新闻、公告、宏观政策、资金流、融资融券、龙虎榜、行情 7 类数据源，清洗并对齐交易日；一条命令串起 LLM 信号提取、多种子复跑、诊断与组合对比。</li>
+      <li><b>评测与结论：</b>校准误差 ECE 0.047；同日 Spearman 0.15 显著而次日 IC 仅 0.03 不显著，判定文本信号"解释当日、不预测次日"，推动 LLM 定位为信息处理器而非收益预测器。</li>
+      <li><b>基线与消融：</b>设计 3 组基线并参与决策层调参；含 15 个基点交易成本下两阶段策略净收益 62%，对等权 49%、沪深 300 21%；换手约束贡献约 7 个百分点，文本信号净贡献接近零。</li>
     </ul>
     <div class="links">
-      <a href="https://github.com/KaikunGao/llm-portfolio-research" target="_blank" rel="noopener">代码仓库（不含数据与密钥）→</a>
+      <a href="https://github.com/KaikunGao/llm-portfolio-research" target="_blank" rel="noopener">代码仓库（不含数据与密钥）</a>
     </div>
   </article>
+</section>
+
+<section id="timeline">
+  <h2 class="sec-title">经历</h2>
+  <ul class="timeline">
+    <li><span class="d">2022.09 — 2026.08</span><span class="t"><b>威斯康星大学麦迪逊分校</b> <span>数据科学、统计学双学位</span></span></li>
+    <li><span class="d">2024.07 — 2024.09</span><span class="t"><b>申万宏源 医药组</b> <span>数据分析实习，推动底表标准化与自动化</span></span></li>
+    <li><span class="d">2026.02 — 2026.05</span><span class="t"><b>ResearchFlow</b> <span>券商财务研究自动化平台，独立设计与全栈开发</span></span></li>
+    <li><span class="d">2026.03 — 2026.06</span><span class="t"><b>香港大学 Jinhong Du 课题</b> <span>LLM 新闻信号与投资组合决策研究，研究助理</span></span></li>
+    <li><span class="d">2026.07 — 2026.09</span><span class="t"><b>蛋白钱包 ProteinWallet</b> <span>从 PRD 到上线</span></span></li>
+    <li><span class="d">2026.09 —</span><span class="t"><b>芝加哥大学</b> <span>计算机科学硕士（人工智能方向）</span></span></li>
+    <li><span class="d">2026.10 —</span><span class="t"><b>留学生政策雷达</b> <span>进行中，11 月上线</span></span></li>
+    <li><span class="d">2026.12 —</span><span class="t"><b>回国</b> <span>可线下全职实习 6 个月</span></span></li>
+  </ul>
+</section>
+
+<section id="skills">
+  <h2 class="sec-title">技能与工具</h2>
+  <div class="skills">
+    <div class="skill"><b class="k">产品</b><div class="tags"><span>需求分析</span><span>竞品分析</span><span>PRD 撰写</span><span>指标体系与埋点</span><span>Prompt 设计</span><span>LLM 评测方案</span></div></div>
+    <div class="skill"><b class="k">AI 与原型工具</b><div class="tags"><span>Claude Code</span><span>Codex</span><span>Anthropic API</span><span>结构化输出</span><span class="lite">Figma</span><span class="lite">Axure</span><span class="lite">墨刀</span></div></div>
+    <div class="skill"><b class="k">数据与工程</b><div class="tags"><span>Python</span><span>SQL</span><span>TypeScript / Next.js</span><span>FastAPI</span><span>Excel</span><span>Tableau / Power BI</span></div></div>
+    <div class="skill"><b class="k">语言</b><div class="tags"><span>中文母语</span><span>英语可作为工作语言</span></div></div>
+  </div>
 </section>
 
 <section id="way">
