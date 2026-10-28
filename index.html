@@ -54,42 +54,44 @@
 
 <section id="projects">
   <h2 class="sec-title">项目</h2>
-  <p class="sec-sub">每个项目按同一套六格展示：项目背景、痛点挖掘、需求与优先级、方案产出、开发上线、结果与迭代。数字都来自真实运行记录或公开数据核对，没有的数字就写"下一步怎么拿到"，点"查看详情"看 PRD 片段、砍掉的需求、版本记录和评测表。</p>
+  <p class="sec-sub">每个项目先回答三个问题：给谁、解决什么、怎么衡量；再按同一条产品流程展开：背景、痛点、需求优先级、方案、开发上线、结果与迭代。数字都来自真实运行记录或公开数据核对，没有的数字就写"下一步怎么拿到"。</p>
 
   <!-- Tuji -->
-  <article class="card">
+  <article class="card feature">
     <header>
       <h3>途迹 Tuji Travel</h3>
       <span class="badge">已上线 · 开源</span>
       <span class="meta">不走回头路的城市旅行规划工具 · 个人项目 · 2026.09 — 2026.10</span>
     </header>
-    <p class="one-liner">输入一座城市，得到不走回头路、可直接执行的逐日行程：按地理分天、精确最短路径排序、按开放时间排程、沿途配餐。无需注册。</p>
-    <div class="demo">
-      <div>
-        <div class="metrics">
-          <div class="metric"><b>198</b><span>内置景点，9 座城市 172 家餐厅</span></div>
-          <div class="metric"><b>4 套</b><span>方案并排对比</span></div>
-          <div class="metric"><b>−23%</b><span>省钱方案人均成本（北京 3 日实测）</span></div>
-        </div>
-        <div class="flow">
-          <span>取舍</span><i>→</i><span>分天</span><i>→</i><span>排序</span><i>→</i><span>排程</span><i>→</i><span>配餐</span>
-        </div>
-        <div class="grid4">
-          <div class="cell"><b class="k">项目背景</b>和同学做自由行攻略时，景点散落在收藏夹和小红书里，顺序靠人脑拼：走回头路、闭馆扑空、饭点凑合。现有攻略 App 只给景点列表，不回答"先去哪、后去哪"。</div>
-          <div class="cell"><b class="k">痛点挖掘</b>锁定"2–4 天去一座陌生城市"的自由行用户；核心痛点不在找景点而在排顺序，产品承诺定为<span class="num">"不走回头路"</span>，攻略拆成 5 步，每步对应一条可验证的规则。</div>
-          <div class="cell"><b class="k">需求与优先级</b>需求池按价值 / 难度排成近、中、远期路线图：先做路线引擎与 9 座城市数据，再做拖拽、饮食偏好、多方案对比、分享等 7 项拓展；天气、真实路况、账号等依赖外部服务的明确后置。</div>
-          <div class="cell"><b class="k">方案产出</b>k-means 按地理分天，Held-Karp 精确最短路径 + 时段偏好（夜景压轴）定顺序，按开放时间排程、避开闭馆日；"算法给初稿、用户有决定权"：拖拽调序后自动重算，推荐 / 省时 / 省钱 / 打卡多 4 套方案并排对比。</div>
-          <div class="cell"><b class="k">开发上线</b>借助 Claude Code 独立完成全栈开发；198 个景点、172 家餐厅经校验脚本 <span class="num">0 错误</span>后才注册进应用；自建 Cloudflare 代理让访客免填 Key，按人 / 全站每日限流控成本；GitHub Pages 自动部署。</div>
-          <div class="cell"><b class="k">结果与迭代</b>北京 3 日实测：省钱方案人均 ¥1052→¥806（<span class="num">−23%</span>），打卡多方案 9→12 个景点。按用户反馈迭代三处：远郊一日游有人爱有人嫌，改成可开关；出发点从模糊的市中心改为可精确到酒店；增加步行 / 公共交通 / 打车等出行方式，方便比较各方案的时间与成本。下一步：接入真实路况与天气；5 人对照测试量化规划耗时。</div>
-        </div>
+    <p class="one-liner">说一个城市，得到不走回头路、可直接执行的逐日行程：按地理分天、精确最短路径排序、按开放时间排程、沿途配餐。无需注册，打开就能用。</p>
+    <div class="pos">
+      <span><b>给谁</b>2–4 天去一座陌生城市的自由行用户，预算有限、想少走冤枉路</span>
+      <span><b>解决什么</b>攻略里的景点怎么排顺序：不走回头路、不扑空闭馆、吃得顺路</span>
+      <span><b>怎么衡量</b>每套方案的总路程、人均花费、最晚结束时间；下一步测规划耗时与回头路次数</span>
+    </div>
+    <div class="browser">
+      <div class="bar" aria-hidden="true"><i></i><i></i><i></i><span class="url">kaikungao.github.io/tuji-travel-planner · 北京 3 日示例</span></div>
+      <div class="screen" id="tuji-demo">
+        <img src="assets/tuji-plan-hd.jpg" alt="途迹行程页：左侧按天的时间线，右侧地图上按天着色的路线与编号站点" width="1440" height="960">
+        <button type="button" class="demo-btn" data-src="https://kaikungao.github.io/tuji-travel-planner/" data-title="途迹 在线试用">直接试用：在这里打开线上应用</button>
       </div>
-      <div>
-        <div class="cover shots">
-          <img src="assets/tuji-home.jpg" alt="途迹首页：选择城市" width="800" height="513">
-          <img src="assets/tuji-plan.jpg" alt="途迹行程页：按天的时间线与地图路线" width="800" height="512">
-        </div>
-        <p class="cover-note">线上截图：首页与行程页</p>
-      </div>
+    </div>
+    <p class="try-note"><span>点击后在窗口内加载真实应用，选一座城市、点"开始规划"即可生成行程，拖拽调序、换餐厅、切换方案都能试。</span><a href="https://kaikungao.github.io/tuji-travel-planner/" target="_blank" rel="noopener">新窗口打开 ↗</a></p>
+    <div class="metrics">
+      <div class="metric"><b>198</b><span>内置景点，9 座城市 172 家餐厅，全部通过校验</span></div>
+      <div class="metric"><b>4 套</b><span>推荐 / 省时 / 省钱 / 打卡多 方案并排对比</span></div>
+      <div class="metric"><b>−23%</b><span>省钱方案人均成本（北京 3 日：¥1052 → ¥806）</span></div>
+    </div>
+    <div class="flow">
+      <span>取舍</span><i>→</i><span>分天</span><i>→</i><span>排序</span><i>→</i><span>排程</span><i>→</i><span>配餐</span>
+    </div>
+    <div class="grid4 grid6">
+      <div class="cell"><b class="k">01 · 项目背景</b><strong>攻略散在收藏夹里，顺序靠人脑拼。</strong>和同学做自由行攻略，常见结果是走回头路、闭馆扑空、饭点凑合；现有攻略 App 只给景点列表，不回答"先去哪、后去哪"。</div>
+      <div class="cell"><b class="k">02 · 痛点挖掘</b><strong>痛点不在找景点，在排顺序。</strong>锁定"2–4 天去一座陌生城市"的自由行用户，把产品承诺定为一句话"不走回头路"，攻略拆成 5 步，每步对应一条可验证的规则。</div>
+      <div class="cell"><b class="k">03 · 需求与优先级</b><strong>先做不依赖外部服务的事。</strong>需求池按价值 / 难度排成近、中、远期：先路线引擎与 9 座城市数据，再拖拽、饮食偏好、多方案对比、分享等 7 项拓展；天气、真实路况、账号后置。</div>
+      <div class="cell"><b class="k">04 · 方案产出</b><strong>算法给初稿，用户有决定权。</strong>k-means 按地理分天，Held-Karp 精确最短路径 + 时段偏好（夜景压轴）定顺序，按开放时间排程、避开闭馆日；拖拽调序后自动重算，4 套方案并排对比。</div>
+      <div class="cell"><b class="k">05 · 开发上线</b><strong>数据不过校验不上线。</strong>借助 Claude Code 独立完成全栈开发；198 个景点、172 家餐厅经校验脚本 0 错误后才注册；自建 Cloudflare 代理让访客免填 Key，按人 / 全站每日限流控成本；GitHub Pages 自动部署。</div>
+      <div class="cell"><b class="k">06 · 结果与迭代</b><strong>按用户反馈改了三处。</strong>远郊一日游有人爱有人嫌，改成可开关；出发点从模糊的市中心改为可精确到酒店；增加步行 / 公共交通 / 打车出行方式，方便比较各方案的时间与成本。下一步：接入真实路况与天气；5 人对照测试量化规划耗时。</div>
     </div>
     <div class="links">
       <a class="more" href="projects/tuji.html">查看详情 →</a>
@@ -106,6 +108,11 @@
       <span class="meta">面向留学生的 AI 饮食记账工具 · 个人项目 · 2026.07 — 2026.09</span>
     </header>
     <p class="one-liner">拍一张小票，同时记账与记营养。自创核心指标"蛋白质单价（¢/g）"，把营养决策变成消费决策。</p>
+    <div class="pos">
+      <span><b>给谁</b>有增肌需求、对生活费敏感的在美留学生</span>
+      <span><b>解决什么</b>食堂和外卖没法称重，营养和钱分在两个 App 里</span>
+      <span><b>怎么衡量</b>周人均记录餐次、区间命中率、用户修正率、单次记录耗时</span>
+    </div>
     <div class="demo">
       <div>
         <div class="metrics">
@@ -114,12 +121,12 @@
           <div class="metric"><b>7 项</b><span>主动砍掉的功能</span></div>
         </div>
         <div class="grid4">
-          <div class="cell"><b class="k">项目背景</b>在美增肌时三餐多靠食堂和外卖，无法称重；营养 App 不管钱，记账 App 不管营养，"吃得健康"和"花得起"割裂在两个产品里。</div>
-          <div class="cell"><b class="k">痛点挖掘</b>把留学生饮食重新定义为"每一美元换多少克蛋白质"的约束优化问题，自创核心指标<span class="num">蛋白质单价（¢/g）</span>，把营养决策变成消费决策，这是与 MyFitnessPal 等产品的根本差异。</div>
-          <div class="cell"><b class="k">需求与优先级</b>MVP 只保留"记录→估算→差额→周报"一个闭环；单次记录 <span class="num">≤10 秒</span>是生死线，为此设计拍小票、拍餐食、一句话、自炊双记录 4 种输入；砍掉饮食推荐、热量警告等 7 项功能控制幻觉与伦理风险。</div>
-          <div class="cell"><b class="k">方案产出</b>完整 PRD（目标用户、Non-goals 表、3 页面流程、数据模型与埋点）；AI 采用"官方营养表优先、视觉估算兜底"两级策略，模型只做识别、算术交给代码；输出统一为"区间 + 置信度 + 依据"。</div>
-          <div class="cell"><b class="k">开发上线</b>PRD 拆成 4 周 14 个 Step，每步写死验收标准、一步一提交，宁可砍功能不延期；5 家连锁官方营养数据逐家核对，剔除无法核实的来源；借助 Claude Code 开发，上线 Vercel。</div>
-          <div class="cell"><b class="k">结果与迭代</b>首轮 17 样本区间命中率 <span class="num">100%</span>、高置信区间宽度 <span class="num">20%</span>、平均耗时 6.2 秒；已埋点修正率与耗时。下一步：30 张照片评测集；5–8 名种子用户验证周人均记录 ≥10 餐与次周留存。</div>
+          <div class="cell"><b class="k">01 · 项目背景</b><strong>"吃得健康"和"花得起"割裂在两个产品里。</strong>在美增肌时三餐多靠食堂和外卖，无法称重；营养 App 不管钱，记账 App 不管营养。</div>
+          <div class="cell"><b class="k">02 · 痛点挖掘</b><strong>每一美元换多少克蛋白质。</strong>把留学生饮食重新定义为约束优化问题，自创核心指标<span class="num">蛋白质单价（¢/g）</span>，把营养决策变成消费决策，这是与 MyFitnessPal 等产品的根本差异。</div>
+          <div class="cell"><b class="k">03 · 需求与优先级</b><strong>单次记录 ≤10 秒是生死线。</strong>MVP 只保留"记录→估算→差额→周报"一个闭环，为此设计拍小票、拍餐食、一句话、自炊双记录 4 种输入；砍掉饮食推荐、热量警告等 <span class="num">7 项功能</span>控制幻觉与伦理风险。</div>
+          <div class="cell"><b class="k">04 · 方案产出</b><strong>诚实的模糊：区间 + 置信度 + 依据。</strong>完整 PRD（目标用户、Non-goals 表、3 页面流程、数据模型与埋点）；AI 采用"官方营养表优先、视觉估算兜底"两级策略，模型只做识别、算术交给代码。</div>
+          <div class="cell"><b class="k">05 · 开发上线</b><strong>每步写死验收标准，宁可砍功能不延期。</strong>PRD 拆成 4 周 14 个 Step，一步一提交；5 家连锁官方营养数据逐家核对，剔除无法核实的来源；借助 Claude Code 开发，上线 Vercel。</div>
+          <div class="cell"><b class="k">06 · 结果与迭代</b><strong>首轮评测 17/17 命中，真实用户数据还没有。</strong>区间命中率 <span class="num">100%</span>、高置信区间宽度 <span class="num">20%</span>、平均耗时 6.2 秒；已埋点修正率与耗时。下一步：30 张照片评测集；5–8 名种子用户验证周人均记录 ≥10 餐与次周留存。</div>
         </div>
       </div>
       <div>
@@ -145,6 +152,11 @@
       <span class="meta">券商财务研究自动化平台 · 个人项目 · 2026.02 — 2026.05</span>
     </header>
     <p class="one-liner">把券商研究员财报季靠手工和脚本完成的数据整理、制图与点评填数产品化。</p>
+    <div class="pos">
+      <span><b>给谁</b>行业研究员、研究助理与实习生，覆盖 10 到 30 家公司</span>
+      <span><b>解决什么</b>财报季 4 类重复劳动：更底表、拆单季、填点评、画标准图</span>
+      <span><b>怎么衡量</b>与年报公告的口径一致性、同比误差；下一步测单家公司底表更新时间</span>
+    </div>
     <div class="demo">
       <div>
         <div class="metrics">
@@ -156,12 +168,12 @@
           <span>数据导入</span><i>→</i><span>标准化</span><i>→</i><span>指标计算</span><i>→</i><span>可视化</span><i>→</i><span>异常告警</span><i>→</i><span>报告生成</span>
         </div>
         <div class="grid4">
-          <div class="cell"><b class="k">项目背景</b>2024 年夏在申万宏源医药组实习，维护约 30 家公司的财务跟踪底表；财报季大量时间耗在非研究性的重复劳动上，却没有一个面向研究员工作流的轻量工具。</div>
-          <div class="cell"><b class="k">痛点挖掘</b>复盘出 <span class="num">4 类重复劳动</span>：底表重复更新、单季度拆分易错、点评段落机械填数、标准图重复制作；目标用户是行业研究员、数据分析师与实习生。</div>
-          <div class="cell"><b class="k">需求与优先级</b>第一版聚焦 A 股医药生物行业；指标口径固定、不给自由公式；明确不做告警推送、PDF 模板、行情估值、多用户与任何大模型调用，价值在确定性的数据管道。</div>
-          <div class="cell"><b class="k">方案产出</b>PRD 打通"数据导入→标准化→指标计算→可视化→异常告警→报告生成"全链路：8 个功能模块、33 个统一口径指标、默认 7 条告警规则、4 类 Word 报告。</div>
-          <div class="cell"><b class="k">开发上线</b>借助 Claude Code 独立完成全栈开发（Next.js + FastAPI）；单季度拆分缺数据时留空而非算错；接入东方财富公开接口，无 Wind 终端也能用；代码开源。</div>
-          <div class="cell"><b class="k">结果与迭代</b>以恒瑞医药 2023、2024 年报逐项核对，营收与净利润口径完全一致，自算同比误差 ≤0.01 pct；作为个人研究工具日常使用。下一步：找 2–3 位研究员试点，量化单家公司底表更新时间的变化。</div>
+          <div class="cell"><b class="k">01 · 项目背景</b><strong>财报季的时间花在了非研究的事上。</strong>2024 年夏在申万宏源医药组实习，维护约 30 家公司的财务跟踪底表，却没有一个面向研究员工作流的轻量工具。</div>
+          <div class="cell"><b class="k">02 · 痛点挖掘</b><strong>4 类重复劳动，每季度重来一遍。</strong>底表重复更新、单季度拆分易错、点评段落机械填数、标准图重复制作；目标用户是行业研究员、数据分析师与实习生。</div>
+          <div class="cell"><b class="k">03 · 需求与优先级</b><strong>口径固定，不给自由公式。</strong>第一版聚焦 A 股医药生物行业；明确不做告警推送、PDF 模板、行情估值、多用户与任何大模型调用，价值在确定性的数据管道。</div>
+          <div class="cell"><b class="k">04 · 方案产出</b><strong>从导入到报告的全链路。</strong>PRD 打通"数据导入→标准化→指标计算→可视化→异常告警→报告生成"：8 个功能模块、33 个统一口径指标、默认 7 条告警规则、4 类 Word 报告。</div>
+          <div class="cell"><b class="k">05 · 开发上线</b><strong>缺数据时留空，而不是算错。</strong>借助 Claude Code 独立完成全栈开发（Next.js + FastAPI）；接入东方财富公开接口，无 Wind 终端也能用；代码开源。</div>
+          <div class="cell"><b class="k">06 · 结果与迭代</b><strong>对年报逐项核对，同比误差 ≤0.01 pct。</strong>以恒瑞医药 2023、2024 年报核对，营收与净利润口径完全一致；作为个人研究工具日常使用。下一步：找 2–3 位研究员试点，量化单家公司底表更新时间的变化。</div>
         </div>
       </div>
       <div>
@@ -262,7 +274,7 @@
       var frame = btn.parentElement;
       var iframe = document.createElement('iframe');
       iframe.src = btn.dataset.src;
-      iframe.title = 'ProteinWallet 在线演示';
+      iframe.title = btn.dataset.title || '在线演示';
       frame.innerHTML = '';
       frame.appendChild(iframe);
     });

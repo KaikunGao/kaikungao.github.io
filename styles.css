@@ -166,6 +166,29 @@ pre { background: var(--tag); border-radius: 10px; padding: 12px 14px; font-size
 .shots.two { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin: 0 0 18px; }
 .shots.two img { margin: 0; }
 
+/* positioning strip: who / what / how measured */
+.pos { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin: 0 0 16px; }
+.pos span { background: var(--bg); border: 1px solid var(--line); border-radius: 10px; padding: 9px 12px; font-size: 14px; line-height: 1.6; }
+.pos b { display: block; font-size: 11.5px; letter-spacing: .12em; color: var(--muted); font-weight: 600; margin-bottom: 2px; }
+.cell strong { display: block; color: var(--ink); font-weight: 600; margin-bottom: 3px; }
+.grid6 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+/* browser frame with a live try-it entry */
+.browser { border: 1px solid var(--line); border-radius: 14px; overflow: hidden; background: #fff; box-shadow: 0 12px 34px rgba(0,0,0,.12); margin: 0 0 8px; }
+.browser .bar { height: 34px; background: var(--tag); display: flex; align-items: center; gap: 6px; padding: 0 12px; border-bottom: 1px solid var(--line); }
+.browser .bar i { width: 10px; height: 10px; border-radius: 50%; background: #d4d4d4; }
+.browser .bar i:nth-child(1) { background: #f26d5b; } .browser .bar i:nth-child(2) { background: #f5bf4f; } .browser .bar i:nth-child(3) { background: #5fc16b; }
+.browser .bar .url { margin-left: 10px; flex: 1; background: var(--panel); border-radius: 6px; padding: 3px 10px; font-size: 12px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.browser .screen { position: relative; aspect-ratio: 3 / 2; background: #f6f1ea; }
+.browser .screen img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
+.browser .screen iframe { width: 100%; height: 100%; border: 0; display: block; background: #fff; }
+.browser .screen .demo-btn { bottom: 22px; font-size: 14px; padding: 11px 18px; }
+.browser .screen .demo-btn::before { content: "▶"; font-size: 10px; margin-right: 8px; }
+.try-note { font-size: 13px; color: var(--muted); margin: 0 0 18px; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.shots.cap figure { margin: 0; }
+.shots.cap figcaption { font-size: 12.5px; color: var(--muted); margin-top: 6px; line-height: 1.5; }
+.shots.cap img { margin: 0; }
+
 @media (max-width: 720px) {
   .hero { grid-template-columns: 1fr; }
   .photo { width: 96px; height: 96px; order: -1; }
@@ -179,6 +202,9 @@ pre { background: var(--tag); border-radius: 10px; padding: 12px 14px; font-size
   pre { font-size: 12px; }
   .phone, .cover { justify-self: center; }
   .shots.two { grid-template-columns: minmax(0, 1fr); }
+  .pos, .grid6 { grid-template-columns: minmax(0, 1fr); }
+  .browser .screen { aspect-ratio: 4 / 5; }
+  .browser .screen .demo-btn { white-space: normal; max-width: 90%; }
   .phone-note, .cover-note { text-align: center; }
   .nav ul { gap: 12px; }
   .tbl td:first-child { white-space: normal; }
@@ -199,15 +225,20 @@ pre { background: var(--tag); border-radius: 10px; padding: 12px 14px; font-size
   .card header, .cell, .phone, .cover, .research li, .ways .cell, .metrics, .skill { break-inside: avoid; }
   .sec-title { break-after: avoid; }
   .grid4 { gap: 8px; }
-  /* block layout paginates cleanly; grids tend to jump whole to the next page */
-  .demo, .grid4 { display: block; }
-  .grid4 { font-size: 0; }
-  .grid4 .cell { display: inline-block; width: 49.4%; vertical-align: top; box-sizing: border-box; margin: 0 1.2% 6px 0; padding: 8px 10px; font-size: 11px; line-height: 1.55; }
-  .grid4 .cell:nth-child(2n) { margin-right: 0; }
+  /* print: real grid fragments across pages in current Chrome; .demo becomes a single column */
+  .demo { display: block; }
+  .grid4 { gap: 6px; }
+  .grid4 .cell { padding: 8px 10px; font-size: 11px; line-height: 1.55; break-inside: auto; }
   .demo > div + div { margin-top: 8px; }
   .cover.shots { display: flex; gap: 8px; width: auto; }
   .cover.shots img { width: 200px; margin: 0; }
   .links { break-before: avoid; }
+  .browser { box-shadow: none; break-inside: avoid; }
+  .browser .screen { aspect-ratio: auto; }
+  .browser .screen img { height: auto; }
+  .try-note { display: none; }
+  .pos { display: block; }
+  .pos span { display: inline-block; width: 32%; vertical-align: top; box-sizing: border-box; margin-right: 1%; font-size: 11px; }
   .phone { width: 160px; height: 334px; border-width: 6px; box-shadow: none; justify-self: start; }
   .cover { width: 200px; justify-self: start; }
   .shots img { border-color: #bbb; }

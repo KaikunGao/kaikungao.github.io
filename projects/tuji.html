@@ -19,7 +19,9 @@
   <div class="metric"><b>4 套</b><span>方案并排对比：推荐 / 省时 / 省钱 / 打卡多</span></div>
   <div class="metric"><b>−23%</b><span>省钱方案人均成本（北京 3 日实测）</span></div>
 </div>
-<div class="shots two"><img src="../assets/tuji-home.jpg" alt="途迹首页：选择城市" width="800" height="513"><img src="../assets/tuji-plan.jpg" alt="途迹行程页：按天的时间线与地图路线" width="800" height="512"></div>
+<div class="browser"><div class="bar" aria-hidden="true"><i></i><i></i><i></i><span class="url">kaikungao.github.io/tuji-travel-planner · 北京 3 日示例</span></div><div class="screen"><img src="../assets/tuji-plan-hd.jpg" alt="途迹行程页：左侧按天的时间线，右侧地图上按天着色的路线与编号站点" width="1600" height="1067"><button type="button" class="demo-btn" data-src="https://kaikungao.github.io/tuji-travel-planner/" data-title="途迹 在线试用">直接试用：在这里打开线上应用</button></div></div>
+<p class="try-note"><span>点击后在窗口内加载真实应用，可直接生成行程。</span><a href="https://kaikungao.github.io/tuji-travel-planner/" target="_blank" rel="noopener">新窗口打开 ↗</a></p>
+<div class="shots cap two"><figure><img src="../assets/tuji-home-hd.jpg" alt="途迹首页" width="1600" height="1067"><figcaption>首页：说一个城市，剩下的交给途迹；9 座内置城市卡片，其他城市由 AI 生成。</figcaption></figure><figure><img src="../assets/tuji-plan-hd.jpg" alt="途迹行程页" width="1600" height="1067"><figcaption>行程页：左侧按天的时间线可拖拽调序，右侧地图按天着色、编号站点；顶部一行是景点数、餐厅数、总路程、人均预算。</figcaption></figure></div>
 <div class="toc"><a href="#bg">项目背景</a><a href="#pain">痛点挖掘</a><a href="#priority">需求与优先级</a><a href="#solution">方案产出</a><a href="#ship">开发上线与项目管理</a><a href="#result">结果与迭代</a><a href="#stack">技术</a></div>
 
 <h2 id="bg">项目背景</h2>
@@ -101,5 +103,14 @@
 <p><a class="back" href="../index.html#projects">← 返回作品集</a></p>
 </main>
 <footer class="wrap">© 2026 高凯堃</footer>
+<script>
+  document.querySelectorAll('.demo-btn').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var frame = btn.parentElement, iframe = document.createElement('iframe');
+      iframe.src = btn.dataset.src; iframe.title = btn.dataset.title || '在线演示';
+      frame.innerHTML = ''; frame.appendChild(iframe);
+    });
+  });
+</script>
 </body>
 </html>
