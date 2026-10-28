@@ -161,6 +161,11 @@ footer { color: var(--muted); font-size: 13px; padding: 24px 0 40px; border-top:
 pre { background: var(--tag); border-radius: 10px; padding: 12px 14px; font-size: 13px; line-height: 1.6; overflow-x: auto; }
 .toc { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 13.5px; margin: 0 0 8px; }
 
+/* screenshots (Tuji) */
+.shots img { display: block; width: 100%; height: auto; border: 1px solid var(--line); border-radius: 10px; margin-bottom: 8px; }
+.shots.two { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin: 0 0 18px; }
+.shots.two img { margin: 0; }
+
 @media (max-width: 720px) {
   .hero { grid-template-columns: 1fr; }
   .photo { width: 96px; height: 96px; order: -1; }
@@ -173,6 +178,7 @@ pre { background: var(--tag); border-radius: 10px; padding: 12px 14px; font-size
   .tbl { display: block; overflow-x: auto; }
   pre { font-size: 12px; }
   .phone, .cover { justify-self: center; }
+  .shots.two { grid-template-columns: minmax(0, 1fr); }
   .phone-note, .cover-note { text-align: center; }
   .nav ul { gap: 12px; }
   .tbl td:first-child { white-space: normal; }
@@ -193,8 +199,18 @@ pre { background: var(--tag); border-radius: 10px; padding: 12px 14px; font-size
   .card header, .cell, .phone, .cover, .research li, .ways .cell, .metrics, .skill { break-inside: avoid; }
   .sec-title { break-after: avoid; }
   .grid4 { gap: 8px; }
+  /* block layout paginates cleanly; grids tend to jump whole to the next page */
+  .demo, .grid4 { display: block; }
+  .grid4 { font-size: 0; }
+  .grid4 .cell { display: inline-block; width: 49.4%; vertical-align: top; box-sizing: border-box; margin: 0 1.2% 6px 0; padding: 8px 10px; font-size: 11px; line-height: 1.55; }
+  .grid4 .cell:nth-child(2n) { margin-right: 0; }
+  .demo > div + div { margin-top: 8px; }
+  .cover.shots { display: flex; gap: 8px; width: auto; }
+  .cover.shots img { width: 200px; margin: 0; }
+  .links { break-before: avoid; }
   .phone { width: 160px; height: 334px; border-width: 6px; box-shadow: none; justify-self: start; }
   .cover { width: 200px; justify-self: start; }
+  .shots img { border-color: #bbb; }
   .win, .push { box-shadow: none; }
   .demo { grid-template-columns: 1fr; }
   a[href^="http"]::after { content: " (" attr(href) ")"; color: #444; font-size: 11px; }

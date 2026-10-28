@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>高凯堃 · AI 产品作品集</title>
-<meta name="description" content="高凯堃的 AI 产品作品集：ProteinWallet、ResearchFlow、留学生政策雷达三个项目，以及 LLM 新闻信号与投资组合决策研究。">
+<meta name="description" content="高凯堃的 AI 产品作品集：途迹 Tuji Travel、ProteinWallet、ResearchFlow 三个项目，每个按背景、痛点、需求优先级、方案、开发上线、结果与迭代展示，以及 LLM 新闻信号与投资组合决策研究。">
 <meta property="og:title" content="高凯堃 · AI 产品作品集">
-<meta property="og:description" content="三个从 PRD 到上线的 AI 产品项目，一段数据与评测驱动的科研。">
+<meta property="og:description" content="三个从痛点、PRD 到上线与复盘的 AI 产品项目，两段数据与评测驱动的科研。">
 <meta property="og:type" content="website">
 <link rel="stylesheet" href="styles.css">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>◎</text></svg>">
@@ -34,12 +34,12 @@
       <li><span class="deg">本科</span><b>威斯康星大学麦迪逊分校</b><span class="major">数据科学、统计学双学位</span></li>
     </ul>
     <ul class="strengths">
-      <li><b>能独立闭环：</b>三个 AI 产品都是自己从痛点、PRD、原型做到上线，知道一个功能从想法到可用要经过哪些取舍。</li>
+      <li><b>能独立闭环：</b>三个 AI 产品都是自己从背景、痛点、PRD 做到上线与复盘，知道一个功能从想法到可用要经过哪些取舍，也知道上线后该看哪几个数字。</li>
       <li><b>评测与数据思维：</b>先定真值评测集和上线标准再做功能；科研里用数据判定 LLM 信号的边界，不凭感觉下结论。</li>
       <li><b>工程与数据底子：</b>数据科学与统计学双学位、计算机硕士在读，看得懂代码、算得清指标，能和研发直接对话。</li>
     </ul>
     <ul class="facts">
-      <li>2026.12 初回国，可线下全职实习 6 个月</li>
+      <li>12 月初到岗，可线下全职实习 6 个月</li>
     </ul>
     <div class="contact" id="contact">
       <span>电话 178-6576-9082</span>
@@ -54,7 +54,49 @@
 
 <section id="projects">
   <h2 class="sec-title">项目</h2>
-  <p class="sec-sub">每个项目按同一套格子展示：痛点、方案、评测、结果。数字都来自真实运行记录或公开数据核对，点"查看详情"看 PRD 片段、砍掉的需求和评测表。</p>
+  <p class="sec-sub">每个项目按同一套六格展示：项目背景、痛点挖掘、需求与优先级、方案产出、开发上线、结果与迭代。数字都来自真实运行记录或公开数据核对，没有的数字就写"下一步怎么拿到"，点"查看详情"看 PRD 片段、砍掉的需求、版本记录和评测表。</p>
+
+  <!-- Tuji -->
+  <article class="card">
+    <header>
+      <h3>途迹 Tuji Travel</h3>
+      <span class="badge">已上线 · 开源</span>
+      <span class="meta">不走回头路的城市旅行规划工具 · 个人项目 · 2026.09 — 2026.10</span>
+    </header>
+    <p class="one-liner">输入一座城市，得到不走回头路、可直接执行的逐日行程：按地理分天、精确最短路径排序、按开放时间排程、沿途配餐。无需注册。</p>
+    <div class="demo">
+      <div>
+        <div class="metrics">
+          <div class="metric"><b>198</b><span>内置景点，9 座城市 172 家餐厅</span></div>
+          <div class="metric"><b>4 套</b><span>方案并排对比</span></div>
+          <div class="metric"><b>−23%</b><span>省钱方案人均成本（北京 3 日实测）</span></div>
+        </div>
+        <div class="flow">
+          <span>取舍</span><i>→</i><span>分天</span><i>→</i><span>排序</span><i>→</i><span>排程</span><i>→</i><span>配餐</span>
+        </div>
+        <div class="grid4">
+          <div class="cell"><b class="k">项目背景</b>和同学做自由行攻略时，景点散落在收藏夹和小红书里，顺序靠人脑拼：走回头路、闭馆扑空、饭点凑合。现有攻略 App 只给景点列表，不回答"先去哪、后去哪"。</div>
+          <div class="cell"><b class="k">痛点挖掘</b>锁定"2–4 天去一座陌生城市"的自由行用户；核心痛点不在找景点而在排顺序，产品承诺定为<span class="num">"不走回头路"</span>，攻略拆成 5 步，每步对应一条可验证的规则。</div>
+          <div class="cell"><b class="k">需求与优先级</b>需求池按价值 / 难度排成近、中、远期路线图：先做路线引擎与 9 座城市数据，再做拖拽、饮食偏好、多方案对比、分享等 7 项拓展；天气、真实路况、账号等依赖外部服务的明确后置。</div>
+          <div class="cell"><b class="k">方案产出</b>k-means 按地理分天，Held-Karp 精确最短路径 + 时段偏好（夜景压轴）定顺序，按开放时间排程、避开闭馆日；"算法给初稿、用户有决定权"：拖拽调序后自动重算，推荐 / 省时 / 省钱 / 打卡多 4 套方案并排对比。</div>
+          <div class="cell"><b class="k">开发上线</b>借助 Claude Code 独立完成全栈开发；198 个景点、172 家餐厅经校验脚本 <span class="num">0 错误</span>后才注册进应用；自建 Cloudflare 代理让访客免填 Key，按人 / 全站每日限流控成本；GitHub Pages 自动部署。</div>
+          <div class="cell"><b class="k">结果与迭代</b>北京 3 日实测：省钱方案人均 ¥1052→¥806（<span class="num">−23%</span>），打卡多方案 9→12 个景点。按用户反馈迭代三处：远郊一日游有人爱有人嫌，改成可开关；出发点从模糊的市中心改为可精确到酒店；增加步行 / 公共交通 / 打车等出行方式，方便比较各方案的时间与成本。下一步：接入真实路况与天气；5 人对照测试量化规划耗时。</div>
+        </div>
+      </div>
+      <div>
+        <div class="cover shots">
+          <img src="assets/tuji-home.jpg" alt="途迹首页：选择城市" width="800" height="513">
+          <img src="assets/tuji-plan.jpg" alt="途迹行程页：按天的时间线与地图路线" width="800" height="512">
+        </div>
+        <p class="cover-note">线上截图：首页与行程页</p>
+      </div>
+    </div>
+    <div class="links">
+      <a class="more" href="projects/tuji.html">查看详情 →</a>
+      <a href="https://kaikungao.github.io/tuji-travel-planner/" target="_blank" rel="noopener">线上产品</a>
+      <a href="https://github.com/KaikunGao/tuji-travel-planner" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </article>
 
   <!-- ProteinWallet -->
   <article class="card">
@@ -72,10 +114,12 @@
           <div class="metric"><b>7 项</b><span>主动砍掉的功能</span></div>
         </div>
         <div class="grid4">
-          <div class="cell"><b class="k">痛点</b>有增肌需求、对生活费敏感的留学生，食堂和外卖场景无法称重；营养 App 不管钱，记账 App 不管营养。</div>
-          <div class="cell"><b class="k">方案</b>拍小票、拍餐食、一句话文字、自炊双记录 <span class="num">4 种输入</span>；3 个页面跑通"记录→估算→差额→周报"。AI 只做识别，算术交给代码；输出统一为"区间 + 置信度 + 依据"。</div>
-          <div class="cell"><b class="k">评测</b>以 5 家连锁餐厅官方营养表为真值建评测集，定义区间命中率、区间相对宽度、小票解析准确率、用户修正率 4 项指标；首轮命中率 <span class="num">100%</span>，高置信区间宽度 <span class="num">20%</span>。</div>
-          <div class="cell"><b class="k">结果与取舍</b>MVP 已上线。砍掉饮食推荐、热量警告等功能以控制幻觉与伦理风险；以"周人均记录餐次"为北极星指标，应用内已埋点记录修正率与单次耗时。</div>
+          <div class="cell"><b class="k">项目背景</b>在美增肌时三餐多靠食堂和外卖，无法称重；营养 App 不管钱，记账 App 不管营养，"吃得健康"和"花得起"割裂在两个产品里。</div>
+          <div class="cell"><b class="k">痛点挖掘</b>把留学生饮食重新定义为"每一美元换多少克蛋白质"的约束优化问题，自创核心指标<span class="num">蛋白质单价（¢/g）</span>，把营养决策变成消费决策，这是与 MyFitnessPal 等产品的根本差异。</div>
+          <div class="cell"><b class="k">需求与优先级</b>MVP 只保留"记录→估算→差额→周报"一个闭环；单次记录 <span class="num">≤10 秒</span>是生死线，为此设计拍小票、拍餐食、一句话、自炊双记录 4 种输入；砍掉饮食推荐、热量警告等 7 项功能控制幻觉与伦理风险。</div>
+          <div class="cell"><b class="k">方案产出</b>完整 PRD（目标用户、Non-goals 表、3 页面流程、数据模型与埋点）；AI 采用"官方营养表优先、视觉估算兜底"两级策略，模型只做识别、算术交给代码；输出统一为"区间 + 置信度 + 依据"。</div>
+          <div class="cell"><b class="k">开发上线</b>PRD 拆成 4 周 14 个 Step，每步写死验收标准、一步一提交，宁可砍功能不延期；5 家连锁官方营养数据逐家核对，剔除无法核实的来源；借助 Claude Code 开发，上线 Vercel。</div>
+          <div class="cell"><b class="k">结果与迭代</b>首轮 17 样本区间命中率 <span class="num">100%</span>、高置信区间宽度 <span class="num">20%</span>、平均耗时 6.2 秒；已埋点修正率与耗时。下一步：30 张照片评测集；5–8 名种子用户验证周人均记录 ≥10 餐与次周留存。</div>
         </div>
       </div>
       <div>
@@ -112,10 +156,12 @@
           <span>数据导入</span><i>→</i><span>标准化</span><i>→</i><span>指标计算</span><i>→</i><span>可视化</span><i>→</i><span>异常告警</span><i>→</i><span>报告生成</span>
         </div>
         <div class="grid4">
-          <div class="cell"><b class="k">痛点</b>复盘申万宏源医药组实习，锁定行业研究员与实习生为目标用户，提炼出财报季 <span class="num">4 类重复劳动</span>：底表重复更新、单季度拆分易错、点评段落机械填数、标准图重复制作。</div>
-          <div class="cell"><b class="k">方案</b>聚焦 A 股医药生物行业撰写 PRD；后端自动差分完成单季度拆分，缺数据时留空而非算错；可配置规则引擎默认 7 条告警；4 类 Word 报告一键生成。借助 Claude Code 独立完成全栈开发。</div>
-          <div class="cell"><b class="k">评测</b>以恒瑞医药 2023、2024 年报公告逐项核对，营收与净利润口径完全一致，自算同比误差 ≤0.01 pct。</div>
-          <div class="cell"><b class="k">结果</b>接入东方财富公开接口，无 Wind 终端也能用；目前作为个人研究工具日常使用。下一步在券商研究团队做小范围试点，量化单家公司底表更新时间的变化。</div>
+          <div class="cell"><b class="k">项目背景</b>2024 年夏在申万宏源医药组实习，维护约 30 家公司的财务跟踪底表；财报季大量时间耗在非研究性的重复劳动上，却没有一个面向研究员工作流的轻量工具。</div>
+          <div class="cell"><b class="k">痛点挖掘</b>复盘出 <span class="num">4 类重复劳动</span>：底表重复更新、单季度拆分易错、点评段落机械填数、标准图重复制作；目标用户是行业研究员、数据分析师与实习生。</div>
+          <div class="cell"><b class="k">需求与优先级</b>第一版聚焦 A 股医药生物行业；指标口径固定、不给自由公式；明确不做告警推送、PDF 模板、行情估值、多用户与任何大模型调用，价值在确定性的数据管道。</div>
+          <div class="cell"><b class="k">方案产出</b>PRD 打通"数据导入→标准化→指标计算→可视化→异常告警→报告生成"全链路：8 个功能模块、33 个统一口径指标、默认 7 条告警规则、4 类 Word 报告。</div>
+          <div class="cell"><b class="k">开发上线</b>借助 Claude Code 独立完成全栈开发（Next.js + FastAPI）；单季度拆分缺数据时留空而非算错；接入东方财富公开接口，无 Wind 终端也能用；代码开源。</div>
+          <div class="cell"><b class="k">结果与迭代</b>以恒瑞医药 2023、2024 年报逐项核对，营收与净利润口径完全一致，自算同比误差 ≤0.01 pct；作为个人研究工具日常使用。下一步：找 2–3 位研究员试点，量化单家公司底表更新时间的变化。</div>
         </div>
       </div>
       <div>
@@ -141,53 +187,6 @@
     </div>
   </article>
 
-  <!-- Policy Radar -->
-  <article class="card">
-    <header>
-      <h3>留学生政策雷达</h3>
-      <span class="badge warn">进行中</span>
-      <span class="meta">面向在美留学生的官方政策变动监控与推送 · 2026.10 起</span>
-    </header>
-    <p class="one-liner">只盯官方页面的变化：政策一有官方变动，自动比对、中文摘要、附原文链接，推送给订阅者。不做政策问答，不做法律建议。</p>
-    <div class="demo">
-      <div>
-        <div class="metrics">
-          <div class="metric"><b>13</b><span>白名单官方信源</span></div>
-          <div class="metric"><b>42</b><span>已通过的自动化测试</span></div>
-          <div class="metric"><b>≤60 分钟</b><span>发布到推送的时效目标</span></div>
-        </div>
-        <div class="grid4">
-          <div class="cell"><b class="k">痛点</b>签证与身份政策变动频繁，群聊和小红书最快但混杂谣言，"拟议"与"已生效"在转发中丢失；官方信息分散在十几处英文页面，没人天天盯。</div>
-          <div class="cell"><b class="k">方案</b>常驻 Agent 每 30 分钟监控官方信源白名单。变化检测、去噪、日期抽取、引用校验、发布决策全部由代码完成，模型只做分类与摘要；高影响条目发布前有 15 分钟人工复核窗口。</div>
-          <div class="cell"><b class="k">评测</b>历史变动集与摘要评测集双人标注。上线标准：变化检出率 ≥90%、误报率 ≤10%、摘要忠实度 ≥95%、官方发布到推送 ≤60 分钟。</div>
-          <div class="cell"><b class="k">进度</b>PRD 与访谈提纲完成；信源适配器、快照存储、变化检测与去噪已实现；11 月完成用户访谈、原型评审与上线，12 月公布订阅、打开率与留存数据。</div>
-        </div>
-      </div>
-      <div>
-        <div class="cover">
-          <div class="push" aria-hidden="true">
-            <div class="pt"><small>拟议规则 · OPT</small>DHS 拟对 OPT 设立收费</div>
-            <p><b>发生了什么：</b>DHS 在 Federal Register 发布拟议规则。</p>
-            <p><b>涉及谁：</b>F-1 在读、计划申请 OPT 的学生。</p>
-            <p><b>关键日期：</b>评论期截止以原文为准；尚未生效。</p>
-            <div class="quote">"Optional Practical Training Fees" — Proposed Rule, 2026-10-08</div>
-            <span class="st">拟议，未生效</span>
-            <div class="src">来源：Federal Register · 本条为信息整理，不构成法律建议</div>
-            <div class="fb"><span>有用</span><span>与我无关</span><span>有错误</span></div>
-          </div>
-        </div>
-        <p class="cover-note">推送卡片示意，格式取自 PRD</p>
-      </div>
-    </div>
-    <ul class="rules">
-      <li>只用官方信源白名单，白名单变更有记录。</li>
-      <li>每条推送附原文链接和引用，引用由代码校验。</li>
-      <li>不解读法律后果，不给个案建议。</li>
-    </ul>
-    <div class="links">
-      <a class="more" href="projects/policy-radar.html">查看详情 →</a>
-    </div>
-  </article>
 </section>
 
 <section id="research">
@@ -244,8 +243,8 @@
   <h2 class="sec-title">工作方式</h2>
   <div class="ways">
     <div class="cell"><b class="k">用 Claude Code 构建</b>三个项目的大部分代码由 Claude Code 写出。我负责定义问题、写 PRD、设计评测、决定砍什么、验收结果；每一个取舍我都能讲清楚为什么。</div>
-    <div class="cell"><b class="k">评测先于上线</b>先建真值评测集和上线标准，再谈功能。ProteinWallet 的 17 样本评测、政策雷达的四项上线门槛，都在写第一行功能代码之前定下。</div>
-    <div class="cell"><b class="k">模型只做它擅长的事</b>识别、分类、摘要交给模型；算术、校验、发布决策交给代码。这是三个项目共同的架构原则，也是控制幻觉的主要手段。</div>
+    <div class="cell"><b class="k">评测先于上线</b>先建真值评测集和上线标准，再谈功能。ProteinWallet 的 17 样本评测、途迹的城市数据校验脚本、ResearchFlow 对年报的逐项核对，都是上线前的硬门槛。</div>
+    <div class="cell"><b class="k">模型只做它擅长的事</b>识别、分类、摘要交给模型；算术、校验、发布决策交给代码。这是三个项目共同的架构原则，也是控制幻觉的主要手段。途迹的路线规划干脆全部用确定性算法，只在生成陌生城市数据时调用模型。</div>
     <div class="cell"><b class="k">日常工具</b>高频使用 Claude Code、Codex；持续观察 Coding Agent 与 Agent 产品形态的演进，并把观察写成竞品拆解。</div>
   </div>
 </section>
