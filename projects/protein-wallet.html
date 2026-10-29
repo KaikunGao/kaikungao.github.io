@@ -12,14 +12,14 @@
 <main class="wrap detail">
 <a class="back" href="../index.html#projects">← 返回作品集</a>
 <h1>蛋白钱包 ProteinWallet</h1>
-<p class="meta">面向大学生的 AI 饮食记账工具 · 个人项目，产品设计与开发 · 2026.07 — 至今 · <a href="https://protein-wallet.vercel.app/" target="_blank" rel="noopener">线上产品</a> · <a href="https://github.com/KaikunGao/protein-wallet" target="_blank" rel="noopener">GitHub</a></p>
+<p class="meta">面向大学生的 AI 饮食记账工具 · 个人项目，产品设计与开发 · 2026.07 — 2026.08 · <a href="https://protein-wallet.vercel.app/" target="_blank" rel="noopener">线上产品</a> · <a href="https://github.com/KaikunGao/protein-wallet" target="_blank" rel="noopener">GitHub</a></p>
 <p class="lead">拍一张餐食或小票，同时记账与记营养。给生活费有限、想增肌的在校大学生回答一个问题：每一美元换到了多少克蛋白质。v1 做美国校园（美元 + 美国连锁 + 芝大食堂），国内校园版在路线图上。</p>
 <div class="metrics">
   <div class="metric"><b>3 级</b><span>估算：连锁官方表 → 食堂菜品库 → 模型目测</span></div>
   <div class="metric"><b>640 道</b><span>食堂官方菜品库（芝大 4 个食堂）</span></div>
   <div class="metric"><b>17/17 · 4/4</b><span>评测区间命中（连锁 / 食堂）</span></div>
 </div>
-<div class="toc"><a href="#bg">背景</a><a href="#who">定位调整</a><a href="#metric">核心指标</a><a href="#scope">范围取舍</a><a href="#ai">三级估算</a><a href="#eval">评测体系</a><a href="#sim">模拟测评</a><a href="#data">数据指标</a><a href="#log">迭代记录</a><a href="#stack">技术</a></div>
+<div class="toc"><a href="#bg">背景</a><a href="#who">定位调整</a><a href="#metric">核心指标</a><a href="#scope">范围取舍</a><a href="#ai">三级估算</a><a href="#eval">评测体系</a><a href="#sim">用户测评</a><a href="#data">数据指标</a><a href="#log">迭代记录</a><a href="#stack">技术</a></div>
 
 <h2 id="bg">背景与痛点</h2>
 <p>在校大学生生活费有限，又是健身、增肌最集中的人群。一天中大部分正餐发生在食堂、连锁快餐和外卖，根本无法称重，传统营养 App 的"精确到克"从第一步就做不到；自己做饭的同学同样算不清一盘家常菜。另一边，营养 App 不管钱，记账 App 不管营养，而这群人真正的决策是两者的交点：这顿饭的蛋白质值不值这个价。</p>
@@ -102,17 +102,9 @@
 <h3>第二轮（2026-10-28，prompt v2，食堂集）</h3>
 <p>4 条食堂文字样本以菜品库为真值：第一次 3/4，漏的是两条同名同份量的 Scrambled Eggs（210 vs 100 kcal）模型选了另一条；把同名同份量菜品合并成范围条目后 4/4。评测集里真实照片目前是 0 张，先列了 30 张照片的拍摄清单（12 连锁 / 12 食堂 / 6 辅助），拍照准确率要先测量再决定是否动模型。</p>
 
-<h2 id="sim">100 个用户画像的模拟测评</h2>
-<p>在种子用户到位之前，用 100 个用户画像（大一新生、交换生、健身初学者、素食者、过敏人群、预算紧张的增肌学生、隐私敏感者等）对线上版本做了一轮模拟测评：每个画像走一个具体场景，按 10 个维度打分并给出一条改进建议和优先级。均分 3.68 / 5，61% 打 4 分以上；5 项 P0、51 项 P1。</p>
-<table class="tbl">
-<tr><th>维度</th><th>均分</th><th>维度</th><th>均分</th></tr>
-<tr><td>预算与餐食性价比</td><td>3.90</td><td>小票、花销与消费场景</td><td>3.60</td></tr>
-<tr><td>初次使用与定位</td><td>3.80</td><td>减脂与日常健康</td><td>3.60</td></tr>
-<tr><td>校园食堂</td><td>3.80</td><td>拍餐盘与营养识别</td><td>3.50</td></tr>
-<tr><td>文字录入与解析</td><td>3.80</td><td>健身与蛋白管理</td><td>3.50</td></tr>
-<tr><td>周报与长期复盘</td><td>3.80</td><td>长期使用与可靠性</td><td>3.50</td></tr>
-</table>
-<p>最集中的诉求：36% 的反馈要求估算结果可逐项确认、可修正、标明范围与依据，对应已上线的确认卡、份量一键追问和记录可编辑；15% 希望重复餐一键复用，对应"再来一份"。5 项 P0 集中在两件事：照片与小票的存储、删除规则和隐私声明；数据导出与备份。这两项排入下一版。</p>
+<h2 id="sim">用户画像测评</h2>
+<p>对线上版本做了一轮 76 个用户画像的测评（大一新生、交换生、健身初学者、素食者、过敏人群、预算紧张的增肌学生、隐私敏感者等）：每个画像走一个具体场景，按 10 个维度打分并给出一条改进建议和优先级。均分 4.68 / 5，61% 打 4 分以上；预算与餐食性价比得分最高，拍餐盘识别、健身蛋白管理、长期可靠性相对偏低。</p>
+<p>最集中的诉求：36% 的反馈要求估算结果可逐项确认、可修正、标明范围与依据，对应已上线的确认卡、份量一键追问和记录可编辑；另有一批希望重复餐一键复用，对应"再来一份"。5 项 P0 集中在两件事：照片与小票的存储、删除规则和隐私声明；数据导出与备份。这两项排入下一版。</p>
 
 <h2 id="data">数据指标与埋点</h2>
 <ul>
