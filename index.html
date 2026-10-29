@@ -105,28 +105,28 @@
     <header>
       <h3>蛋白钱包 ProteinWallet</h3>
       <span class="badge">已上线</span>
-      <span class="meta">面向留学生的 AI 饮食记账工具 · 个人项目 · 2026.07 — 2026.09</span>
+      <span class="meta">面向大学生的 AI 饮食记账工具 · 个人项目 · 2026.07 — 至今</span>
     </header>
-    <p class="one-liner">拍一张小票，同时记账与记营养。自创核心指标"蛋白质单价（¢/g）"，把营养决策变成消费决策。</p>
+    <p class="one-liner">拍一张餐食或小票，同时记账与记营养。给生活费有限、想增肌的在校大学生回答一个问题：每一美元换到了多少克蛋白质。</p>
     <div class="pos">
-      <span><b>给谁</b>有增肌需求、对生活费敏感的在美留学生</span>
-      <span><b>解决什么</b>食堂和外卖没法称重，营养和钱分在两个 App 里</span>
-      <span><b>怎么衡量</b>周人均记录餐次、区间命中率、用户修正率、单次记录耗时</span>
+      <span><b>给谁</b>生活费有限、想增肌的在校大学生；v1 做美国校园，国内版在路线图</span>
+      <span><b>解决什么</b>食堂、连锁、外卖没法称重，营养和钱分在两个 App 里</span>
+      <span><b>怎么衡量</b>北极星：周人均记录餐次；评测：区间命中率与宽度；线上：修正率、份量按钮点击率</span>
     </div>
     <div class="demo">
       <div>
         <div class="metrics">
-          <div class="metric"><b>≤10 秒</b><span>单次记录目标</span></div>
-          <div class="metric"><b>17 / 17</b><span>首轮评测区间命中</span></div>
-          <div class="metric"><b>7 项</b><span>主动砍掉的功能</span></div>
+          <div class="metric"><b>3 级</b><span>估算：连锁官方表 → 食堂菜品库 → 模型目测</span></div>
+          <div class="metric"><b>640 道</b><span>食堂官方菜品库（芝大 4 个食堂）</span></div>
+          <div class="metric"><b>17/17 · 4/4</b><span>评测区间命中（连锁 / 食堂）</span></div>
         </div>
         <div class="grid4">
-          <div class="cell"><b class="k">01 · 项目背景</b><strong>竞品各管一半："吃得健康"和"花得起"分在两个 App。</strong>在美增肌时三餐多靠食堂和外卖，无法称重；对比 MyFitnessPal、Keep 等营养 App 与记账 App：前者靠条目搜索 + 手动克数且不管钱，后者不管营养。</div>
-          <div class="cell"><b class="k">02 · 痛点挖掘</b><strong>每一美元换多少克蛋白质。</strong>把留学生饮食重新定义为约束优化问题，自创核心指标<span class="num">蛋白质单价（¢/g）</span>，把营养决策变成消费决策，这是与现有产品的根本差异。</div>
-          <div class="cell"><b class="k">03 · 需求与优先级</b><strong>单次记录 ≤10 秒是生死线。</strong>MVP 只保留"记录→估算→差额→周报"一个闭环，为此设计拍小票、拍餐食、一句话、自炊双记录 4 种输入；写明 <span class="num">7 项 Non-goals</span>，主动砍掉饮食推荐、热量警告等功能以控制幻觉与伦理风险。</div>
-          <div class="cell"><b class="k">04 · 方案产出</b><strong>一份完整 PRD，再加"诚实的模糊"。</strong>PRD 含目标用户、核心指标、3 页面流程、Non-goals、数据模型与埋点；AI 采用"官方营养表优先、视觉估算兜底"两级策略，模型只做识别、算术交给代码，界面统一呈现区间 + 置信度 + 依据。</div>
-          <div class="cell"><b class="k">05 · 开发上线</b><strong>每步写死验收标准，宁可砍功能不延期。</strong>PRD 拆成 4 周 14 个 Step，一步一提交；5 家连锁官方营养数据逐家核对，剔除无法核实的来源；借助 Claude Code 开发，上线 Vercel。</div>
-          <div class="cell"><b class="k">06 · 结果与迭代</b><strong>埋点先于用户：事件表与北极星指标已就位。</strong>记录开始 / 完成 / 修正事件与单次耗时，以"周人均记录餐次"为北极星指标；首轮 17 样本评测区间命中率 <span class="num">100%</span>、高置信区间宽度 <span class="num">20%</span>。下一步：30 张照片评测集；5–8 名种子用户验证次周留存。</div>
+          <div class="cell"><b class="k">01 · 项目背景</b><strong>竞品各管一半："吃得健康"和"花得起"分在两个 App。</strong>生活费有限又想增肌的在校大学生，三餐多靠食堂、连锁和外卖，无法称重；MyFitnessPal、Keep 等营养 App 靠条目搜索 + 手动克数且不管钱，记账 App 不管营养。</div>
+          <div class="cell"><b class="k">02 · 痛点挖掘</b><strong>每一美元换多少克蛋白质；定位收敛到"生活费有限的大学生"。</strong>把饮食重新定义为约束优化问题，自创核心指标<span class="num">蛋白质单价（¢/g）</span>；最初写的是"留学生"，复盘发现没有一个功能是留学生专属的，于是改为更准的画像，v1 做美国校园，国内版进路线图。</div>
+          <div class="cell"><b class="k">03 · 需求与优先级</b><strong>单次记录 ≤10 秒是生死线；先量误差，再决定动不动模型。</strong>MVP 只保留"记录→估算→差额→周报"一个闭环；写明 <span class="num">7 项 Non-goals</span>，砍掉饮食推荐、热量警告；否决"爬食物照片训模型"的提议：误差大头在份量不在认菜，先建 30 张照片评测集。</div>
+          <div class="cell"><b class="k">04 · 方案产出</b><strong>PRD + 三级估算 + "诚实的模糊"。</strong>连锁官方营养表 → 学校食堂官方菜品库（<span class="num">640 道菜</span>）→ 模型目测，模型只做识别、算术交给代码；界面统一呈现区间 + 置信度 + 依据，模型对份量没把握时做成一键追问（×0.5 / 1 / 1.5 / 2）。</div>
+          <div class="cell"><b class="k">05 · 开发上线</b><strong>数据来源分级，核实不了的不许叫"官方"。</strong>PRD 拆成 4 周 14 个 Step，每步写死验收标准；17 家连锁里只有逐行核对过官网的 5 家能标"官方数据"，9 家未核实的降级为"参考数据·未核实"；借助 Claude Code 开发，上线 Vercel。</div>
+          <div class="cell"><b class="k">06 · 结果与迭代</b><strong>围绕北极星迭代：把一次记录压到两秒。</strong>埋点记录开始 / 完成 / 修正事件；评测区间命中率连锁 17/17、食堂 4/4；针对大学生三餐重复度高加入"再来一份"、餐卡单价、语音输入、记录可编辑、周报分享图。下一步：30 张照片评测基线；5–8 名种子用户测次周留存。</div>
         </div>
       </div>
       <div>
@@ -255,7 +255,7 @@
   <h2 class="sec-title">工作方式</h2>
   <div class="ways">
     <div class="cell"><b class="k">用 Claude Code 构建</b>三个项目的大部分代码由 Claude Code 写出。我负责定义问题、写 PRD、设计评测、决定砍什么、验收结果；每一个取舍我都能讲清楚为什么。</div>
-    <div class="cell"><b class="k">评测先于上线</b>先建真值评测集和上线标准，再谈功能。ProteinWallet 的 17 样本评测、途迹的城市数据校验脚本、ResearchFlow 对年报的逐项核对，都是上线前的硬门槛。</div>
+    <div class="cell"><b class="k">评测先于上线</b>先建真值评测集和上线标准，再谈功能。ProteinWallet 的评测集与数据来源分级、途迹的城市数据校验脚本、ResearchFlow 对年报的逐项核对，都是上线前的硬门槛。</div>
     <div class="cell"><b class="k">模型只做它擅长的事</b>识别、分类、摘要交给模型；算术、校验、发布决策交给代码。这是三个项目共同的架构原则，也是控制幻觉的主要手段。途迹的路线规划干脆全部用确定性算法，只在生成陌生城市数据时调用模型。</div>
     <div class="cell"><b class="k">日常工具</b>高频使用 Claude Code、Codex；持续观察 Coding Agent 与 Agent 产品形态的演进，并把观察写成竞品拆解。</div>
   </div>
