@@ -34,7 +34,7 @@
       <li><span class="deg">本科</span><b>威斯康星大学麦迪逊分校</b><span class="major">数据科学、统计学双学位</span></li>
     </ul>
     <ul class="strengths">
-      <li><b>能独立闭环：</b>三个 AI 产品都是自己从背景、痛点、PRD 做到上线与复盘，知道一个功能从想法到可用要经过哪些取舍，也知道上线后该看哪几个数字。</li>
+      <li><b>能独立闭环：</b>三个产品都是自己从用户复盘、竞品对比、PRD 做到可试用的产品、上线和埋点，知道一个功能从想法到可用要经过哪些取舍，也知道上线后该看哪几个数字。</li>
       <li><b>评测与数据思维：</b>先定真值评测集和上线标准再做功能；科研里用数据判定 LLM 信号的边界，不凭感觉下结论。</li>
       <li><b>工程与数据底子：</b>数据科学与统计学双学位、计算机硕士在读，看得懂代码、算得清指标，能和研发直接对话。</li>
     </ul>
@@ -86,12 +86,12 @@
       <span>取舍</span><i>→</i><span>分天</span><i>→</i><span>排序</span><i>→</i><span>排程</span><i>→</i><span>配餐</span>
     </div>
     <div class="grid4 grid6">
-      <div class="cell"><b class="k">01 · 项目背景</b><strong>攻略散在收藏夹里，顺序靠人脑拼。</strong>和同学做自由行攻略，常见结果是走回头路、闭馆扑空、饭点凑合；现有攻略 App 只给景点列表，不回答"先去哪、后去哪"。</div>
-      <div class="cell"><b class="k">02 · 痛点挖掘</b><strong>痛点不在找景点，在排顺序。</strong>锁定"2–4 天去一座陌生城市"的自由行用户，把产品承诺定为一句话"不走回头路"，攻略拆成 5 步，每步对应一条可验证的规则。</div>
-      <div class="cell"><b class="k">03 · 需求与优先级</b><strong>先做不依赖外部服务的事。</strong>需求池按价值 / 难度排成近、中、远期：先路线引擎与 9 座城市数据，再拖拽、饮食偏好、多方案对比、分享等 7 项拓展；天气、真实路况、账号后置。</div>
-      <div class="cell"><b class="k">04 · 方案产出</b><strong>算法给初稿，用户有决定权。</strong>k-means 按地理分天，Held-Karp 精确最短路径 + 时段偏好（夜景压轴）定顺序，按开放时间排程、避开闭馆日；拖拽调序后自动重算，4 套方案并排对比。</div>
-      <div class="cell"><b class="k">05 · 开发上线</b><strong>数据不过校验不上线。</strong>借助 Claude Code 独立完成全栈开发；198 个景点、172 家餐厅经校验脚本 0 错误后才注册；自建 Cloudflare 代理让访客免填 Key，按人 / 全站每日限流控成本；GitHub Pages 自动部署。</div>
-      <div class="cell"><b class="k">06 · 结果与迭代</b><strong>按用户反馈改了三处。</strong>远郊一日游有人爱有人嫌，改成可开关；出发点从模糊的市中心改为可精确到酒店；增加步行 / 公共交通 / 打车出行方式，方便比较各方案的时间与成本。下一步：接入真实路况与天气；5 人对照测试量化规划耗时。</div>
+      <div class="cell"><b class="k">01 · 项目背景</b><strong>和同学复盘做攻略：景点有了，顺序靠人脑拼。</strong>反复出现走回头路、闭馆扑空、饭点凑合三类问题；现有攻略产品给的是景点列表和评分，不回答"先去哪、后去哪"。</div>
+      <div class="cell"><b class="k">02 · 痛点挖掘</b><strong>一句话产品承诺："不走回头路"。</strong>锁定"2–4 天去一座陌生城市"的自由行用户；核心痛点不在找景点而在排顺序，于是把攻略拆成"取舍→分天→排序→排程→配餐"5 步，每步对应一条可验证的规则。</div>
+      <div class="cell"><b class="k">03 · 需求与优先级</b><strong>需求池 + 价值 / 难度两维排路线图。</strong>先做路线引擎与 9 座城市数据，再做拖拽、饮食偏好、多方案对比、分享等 7 项拓展；天气、真实路况、账号等依赖外部服务的明确后置。</div>
+      <div class="cell"><b class="k">04 · 方案产出</b><strong>不画静态原型图，直接做可试用的产品。</strong>借助 Claude Code 把方案做成可点击的真实产品给同学用；路线用 k-means 分天 + Held-Karp 最短路径 + 时段偏好排程，AI 只用于生成无内置数据的城市；原则是"算法给初稿、用户有决定权"。</div>
+      <div class="cell"><b class="k">05 · 开发上线</b><strong>数据不过校验不上线。</strong>198 个景点、172 家餐厅经校验脚本 <span class="num">0 错误</span>后才注册进应用；自建 Cloudflare 代理让访客免填 Key，按人 / 全站每日限流控成本；GitHub Pages 自动部署，无需注册即可用。</div>
+      <div class="cell"><b class="k">06 · 结果与迭代</b><strong>按同学试用反馈改了三处。</strong>远郊一日游有人爱有人嫌，改成可开关；出发点从模糊的市中心改为可精确到酒店；增加步行 / 公共交通 / 打车出行方式，方便比较各方案的时间与成本。北京 3 日实测省钱方案人均 ¥1052→¥806（<span class="num">−23%</span>）。下一步：埋点规划耗时与方案切换率，做 5 人对照测试。</div>
     </div>
     <div class="links">
       <a class="more" href="projects/tuji.html">查看详情 →</a>
@@ -121,12 +121,12 @@
           <div class="metric"><b>7 项</b><span>主动砍掉的功能</span></div>
         </div>
         <div class="grid4">
-          <div class="cell"><b class="k">01 · 项目背景</b><strong>"吃得健康"和"花得起"割裂在两个产品里。</strong>在美增肌时三餐多靠食堂和外卖，无法称重；营养 App 不管钱，记账 App 不管营养。</div>
-          <div class="cell"><b class="k">02 · 痛点挖掘</b><strong>每一美元换多少克蛋白质。</strong>把留学生饮食重新定义为约束优化问题，自创核心指标<span class="num">蛋白质单价（¢/g）</span>，把营养决策变成消费决策，这是与 MyFitnessPal 等产品的根本差异。</div>
-          <div class="cell"><b class="k">03 · 需求与优先级</b><strong>单次记录 ≤10 秒是生死线。</strong>MVP 只保留"记录→估算→差额→周报"一个闭环，为此设计拍小票、拍餐食、一句话、自炊双记录 4 种输入；砍掉饮食推荐、热量警告等 <span class="num">7 项功能</span>控制幻觉与伦理风险。</div>
-          <div class="cell"><b class="k">04 · 方案产出</b><strong>诚实的模糊：区间 + 置信度 + 依据。</strong>完整 PRD（目标用户、Non-goals 表、3 页面流程、数据模型与埋点）；AI 采用"官方营养表优先、视觉估算兜底"两级策略，模型只做识别、算术交给代码。</div>
+          <div class="cell"><b class="k">01 · 项目背景</b><strong>竞品各管一半："吃得健康"和"花得起"分在两个 App。</strong>在美增肌时三餐多靠食堂和外卖，无法称重；对比 MyFitnessPal、Keep 等营养 App 与记账 App：前者靠条目搜索 + 手动克数且不管钱，后者不管营养。</div>
+          <div class="cell"><b class="k">02 · 痛点挖掘</b><strong>每一美元换多少克蛋白质。</strong>把留学生饮食重新定义为约束优化问题，自创核心指标<span class="num">蛋白质单价（¢/g）</span>，把营养决策变成消费决策，这是与现有产品的根本差异。</div>
+          <div class="cell"><b class="k">03 · 需求与优先级</b><strong>单次记录 ≤10 秒是生死线。</strong>MVP 只保留"记录→估算→差额→周报"一个闭环，为此设计拍小票、拍餐食、一句话、自炊双记录 4 种输入；写明 <span class="num">7 项 Non-goals</span>，主动砍掉饮食推荐、热量警告等功能以控制幻觉与伦理风险。</div>
+          <div class="cell"><b class="k">04 · 方案产出</b><strong>一份完整 PRD，再加"诚实的模糊"。</strong>PRD 含目标用户、核心指标、3 页面流程、Non-goals、数据模型与埋点；AI 采用"官方营养表优先、视觉估算兜底"两级策略，模型只做识别、算术交给代码，界面统一呈现区间 + 置信度 + 依据。</div>
           <div class="cell"><b class="k">05 · 开发上线</b><strong>每步写死验收标准，宁可砍功能不延期。</strong>PRD 拆成 4 周 14 个 Step，一步一提交；5 家连锁官方营养数据逐家核对，剔除无法核实的来源；借助 Claude Code 开发，上线 Vercel。</div>
-          <div class="cell"><b class="k">06 · 结果与迭代</b><strong>首轮评测 17/17 命中，真实用户数据还没有。</strong>区间命中率 <span class="num">100%</span>、高置信区间宽度 <span class="num">20%</span>、平均耗时 6.2 秒；已埋点修正率与耗时。下一步：30 张照片评测集；5–8 名种子用户验证周人均记录 ≥10 餐与次周留存。</div>
+          <div class="cell"><b class="k">06 · 结果与迭代</b><strong>埋点先于用户：事件表与北极星指标已就位。</strong>记录开始 / 完成 / 修正事件与单次耗时，以"周人均记录餐次"为北极星指标；首轮 17 样本评测区间命中率 <span class="num">100%</span>、高置信区间宽度 <span class="num">20%</span>。下一步：30 张照片评测集；5–8 名种子用户验证次周留存。</div>
         </div>
       </div>
       <div>
@@ -168,12 +168,12 @@
           <span>数据导入</span><i>→</i><span>标准化</span><i>→</i><span>指标计算</span><i>→</i><span>可视化</span><i>→</i><span>异常告警</span><i>→</i><span>报告生成</span>
         </div>
         <div class="grid4">
-          <div class="cell"><b class="k">01 · 项目背景</b><strong>财报季的时间花在了非研究的事上。</strong>2024 年夏在申万宏源医药组实习，维护约 30 家公司的财务跟踪底表，却没有一个面向研究员工作流的轻量工具。</div>
+          <div class="cell"><b class="k">01 · 项目背景</b><strong>从实习里复盘出用户：研究员的时间花在了非研究的事上。</strong>2024 年夏在申万宏源医药组实习，维护约 30 家公司的财务跟踪底表；现有工具链是 Wind / Choice 导出加 Excel 手工整理，没有面向研究员工作流的轻量产品。</div>
           <div class="cell"><b class="k">02 · 痛点挖掘</b><strong>4 类重复劳动，每季度重来一遍。</strong>底表重复更新、单季度拆分易错、点评段落机械填数、标准图重复制作；目标用户是行业研究员、数据分析师与实习生。</div>
-          <div class="cell"><b class="k">03 · 需求与优先级</b><strong>口径固定，不给自由公式。</strong>第一版聚焦 A 股医药生物行业；明确不做告警推送、PDF 模板、行情估值、多用户与任何大模型调用，价值在确定性的数据管道。</div>
-          <div class="cell"><b class="k">04 · 方案产出</b><strong>从导入到报告的全链路。</strong>PRD 打通"数据导入→标准化→指标计算→可视化→异常告警→报告生成"：8 个功能模块、33 个统一口径指标、默认 7 条告警规则、4 类 Word 报告。</div>
+          <div class="cell"><b class="k">03 · 需求与优先级</b><strong>口径固定，不给自由公式；不做的比做的多。</strong>第一版聚焦 A 股医药生物行业；PRD 里写明不做告警推送、PDF 模板、行情估值、多用户与任何大模型调用，价值在确定性的数据管道。</div>
+          <div class="cell"><b class="k">04 · 方案产出</b><strong>PRD 打通从导入到报告的全链路。</strong>"数据导入→标准化→指标计算→可视化→异常告警→报告生成"：8 个功能模块、33 个统一口径指标、默认 7 条告警规则、4 类 Word 报告；以可运行产品代替原型图。</div>
           <div class="cell"><b class="k">05 · 开发上线</b><strong>缺数据时留空，而不是算错。</strong>借助 Claude Code 独立完成全栈开发（Next.js + FastAPI）；接入东方财富公开接口，无 Wind 终端也能用；代码开源。</div>
-          <div class="cell"><b class="k">06 · 结果与迭代</b><strong>对年报逐项核对，同比误差 ≤0.01 pct。</strong>以恒瑞医药 2023、2024 年报核对，营收与净利润口径完全一致；作为个人研究工具日常使用。下一步：找 2–3 位研究员试点，量化单家公司底表更新时间的变化。</div>
+          <div class="cell"><b class="k">06 · 结果与迭代</b><strong>对年报逐项核对，同比误差 ≤0.01 pct。</strong>以恒瑞医药 2023、2024 年报核对，营收与净利润口径完全一致；作为个人研究工具日常使用。下一步：找 2–3 位研究员试点，记录单家公司底表更新时间的变化。</div>
         </div>
       </div>
       <div>
