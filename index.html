@@ -79,7 +79,7 @@
     <p class="try-note"><span>点击后在窗口内加载真实应用，选一座城市、点"开始规划"即可生成行程，拖拽调序、换餐厅、切换方案都能试。</span><a href="https://kaikungao.github.io/tuji-travel-planner/" target="_blank" rel="noopener">新窗口打开 ↗</a></p>
     <div class="metrics">
       <div class="metric"><b>198</b><span>内置景点，9 座城市 172 家餐厅，全部通过校验</span></div>
-      <div class="metric"><b>4 套</b><span>推荐 / 省时 / 省钱 / 打卡多 方案并排对比</span></div>
+      <div class="metric"><b>3.65 / 5</b><span>100 个用户画像模拟测评均分</span></div>
       <div class="metric"><b>−23%</b><span>省钱方案人均成本（北京 3 日：¥1052 → ¥806）</span></div>
     </div>
     <div class="flow">
@@ -91,7 +91,7 @@
       <div class="cell"><b class="k">03 · 需求与优先级</b><strong>需求池 + 价值 / 难度两维排路线图。</strong>先做路线引擎与 9 座城市数据，再做拖拽、饮食偏好、多方案对比、分享等 7 项拓展；天气、真实路况、账号等依赖外部服务的明确后置。</div>
       <div class="cell"><b class="k">04 · 方案产出</b><strong>不画静态原型图，直接做可试用的产品。</strong>借助 Claude Code 把方案做成可点击的真实产品给同学用；路线用 k-means 分天 + Held-Karp 最短路径 + 时段偏好排程，AI 只用于生成无内置数据的城市；原则是"算法给初稿、用户有决定权"。</div>
       <div class="cell"><b class="k">05 · 开发上线</b><strong>数据不过校验不上线。</strong>198 个景点、172 家餐厅经校验脚本 <span class="num">0 错误</span>后才注册进应用；自建 Cloudflare 代理让访客免填 Key，按人 / 全站每日限流控成本；GitHub Pages 自动部署，无需注册即可用。</div>
-      <div class="cell"><b class="k">06 · 结果与迭代</b><strong>按同学试用反馈改了三处。</strong>远郊一日游有人爱有人嫌，改成可开关；出发点从模糊的市中心改为可精确到酒店；增加步行 / 公共交通 / 打车出行方式，方便比较各方案的时间与成本。北京 3 日实测省钱方案人均 ¥1052→¥806（<span class="num">−23%</span>）。下一步：埋点规划耗时与方案切换率，做 5 人对照测试。</div>
+      <div class="cell"><b class="k">06 · 结果与迭代</b><strong>100 个用户画像模拟测评：均分 3.65 / 5。</strong>保存分享 3.9、预算决策 3.8 得分最高，路线排程、餐饮推荐、AI 能力 3.5 最低；北京 3 日实测省钱方案人均 ¥1052→¥806（<span class="num">−23%</span>）。按反馈增加远郊一日游开关、酒店精确出发点、出行方式对比；归并出 15 项 P0 排入下一版：忌口安全提示、真实交通时间、行程备份与恢复、分享脱敏、AI 生成城市的可信度标识。</div>
     </div>
     <div class="links">
       <a class="more" href="projects/tuji.html">查看详情 →</a>
@@ -129,15 +129,15 @@
     <div class="metrics">
       <div class="metric"><b>3 级</b><span>估算：连锁官方表 → 食堂菜品库 → 模型目测</span></div>
       <div class="metric"><b>640 道</b><span>食堂官方菜品库（芝大 4 个食堂）</span></div>
-      <div class="metric"><b>17/17 · 4/4</b><span>评测区间命中（连锁 / 食堂）</span></div>
+      <div class="metric"><b>3.68 / 5</b><span>100 个用户画像模拟测评均分，61% 打 4 分以上</span></div>
     </div>
     <div class="grid4 grid6">
       <div class="cell"><b class="k">01 · 项目背景</b><strong>竞品各管一半："吃得健康"和"花得起"分在两个 App。</strong>生活费有限又想增肌的在校大学生，三餐多靠食堂、连锁和外卖，无法称重；MyFitnessPal、Keep 等营养 App 靠条目搜索 + 手动克数且不管钱，记账 App 不管营养。</div>
-      <div class="cell"><b class="k">02 · 痛点挖掘</b><strong>每一美元换多少克蛋白质；定位收敛到"生活费有限的大学生"。</strong>把饮食重新定义为约束优化问题，自创核心指标<span class="num">蛋白质单价（¢/g）</span>；最初写的是"留学生"，复盘发现没有一个功能是留学生专属的，于是改为更准的画像，v1 做美国校园，国内版进路线图。</div>
-      <div class="cell"><b class="k">03 · 需求与优先级</b><strong>单次记录 ≤10 秒是生死线；先量误差，再决定动不动模型。</strong>MVP 只保留"记录→估算→差额→周报"一个闭环；写明 <span class="num">7 项 Non-goals</span>，砍掉饮食推荐、热量警告；否决"爬食物照片训模型"的提议：误差大头在份量不在认菜，先建 30 张照片评测集。</div>
+      <div class="cell"><b class="k">02 · 痛点挖掘</b><strong>每一美元换多少克蛋白质。</strong>把大学生饮食重新定义为约束优化问题，自创核心指标<span class="num">蛋白质单价（¢/g）</span>，把营养决策变成消费决策，这是与现有产品的根本差异。</div>
+      <div class="cell"><b class="k">03 · 需求与优先级</b><strong>单次记录 ≤10 秒是生死线。</strong>MVP 只保留"记录→估算→差额→周报"一个闭环，为此设计拍小票、拍餐食、一句话、自炊双记录 4 种输入；优先把食堂这一最高频场景的估算做准，饮食推荐、热量警告等明确不做。</div>
       <div class="cell"><b class="k">04 · 方案产出</b><strong>PRD + 三级估算 + "诚实的模糊"。</strong>连锁官方营养表 → 学校食堂官方菜品库（<span class="num">640 道菜</span>）→ 模型目测，模型只做识别、算术交给代码；界面统一呈现区间 + 置信度 + 依据，模型对份量没把握时做成一键追问（×0.5 / 1 / 1.5 / 2）。</div>
       <div class="cell"><b class="k">05 · 开发上线</b><strong>数据来源分级，核实不了的不许叫"官方"。</strong>PRD 拆成 4 周 14 个 Step，每步写死验收标准；17 家连锁里只有逐行核对过官网的 5 家能标"官方数据"，9 家未核实的降级为"参考数据·未核实"；借助 Claude Code 开发，上线 Vercel。</div>
-      <div class="cell"><b class="k">06 · 结果与迭代</b><strong>围绕北极星迭代：把一次记录压到两秒。</strong>埋点记录开始 / 完成 / 修正事件；评测区间命中率连锁 17/17、食堂 4/4；针对大学生三餐重复度高加入"再来一份"、餐卡单价、语音输入、记录可编辑、周报分享图。下一步：30 张照片评测基线；5–8 名种子用户测次周留存。</div>
+      <div class="cell"><b class="k">06 · 结果与迭代</b><strong>100 个用户画像模拟测评：均分 3.68 / 5，61% 打 4 分以上。</strong>预算与性价比 3.9 得分最高，拍餐盘识别、长期可靠性 3.5 最低；36% 的反馈要求估算可确认、可修正，据此上线份量一键追问、记录可编辑、"再来一份"。评测区间命中连锁 17/17、食堂 4/4。5 项 P0 集中在照片与小票隐私、数据导出，排入下一版。</div>
     </div>
     <div class="links">
       <a class="more" href="projects/protein-wallet.html">查看详情 →</a>

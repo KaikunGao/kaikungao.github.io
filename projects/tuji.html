@@ -22,7 +22,7 @@
 <div class="browser"><div class="bar" aria-hidden="true"><i></i><i></i><i></i><span class="url">kaikungao.github.io/tuji-travel-planner · 北京 3 日示例</span></div><div class="screen"><img src="../assets/tuji-plan-hd.jpg" alt="途迹行程页：左侧按天的时间线，右侧地图上按天着色的路线与编号站点" width="1600" height="1067"><button type="button" class="demo-btn" data-src="https://kaikungao.github.io/tuji-travel-planner/" data-title="途迹 在线试用">直接试用：在这里打开线上应用</button></div></div>
 <p class="try-note"><span>点击后在窗口内加载真实应用，可直接生成行程。</span><a href="https://kaikungao.github.io/tuji-travel-planner/" target="_blank" rel="noopener">新窗口打开 ↗</a></p>
 <div class="shots cap two"><figure><img src="../assets/tuji-home-hd.jpg" alt="途迹首页" width="1600" height="1067"><figcaption>首页：说一个城市，剩下的交给途迹；9 座内置城市卡片，其他城市由 AI 生成。</figcaption></figure><figure><img src="../assets/tuji-plan-hd.jpg" alt="途迹行程页" width="1600" height="1067"><figcaption>行程页：左侧按天的时间线可拖拽调序，右侧地图按天着色、编号站点；顶部一行是景点数、餐厅数、总路程、人均预算。</figcaption></figure></div>
-<div class="toc"><a href="#bg">项目背景</a><a href="#pain">痛点挖掘</a><a href="#priority">需求与优先级</a><a href="#solution">方案产出</a><a href="#ship">开发上线与项目管理</a><a href="#result">结果与迭代</a><a href="#stack">技术</a></div>
+<div class="toc"><a href="#bg">项目背景</a><a href="#pain">痛点挖掘</a><a href="#priority">需求与优先级</a><a href="#solution">方案产出</a><a href="#ship">开发上线与项目管理</a><a href="#eval">模拟测评</a><a href="#result">结果与迭代</a><a href="#stack">技术</a></div>
 
 <h2 id="bg">项目背景</h2>
 <p>和同学做城市自由行攻略时，景点散落在收藏夹和小红书笔记里，先后顺序靠人脑拼。常见结果有三种：走回头路，上午在城东、中午跑城西、下午又回城东；到门口才发现闭馆或当天不开放；到了饭点就近凑合，错过本来想吃的店。</p>
@@ -76,6 +76,18 @@
 <li><b>发布：</b>GitHub Actions 自动构建并发布到 GitHub Pages；中英双语 README、MIT 许可证，开放城市数据贡献。</li>
 </ul>
 
+<h2 id="eval">100 个用户画像的模拟测评</h2>
+<p>在拿到真实用户之前，用 100 个用户画像（学生、家庭、美食导向、无障碍需求、远郊游客等）对线上版本做了一轮模拟测评：每个画像走一个具体场景，按 10 个维度打分并提出改进建议，再按 P0–P3 归并。均分 3.65 / 5，产出 15 项 P0、45 项 P1。</p>
+<table class="tbl">
+<tr><th>维度</th><th>均分</th><th>P0 数</th><th>维度</th><th>均分</th><th>P0 数</th></tr>
+<tr><td>保存分享</td><td>3.90</td><td>2</td><td>首次上手</td><td>3.70</td><td>0</td></tr>
+<tr><td>预算决策</td><td>3.80</td><td>0</td><td>推荐偏好</td><td>3.70</td><td>1</td></tr>
+<tr><td>编辑调整</td><td>3.80</td><td>1</td><td>特殊场景</td><td>3.60</td><td>2</td></tr>
+<tr><td>路线排程</td><td>3.50</td><td>2</td><td>餐饮推荐</td><td>3.50</td><td>4</td></tr>
+<tr><td>移动无障碍</td><td>3.50</td><td>0</td><td>AI 能力</td><td>3.50</td><td>3</td></tr>
+</table>
+<p>排在最前面的 P0：忌口 / 过敏 / 清真 / 素食要把"软匹配"和"严格安全要求"分开，不确定时提示人工核实；交通时间标明是估算，优先接真实导航校核；保存后提醒备份、换方案自动快照、支持恢复；分享前提示酒店住址等可能公开的信息并允许匿名化；AI 生成的城市显示剩余额度、来源与时间戳。</p>
+
 <h2 id="result">结果与迭代</h2>
 <table class="tbl">
 <tr><th>指标</th><th>结果</th></tr>
@@ -84,8 +96,9 @@
 <tr><td>AI 生成任意城市</td><td>上线当天实测南京：16 个景点，约 2 分钟</td></tr>
 <tr><td>用户反馈迭代</td><td>远郊一日游开关、酒店精确出发点、四种出行方式对比</td></tr>
 </table>
-<p>如实说明：目前没有真实用户规模与留存数据，"规划省了多少时间"也还没有测量。下一步按优先级：</p>
+<p>如实说明：模拟测评不是真实用户，目前没有真实用户规模与留存数据，"规划省了多少时间"也还没有测量。下一步按优先级：</p>
 <ol>
+<li>处理 15 项 P0，先做忌口安全提示、交通时间标注与行程备份。</li>
 <li>做 5 人对照测试：同一城市 3 日行程，手工做攻略 vs 用途迹，记录耗时与回头路次数。</li>
 <li>接入真实路径与公交线路、天气与节假日提示，把"直线 × 系数"的时间估算换成真实路况。</li>
 <li>补单元测试与 CI，改算法时不再靠手工试跑。</li>
