@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>高凯堃 · AI 产品作品集</title>
-<meta name="description" content="高凯堃的 AI 产品作品集：途迹 Tuji Travel、ProteinWallet、ResearchFlow 三个项目，每个按背景、痛点、需求优先级、方案、开发上线、结果与迭代展示，以及 LLM 新闻信号与投资组合决策研究。">
+<meta name="description" content="高凯堃的 AI 产品作品集：途迹 Tuji Travel、ProteinWallet 两个项目，每个按背景、痛点、需求优先级、方案、开发上线、结果与迭代展示，以及 LLM 新闻信号与投资组合决策研究。">
 <meta property="og:title" content="高凯堃 · AI 产品作品集">
-<meta property="og:description" content="三个从痛点、PRD 到上线与复盘的 AI 产品项目，两段数据与评测驱动的科研。">
+<meta property="og:description" content="两个从痛点、PRD 到上线与复盘的 AI 产品项目，两段数据与评测驱动的科研。">
 <meta property="og:type" content="website">
 <link rel="stylesheet" href="styles.css">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>◎</text></svg>">
@@ -34,7 +34,7 @@
       <li><span class="deg">本科</span><b>威斯康星大学麦迪逊分校</b><span class="major">数据科学、统计学双学位</span></li>
     </ul>
     <ul class="strengths">
-      <li><b>端到端产品能力：</b>独立完成三个 AI 产品从用户研究、竞品分析、PRD 到原型、上线与数据埋点的全流程，具备需求优先级判断与范围取舍能力，并以北极星指标和评测体系衡量结果。</li>
+      <li><b>端到端产品能力：</b>独立完成两个 AI 产品从用户研究、竞品分析、PRD 到原型、上线与数据埋点的全流程，具备需求优先级判断与范围取舍能力，并以北极星指标和评测体系衡量结果。</li>
       <li><b>评测驱动与数据决策：</b>在功能开发前建立真值评测集与上线标准；科研中通过显著性检验与消融实验界定 LLM 信号的适用边界，结论以数据为依据。</li>
       <li><b>技术与数据基础：</b>数据科学、统计学双学位，计算机科学硕士在读；熟悉代码实现与指标计算，可与研发高效协作。</li>
     </ul>
@@ -146,60 +146,6 @@
     </div>
   </article>
 
-<!-- ResearchFlow -->
-  <article class="card">
-    <header>
-      <h3>ResearchFlow</h3>
-      <span class="badge">开源</span>
-      <span class="meta">券商财务研究自动化平台 · 个人项目 · 2026.02 — 2026.05</span>
-    </header>
-    <p class="one-liner">把券商研究员财报季靠手工和脚本完成的数据整理、制图与点评填数产品化。</p>
-    <div class="pos">
-      <span><b>给谁</b>行业研究员、研究助理与实习生，覆盖 10 到 30 家公司</span>
-      <span><b>解决什么</b>财报季 4 类重复劳动：更底表、拆单季、填点评、画标准图</span>
-      <span><b>怎么衡量</b>与年报公告的口径一致性、同比误差；下一步测单家公司底表更新时间</span>
-    </div>
-    <div class="demo">
-      <div>
-        <div class="metrics">
-          <div class="metric"><b>33</b><span>统一口径的财务指标</span></div>
-          <div class="metric"><b>8</b><span>功能模块，全链路打通</span></div>
-          <div class="metric"><b>≤0.01 pct</b><span>对年报核对的同比误差</span></div>
-        </div>
-        <div class="flow">
-          <span>数据导入</span><i>→</i><span>标准化</span><i>→</i><span>指标计算</span><i>→</i><span>可视化</span><i>→</i><span>异常告警</span><i>→</i><span>报告生成</span>
-        </div>
-        <div class="grid4">
-          <div class="cell"><b class="k">01 · 项目背景</b><strong>从实习里复盘出用户：研究员的时间花在了非研究的事上。</strong>2024 年夏在申万宏源医药组实习，维护约 30 家公司的财务跟踪底表；现有工具链是 Wind / Choice 导出加 Excel 手工整理，没有面向研究员工作流的轻量产品。</div>
-          <div class="cell"><b class="k">02 · 痛点挖掘</b><strong>4 类重复劳动，每季度重来一遍。</strong>底表重复更新、单季度拆分易错、点评段落机械填数、标准图重复制作；目标用户是行业研究员、数据分析师与实习生。</div>
-          <div class="cell"><b class="k">03 · 需求与优先级</b><strong>口径固定，不给自由公式；不做的比做的多。</strong>第一版聚焦 A 股医药生物行业；PRD 里写明不做告警推送、PDF 模板、行情估值、多用户与任何大模型调用，价值在确定性的数据管道。</div>
-          <div class="cell"><b class="k">04 · 方案产出</b><strong>PRD 打通从导入到报告的全链路。</strong>"数据导入→标准化→指标计算→可视化→异常告警→报告生成"：8 个功能模块、33 个统一口径指标、默认 7 条告警规则、4 类 Word 报告；以可运行产品代替原型图。</div>
-          <div class="cell"><b class="k">05 · 开发上线</b><strong>缺数据时留空，而不是算错。</strong>借助 Claude Code 独立完成全栈开发（Next.js + FastAPI）；接入东方财富公开接口，无 Wind 终端也能用；代码开源。</div>
-          <div class="cell"><b class="k">06 · 结果与迭代</b><strong>对年报逐项核对，同比误差 ≤0.01 pct。</strong>以恒瑞医药 2023、2024 年报核对，营收与净利润口径完全一致；作为个人研究工具日常使用。下一步：找 2–3 位研究员试点，记录单家公司底表更新时间的变化。</div>
-        </div>
-      </div>
-      <div>
-        <div class="cover">
-          <div class="win" aria-hidden="true">
-            <div class="bar"><i></i><i></i><i></i></div>
-            <div class="body">
-              <div class="side"><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
-              <div class="main">
-                <div class="kpis"><div class="kpi"><b>+12.4%</b><span>营收同比</span></div><div class="kpi"><b>84.6%</b><span>毛利率</span></div><div class="kpi"><b>3</b><span>活跃告警</span></div></div>
-                <div class="chart"><i style="height:38%"></i><i style="height:46%"></i><i style="height:52%"></i><i style="height:60%"></i><i style="height:74%"></i><i style="height:88%"></i></div>
-                <div class="cap"><span>单季度营收</span><span>资料来源：公司公告</span></div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <p class="cover-note">界面示意：财报速览页</p>
-      </div>
-    </div>
-    <div class="links">
-      <a class="more" href="projects/researchflow.html">查看详情 →</a>
-      <a href="https://github.com/KaikunGao/researchflow" target="_blank" rel="noopener">GitHub</a>
-    </div>
-  </article>
 
 </section>
 
@@ -256,9 +202,9 @@
 <section id="way">
   <h2 class="sec-title">工作方式</h2>
   <div class="ways">
-    <div class="cell"><b class="k">用 Claude Code 构建</b>三个项目的大部分代码由 Claude Code 生成。我负责问题定义、PRD、评测设计、范围取舍与验收；每一项取舍都有明确的理由和记录。</div>
-    <div class="cell"><b class="k">评测先于上线</b>先建立真值评测集和上线标准，再开发功能。ProteinWallet 的评测集与数据来源分级、途迹的城市数据校验脚本、ResearchFlow 对年报的逐项核对，均为上线前的准入条件。</div>
-    <div class="cell"><b class="k">模型与代码的分工</b>识别、分类、摘要交给模型；算术、校验、发布决策交给代码。这是三个项目共同的架构原则，也是控制幻觉的主要手段。途迹的路线规划完全采用确定性算法，仅在生成无内置数据的城市时调用模型。</div>
+    <div class="cell"><b class="k">用 Claude Code 构建</b>两个项目的大部分代码由 Claude Code 生成。我负责问题定义、PRD、评测设计、范围取舍与验收；每一项取舍都有明确的理由和记录。</div>
+    <div class="cell"><b class="k">评测先于上线</b>先建立真值评测集和上线标准，再开发功能。ProteinWallet 的评测集与数据来源分级、途迹的城市数据校验脚本，均为上线前的准入条件。</div>
+    <div class="cell"><b class="k">模型与代码的分工</b>识别、分类、摘要交给模型；算术、校验、发布决策交给代码。这是两个项目共同的架构原则，也是控制幻觉的主要手段。途迹的路线规划完全采用确定性算法，仅在生成无内置数据的城市时调用模型。</div>
     <div class="cell"><b class="k">工具与关注方向</b>日常使用 Claude Code、Codex 等编码智能体；持续跟踪 Coding Agent 与 Agent 类产品的形态演进，并整理为竞品分析。</div>
   </div>
 </section>
