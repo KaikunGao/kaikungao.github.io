@@ -101,7 +101,7 @@
   </article>
 
   <!-- ProteinWallet -->
-  <article class="card">
+  <article class="card feature">
     <header>
       <h3>蛋白钱包 ProteinWallet</h3>
       <span class="badge">已上线</span>
@@ -113,29 +113,31 @@
       <span><b>解决什么</b>食堂、连锁、外卖没法称重，营养和钱分在两个 App 里</span>
       <span><b>怎么衡量</b>北极星：周人均记录餐次；评测：区间命中率与宽度；线上：修正率、份量按钮点击率</span>
     </div>
-    <div class="demo">
-      <div>
-        <div class="metrics">
-          <div class="metric"><b>3 级</b><span>估算：连锁官方表 → 食堂菜品库 → 模型目测</span></div>
-          <div class="metric"><b>640 道</b><span>食堂官方菜品库（芝大 4 个食堂）</span></div>
-          <div class="metric"><b>17/17 · 4/4</b><span>评测区间命中（连锁 / 食堂）</span></div>
-        </div>
-        <div class="grid4">
-          <div class="cell"><b class="k">01 · 项目背景</b><strong>竞品各管一半："吃得健康"和"花得起"分在两个 App。</strong>生活费有限又想增肌的在校大学生，三餐多靠食堂、连锁和外卖，无法称重；MyFitnessPal、Keep 等营养 App 靠条目搜索 + 手动克数且不管钱，记账 App 不管营养。</div>
-          <div class="cell"><b class="k">02 · 痛点挖掘</b><strong>每一美元换多少克蛋白质；定位收敛到"生活费有限的大学生"。</strong>把饮食重新定义为约束优化问题，自创核心指标<span class="num">蛋白质单价（¢/g）</span>；最初写的是"留学生"，复盘发现没有一个功能是留学生专属的，于是改为更准的画像，v1 做美国校园，国内版进路线图。</div>
-          <div class="cell"><b class="k">03 · 需求与优先级</b><strong>单次记录 ≤10 秒是生死线；先量误差，再决定动不动模型。</strong>MVP 只保留"记录→估算→差额→周报"一个闭环；写明 <span class="num">7 项 Non-goals</span>，砍掉饮食推荐、热量警告；否决"爬食物照片训模型"的提议：误差大头在份量不在认菜，先建 30 张照片评测集。</div>
-          <div class="cell"><b class="k">04 · 方案产出</b><strong>PRD + 三级估算 + "诚实的模糊"。</strong>连锁官方营养表 → 学校食堂官方菜品库（<span class="num">640 道菜</span>）→ 模型目测，模型只做识别、算术交给代码；界面统一呈现区间 + 置信度 + 依据，模型对份量没把握时做成一键追问（×0.5 / 1 / 1.5 / 2）。</div>
-          <div class="cell"><b class="k">05 · 开发上线</b><strong>数据来源分级，核实不了的不许叫"官方"。</strong>PRD 拆成 4 周 14 个 Step，每步写死验收标准；17 家连锁里只有逐行核对过官网的 5 家能标"官方数据"，9 家未核实的降级为"参考数据·未核实"；借助 Claude Code 开发，上线 Vercel。</div>
-          <div class="cell"><b class="k">06 · 结果与迭代</b><strong>围绕北极星迭代：把一次记录压到两秒。</strong>埋点记录开始 / 完成 / 修正事件；评测区间命中率连锁 17/17、食堂 4/4；针对大学生三餐重复度高加入"再来一份"、餐卡单价、语音输入、记录可编辑、周报分享图。下一步：30 张照片评测基线；5–8 名种子用户测次周留存。</div>
-        </div>
-      </div>
-      <div>
-        <div class="phone" id="pw-demo">
-          <img src="assets/pw-onboarding.png" alt="ProteinWallet 上手页截图" width="220" height="476">
-          <button type="button" class="demo-btn" data-src="https://protein-wallet.vercel.app/">点击体验线上应用</button>
-        </div>
-        <p class="phone-note">点击后在手机框内加载真实应用</p>
-      </div>
+    <div class="showcase">
+      <figure class="phone big" id="pw-demo">
+        <img src="assets/pw-today.jpg" alt="ProteinWallet 今日页：蛋白质环形进度、本周预算与今天的记录" width="780" height="1688">
+        <button type="button" class="demo-btn" data-src="https://protein-wallet.vercel.app/" data-title="ProteinWallet 在线试用">在手机里试用</button>
+      </figure>
+      <figure class="phone">
+        <img src="assets/pw-confirm.jpg" alt="ProteinWallet 确认卡：食堂菜单来源、置信度与一键份量修正" width="780" height="1688">
+      </figure>
+      <figure class="phone">
+        <img src="assets/pw-weekly.jpg" alt="ProteinWallet 周报：花销 vs 预算、蛋白质达标天数、蛋白质单价排行榜" width="780" height="1688">
+      </figure>
+    </div>
+    <p class="try-note"><span>点"在手机里试用"后，第一部手机内会加载真实应用：写一句"Chipotle 鸡肉碗 $11.5"或选一个食堂拍餐盘，就能看到区间、置信度和依据。</span><a href="https://protein-wallet.vercel.app/" target="_blank" rel="noopener">新窗口打开 ↗</a></p>
+    <div class="metrics">
+      <div class="metric"><b>3 级</b><span>估算：连锁官方表 → 食堂菜品库 → 模型目测</span></div>
+      <div class="metric"><b>640 道</b><span>食堂官方菜品库（芝大 4 个食堂）</span></div>
+      <div class="metric"><b>17/17 · 4/4</b><span>评测区间命中（连锁 / 食堂）</span></div>
+    </div>
+    <div class="grid4 grid6">
+      <div class="cell"><b class="k">01 · 项目背景</b><strong>竞品各管一半："吃得健康"和"花得起"分在两个 App。</strong>生活费有限又想增肌的在校大学生，三餐多靠食堂、连锁和外卖，无法称重；MyFitnessPal、Keep 等营养 App 靠条目搜索 + 手动克数且不管钱，记账 App 不管营养。</div>
+      <div class="cell"><b class="k">02 · 痛点挖掘</b><strong>每一美元换多少克蛋白质；定位收敛到"生活费有限的大学生"。</strong>把饮食重新定义为约束优化问题，自创核心指标<span class="num">蛋白质单价（¢/g）</span>；最初写的是"留学生"，复盘发现没有一个功能是留学生专属的，于是改为更准的画像，v1 做美国校园，国内版进路线图。</div>
+      <div class="cell"><b class="k">03 · 需求与优先级</b><strong>单次记录 ≤10 秒是生死线；先量误差，再决定动不动模型。</strong>MVP 只保留"记录→估算→差额→周报"一个闭环；写明 <span class="num">7 项 Non-goals</span>，砍掉饮食推荐、热量警告；否决"爬食物照片训模型"的提议：误差大头在份量不在认菜，先建 30 张照片评测集。</div>
+      <div class="cell"><b class="k">04 · 方案产出</b><strong>PRD + 三级估算 + "诚实的模糊"。</strong>连锁官方营养表 → 学校食堂官方菜品库（<span class="num">640 道菜</span>）→ 模型目测，模型只做识别、算术交给代码；界面统一呈现区间 + 置信度 + 依据，模型对份量没把握时做成一键追问（×0.5 / 1 / 1.5 / 2）。</div>
+      <div class="cell"><b class="k">05 · 开发上线</b><strong>数据来源分级，核实不了的不许叫"官方"。</strong>PRD 拆成 4 周 14 个 Step，每步写死验收标准；17 家连锁里只有逐行核对过官网的 5 家能标"官方数据"，9 家未核实的降级为"参考数据·未核实"；借助 Claude Code 开发，上线 Vercel。</div>
+      <div class="cell"><b class="k">06 · 结果与迭代</b><strong>围绕北极星迭代：把一次记录压到两秒。</strong>埋点记录开始 / 完成 / 修正事件；评测区间命中率连锁 17/17、食堂 4/4；针对大学生三餐重复度高加入"再来一份"、餐卡单价、语音输入、记录可编辑、周报分享图。下一步：30 张照片评测基线；5–8 名种子用户测次周留存。</div>
     </div>
     <div class="links">
       <a class="more" href="projects/protein-wallet.html">查看详情 →</a>
@@ -144,7 +146,7 @@
     </div>
   </article>
 
-  <!-- ResearchFlow -->
+<!-- ResearchFlow -->
   <article class="card">
     <header>
       <h3>ResearchFlow</h3>
