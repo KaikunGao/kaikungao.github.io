@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TripSplit 旅游分账 Agent · 项目详情</title>
+<meta name="description" content="TripSplit 旅游分账 Agent 的项目背景、痛点拆解、需求优先级、多模态录入与核账 Agent 方案、开发上线、评测结果与第二期迭代。">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+<nav class="nav"><div class="wrap"><a class="brand" href="../index.html">高凯堃</a><ul><li><a href="../index.html#projects">项目</a></li><li><a href="../index.html#research">科研</a></li><li><a href="../index.html#way">工作方式</a></li></ul></div></nav>
+<main class="wrap detail">
+<a class="back" href="../index.html#projects">← 返回作品集</a>
+<h1>TripSplit 旅游分账 Agent</h1>
+<p class="meta">多人自由行 AA 记账与核账助手 · 个人项目，产品设计与全栈开发 · 2025.09 — 2025.12 · <a href="https://tripsplit-jet.vercel.app/" target="_blank" rel="noopener">线上产品</a> · <a href="https://github.com/KaikunGao/tripsplit" target="_blank" rel="noopener">GitHub</a></p>
+<p class="lead">一句话、一张支付截图或一段语音就能记一笔；账目由只读的核账 Agent 查重、查漏、查异常，修改建议逐条由用户确认；最后给出最少转账的结算方案。开启云同步后，同行的人各自用手机记账，账目实时合并。</p>
+<div class="metrics">
+  <div class="metric"><b>3 种录入</b><span>文字 / 支付截图 / 语音，统一置信度决策</span></div>
+  <div class="metric"><b>5 / 5</b><span>核账 Agent 找出示例账本全部埋设异常</span></div>
+  <div class="metric"><b>18 / 20</b><span>录入评测通过，字段准确率 100%</span></div>
+</div>
+<div class="browser"><div class="bar" aria-hidden="true"><i></i><i></i><i></i><span class="url">tripsplit-jet.vercel.app · 示例账本核账结果</span></div><div class="screen"><img src="../assets/tripsplit-reconcile-hd.jpg" alt="TripSplit 桌面双栏：左侧账本，右侧核账 Agent 的结论与修改建议" width="1280" height="853"><button type="button" class="demo-btn" data-src="https://tripsplit-jet.vercel.app/" data-title="TripSplit 在线试用">直接试用：在这里打开线上应用</button></div></div>
+<p class="try-note"><span>点击后在窗口内加载真实应用，自带一本埋了 5 处异常的示例账本。</span><a href="https://tripsplit-jet.vercel.app/" target="_blank" rel="noopener">新窗口打开 ↗</a></p>
+<div class="shots cap two"><figure><img src="../assets/tripsplit-entry-hd.jpg" alt="TripSplit 录入页" width="1280" height="853"><figcaption>录入页：文字 / 截图 / 语音三种方式，解析后按置信度自动入账或追问；下方是批量导入（多张截图、支付宝微信账单、订单文本）。</figcaption></figure><figure><img src="../assets/tripsplit-settle-hd.jpg" alt="TripSplit 结算页" width="1280" height="853"><figcaption>结算页：每人已垫付 / 应分摊 / 净额，最少转账方案可逐笔标记已转，全部结清后锁定账本；账本有改动时提示先核账。</figcaption></figure></div>
+<div class="toc"><a href="#bg">项目背景</a><a href="#pain">痛点拆解</a><a href="#priority">需求与优先级</a><a href="#solution">方案产出</a><a href="#ship">开发上线</a><a href="#eval">评测</a><a href="#result">结果与迭代</a><a href="#stack">技术</a></div>
+
+<h2 id="bg">项目背景</h2>
+<p>几个人结伴自由行，钱是轮流垫的：有人订酒店，有人付门票，吃饭谁手快谁扫码。消费散在每个人的支付宝、微信账单和记忆里，回来结算时靠翻聊天记录核对，漏记、同一顿记两次、参与人记错（请客的人被算成分摊、没去的人被算进去）都很常见。</p>
+<p>现有分账工具解决的是"算"：把一张干净的账本变成转账方案。但真正的时间花在"记"和"核"：记得不全，算得再准也没用。TripSplit 的切口就是把记录成本和核对成本都压下来，"算"反而是最简单的一步。</p>
+
+<h2 id="pain">痛点拆解与产品边界</h2>
+<table class="tbl">
+<tr><th>成本</th><th>具体表现</th><th>产品回答</th></tr>
+<tr><td>记录成本</td><td>每笔要填金额、谁付、谁参与、分类、时间，手机上打字麻烦，于是攒到最后一起补，越补越不准</td><td>多模态录入：一句话、一张支付截图、一段语音；模型抽字段并给置信度，够准就直接入账，不够就只追问缺的那一项</td></tr>
+<tr><td>核对成本</td><td>重复录入、参与人为空、付款人不在参与人里、疑似多打一个零、日期不在行程内，人眼很难在几十笔里找出来</td><td>核账 Agent 用只读工具逐项核查，每条结论引用具体证据，修改建议做成字段级预览让用户确认</td></tr>
+<tr><td>信任成本</td><td>如果 AI 能直接改账，用户不敢把账交给它</td><td>硬边界：Agent 只读账目、只提建议；所有修改经用户确认由客户端写入并留审计记录；服务端没有写接口</td></tr>
+</table>
+<div class="callout"><b>一句话原则：模型给判断，代码做算术，用户做决定。</b>金额分摊、结算方案、聚合统计全部由确定性代码完成；模型负责识别、分类、从模糊描述里抽条件和写结论。</div>
+
+<h2 id="priority">需求分析与优先级</h2>
+<p>PRD 先梳理用户动线"创建旅行 → 消费录入 → 账本管理 → 核账 → 结算"，对每一页写页面交互、业务规则、异常处理与验收标准。MVP 只保留四件事：</p>
+<ol>
+<li><b>多模态录入</b>：文字 / 截图 / 语音统一抽取金额、付款人、参与人，按置信度与字段完整性决定自动入账或追问补全。</li>
+<li><b>历史账目检索与报告</b>：模糊描述 → 结构化条件（日期、金额、成员）+ 语义检索；回答带证据引用与修改预览。</li>
+<li><b>核账 Agent</b>：提示词封装 → 模型 Planning → 只读工具调用 → 结果回传 → 结构化输出。</li>
+<li><b>结算</b>：每人已付 / 应摊 / 净额，贪心最少转账方案。</li>
+</ol>
+<p>第二期 11 项按"对核心动线的影响 × 实现成本"排序：云同步（分账产品的核心是每个人用自己手机记）、分摊规则与请客、多币种、预算与趋势、还款跟踪与锁账、分享与导出、截图批量与账单导入、服务端语音与离线队列、Agent 规则记忆、自动导入消费、评测与可观测。全部已在第二期完成，见下文。</p>
+
+<h2 id="solution">方案产出</h2>
+<h3>录入决策</h3>
+<p>模型对每个关键字段输出值和置信度：输入里明确写出的给 0.9 以上，靠推断的（截图没写谁付、默认当前使用者）给 0.6–0.8，猜的填 null。服务端按阈值（金额 0.8、付款人 0.7、参与人 0.7）和字段完整性判定：三项都过线自动入账；任一缺失进入追问，只问缺的那一项；不是消费的输入（闲聊、风景照）直接拒绝并说明原因。追问后的补充回答作为最高优先级修正上一轮结果。</p>
+<h3>检索与修改预览</h3>
+<p>两段式：先把"第一天晚上那顿火锅是谁付的"解析成日期区间、金额、成员、分类、关键词和意图（找账 / 改账 / 统计），硬过滤后用字符二元组 TF-IDF 做语义排序取前 8 条；过滤为空时自动放宽为纯语义检索并标注。再基于候选作答，引用只能是候选里的 id；用户要求修改时给出字段级 before → after 预览，确认后才写入。</p>
+<h3>核账 Agent</h3>
+<p>系统提示词要求先写核查计划再调工具；工具集全部是账本快照上的纯函数：列账、取单笔、查重（时间窗 + 金额容差）、规则体检（参与人为空、付款人不在参与人内、非成员、待补全、零金额、低置信度、日期超出行程）、分类统计、结算预览。结束方式只有一种：调用 strict 结构的 submit_findings，每条发现带严重度、类型、证据、建议和可选的修改建议。发现卡默认折叠，展开看证据和涉及账目；高危建议可一键接受。用户点忽略时可写理由，落为"本次旅行规则"或"长期习惯"喂回模型，下次不再报同类情况。</p>
+<h3>结算</h3>
+<p>分摊支持均摊、按份数、按比例、指定金额和请客（付款人不分摊）；外币按消费日汇率折算到本币；分到分，余数归最后一位参与人，保证合计守恒。转账方案按净额贪心配对，笔数不超过人数减一；每笔可标记已转，剩余方案按扣除已转后的净额重算，全部结清后可锁定账本。</p>
+
+<h2 id="ship">开发上线与项目管理</h2>
+<ul>
+<li><b>边界落在架构上：</b>浏览器 localStorage 持有全部账本；四个 AI 接口只接收账本快照、只返回建议，没有写接口。云同步是唯一的服务端写路径，且只搬运用户已确认的账目，账目按最后写入胜合并、删除为墓碑。</li>
+<li><b>结构化输出：</b>录入、检索、报告走 zod 结构化输出；核账是手写 agent loop，只读工具与 submit_findings 都用 strict 模式，处理拒答、截断、无工具调用等异常停止原因，最多 12 轮。</li>
+<li><b>可观测：</b>每次模型调用记录路由、耗时、输入输出 token、成本估算与成功与否；运营后台按路由看 p50 / p90、成功率和成本，并保存评测历史。</li>
+<li><b>验收：</b>纯函数单测覆盖分摊规则、结算守恒、还款后的剩余方案、录入决策阈值、检索；PRD 附验收标准清单；发布前固定跑类型检查、lint、构建与单测。</li>
+<li><b>发布：</b>GitHub 公开仓库，推送即由 Vercel 自动部署；数据库用 Turso（libsql），语音识别走 Whisper 兼容接口，未配置时自动退回本机模式。</li>
+</ul>
+
+<h2 id="eval">评测</h2>
+<table class="tbl">
+<tr><th>项目</th><th>方法</th><th>结果</th></tr>
+<tr><td>录入解析</td><td>20 例人工标注用例（含请客、外币、需追问、应拒绝），逐字段比对</td><td>通过 18 / 20；金额、付款人、参与人、分类、请客字段准确率 100%，决策准确率 90%，两例失败是"靠推断得到的付款人该不该追问"的标注边界</td></tr>
+<tr><td>核账 Agent</td><td>示例账本故意埋 5 处异常：重复录入、付款人不在参与人内、参与人为空、疑似多打一个零、待补全</td><td>5 / 5 全部找出（多次运行均稳定），每次 2–3 轮、5–6 次工具调用，每条结论引用具体金额与时间差</td></tr>
+<tr><td>线上响应</td><td>生产环境实测</td><td>录入 4–6 秒，检索约 6 秒，核账约 30 秒</td></tr>
+</table>
+<p>如实说明：尚未做真实用户测评，目前的数据来自评测集与示例账本。下一步是找 3 个同行小组用真实旅行记账，观察自动入账率、追问率、核账接受率与结算前残留异常数。</p>
+
+<h2 id="result">结果与迭代</h2>
+<table class="tbl">
+<tr><th>版本</th><th>内容</th></tr>
+<tr><td>v1</td><td>多模态录入、检索与报告、核账 Agent、最少转账结算；PRD 与验收标准</td></tr>
+<tr><td>界面改版</td><td>头部压缩与头像圈、手机底部 tab、首页总览、账目卡瘦身、核账摘要与折叠卡、按住说话、空状态 / 骨架屏 / 深色模式、桌面双栏</td></tr>
+<tr><td>v2</td><td>云同步与邀请链接、分摊规则与请客、多币种汇率、预算与趋势、还款跟踪与锁账、图片 / CSV / PDF 导出、截图批量与账单 / 订单导入、服务端语音与离线队列、Agent 规则记忆与结算前自动核账、评测集与运营后台</td></tr>
+</table>
+<h2>明确未做的边界</h2>
+<ul>
+<li>不做账号体系：云同步以分享码为凭证，拿到链接的人都能读写，适合熟人小团体。</li>
+<li>不接邮箱与平台账号：订单导入以粘贴文本和账单 CSV 为落地方式，草稿必须人工确认。</li>
+<li>Agent 永远不直接改账：这是产品承诺，也是服务端没有写接口的技术事实。</li>
+</ul>
+
+<h2 id="stack">技术</h2>
+<p>Next.js 16、React 19、TypeScript、Tailwind CSS 4、zod；Anthropic SDK（结构化输出、strict 工具、手写 agent loop、提示词缓存）；libsql / Turso；Whisper 兼容语音接口；frankfurter 汇率；Vercel 部署。借助 Claude Code 独立完成产品与全栈开发。</p>
+<p><a class="back" href="../index.html#projects">← 返回作品集</a></p>
+</main>
+<footer class="wrap">© 2026 高凯堃</footer>
+<script>
+  document.querySelectorAll('.demo-btn').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var frame = btn.parentElement;
+      var iframe = document.createElement('iframe');
+      iframe.src = btn.dataset.src;
+      iframe.title = btn.dataset.title || '在线演示';
+      frame.innerHTML = '';
+      frame.appendChild(iframe);
+    });
+  });
+</script>
+</body>
+</html>
