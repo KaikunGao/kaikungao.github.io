@@ -56,50 +56,6 @@
   <h2 class="sec-title">项目</h2>
   <p class="sec-sub">每个项目先说明目标用户、要解决的问题和衡量方式，再按统一的产品流程展开：背景、痛点、需求优先级、方案产出、开发上线、结果与迭代。所有数字均来自运行记录、用户测评或公开数据核对；尚未取得的数据标注为下一步计划。</p>
 
-  <!-- TripSplit -->
-  <article class="card feature">
-    <header>
-      <h3>TripSplit 旅游分账 Agent</h3>
-      <span class="badge">已上线 · 开源</span>
-      <span class="meta">多人自由行 AA 记账与核账助手 · 个人项目 · 2025.09 — 2025.12</span>
-    </header>
-    <p class="one-liner">一句话、一张支付截图或一段语音就能记一笔；账目由只读的核账 Agent 查重、查漏、查异常，修改建议逐条由用户确认；最后给出最少转账的结算方案。</p>
-    <div class="pos">
-      <span><b>给谁</b>2–6 人结伴自由行、轮流垫付的小团体；记账的人和付钱的人常常不是同一个</span>
-      <span><b>解决什么</b>消费记录分散、垫付关系复杂、参与人容易记错、结算前核对繁琐</span>
-      <span><b>怎么衡量</b>录入自动入账率与字段准确率；核账查全率；结算前残留异常数；线上响应时长</span>
-    </div>
-    <div class="browser">
-      <div class="bar" aria-hidden="true"><i></i><i></i><i></i><span class="url">tripsplit-jet.vercel.app · 示例账本核账结果</span></div>
-      <div class="screen" id="tripsplit-demo">
-        <img src="assets/tripsplit-reconcile-hd.jpg" alt="TripSplit 桌面双栏：左侧账本，右侧核账 Agent 的结论、按严重度计数与可逐条确认的修改建议" width="1280" height="853">
-        <button type="button" class="demo-btn" data-src="https://tripsplit-jet.vercel.app/" data-title="TripSplit 在线试用">直接试用：在这里打开线上应用</button>
-      </div>
-    </div>
-    <p class="try-note"><span>点击后在窗口内加载真实应用，自带一本埋了 5 处异常的示例账本：在「录入」写一句"阿强付的火锅 412，大家 AA"，再到「核账」点开始核账，看 Agent 如何引用证据并给出修改预览。</span><a href="https://tripsplit-jet.vercel.app/" target="_blank" rel="noopener">新窗口打开 ↗</a></p>
-    <div class="metrics">
-      <div class="metric"><b>3 种录入</b><span>文字 / 支付截图 / 语音，统一走置信度决策：自动入账或追问补全</span></div>
-      <div class="metric"><b>5 / 5</b><span>核账 Agent 找出示例账本全部埋设异常，每条结论引用具体证据</span></div>
-      <div class="metric"><b>18 / 20</b><span>录入评测集通过数；金额、付款人、参与人、分类字段准确率 100%</span></div>
-    </div>
-    <div class="flow">
-      <span>创建旅行</span><i>→</i><span>消费录入</span><i>→</i><span>账本管理</span><i>→</i><span>核账</span><i>→</i><span>结算</span>
-    </div>
-    <div class="grid4 grid6">
-      <div class="cell"><b class="k">01 · 项目背景</b><strong>结伴旅行的账，难点不在记，而在记全和算对。</strong>消费散在不同人的支付记录里，谁垫付、谁参与每笔都不一样；回来结算时靠聊天记录和记忆核对，漏记、重复记、参与人记错都很常见，现有分账工具只解决"算"，不解决"记"和"核"。</div>
-      <div class="cell"><b class="k">02 · 痛点挖掘</b><strong>把成本拆成两段：记录成本与核对成本。</strong>记录成本用多模态录入降低，怎么方便怎么记；核对成本交给 Agent，但边界定死为"只读账目、提出建议、由用户确认修改"，宁可多问一句，也不替用户改账。</div>
-      <div class="cell"><b class="k">03 · 需求与优先级</b><strong>先把一条动线跑通，再谈拓展。</strong>PRD 梳理"创建旅行 → 消费录入 → 账本管理 → 核账 → 结算"全流程，逐页写页面交互、业务规则、异常处理与验收标准；MVP 只做录入、检索、核账、结算四件事，云同步、分摊规则、多币种、预算等 11 项列为第二期并排出优先级。</div>
-      <div class="cell"><b class="k">04 · 方案产出</b><strong>模型给判断，代码做算术，用户做决定。</strong>录入由多模态模型抽取金额、付款人、参与人并逐字段给置信度，按阈值与字段完整性决定自动入账还是追问；检索把模糊描述解析成日期、金额、成员条件再做语义排序，回答带证据引用和字段级修改预览；核账 Agent 走 Planning → 只读工具调用 → 结构化输出的链路。</div>
-      <div class="cell"><b class="k">05 · 开发上线</b><strong>Agent 在技术上就改不了账。</strong>服务端只接收账本快照、只返回建议，没有写接口；核账工具全是快照上的纯函数，结论必须以 submit_findings 严格结构提交。第二期补上 libsql 云同步、每次模型调用的耗时与成本遥测、20 例录入评测集与运营后台；借助 Claude Code 开发，Vercel 上线。</div>
-      <div class="cell"><b class="k">06 · 结果与迭代</b><strong>评测 18 / 20，核账在示例账本上查全 5 处异常。</strong>录入评测字段准确率 100%，两例失败是"靠推断得到的付款人该不该追问"的标注边界；线上实测录入 4–6 秒、核账约 30 秒。第二期上线云同步、请客与不均摊、多币种、预算、还款跟踪、批量导入、服务端语音、Agent 规则记忆。如实说明：尚未做真实用户测评，下一步是 3 个同行小组的实测与留存观察。</div>
-    </div>
-    <div class="links">
-      <a class="more" href="projects/tripsplit.html">查看详情 →</a>
-      <a href="https://tripsplit-jet.vercel.app/" target="_blank" rel="noopener">线上产品</a>
-      <a href="https://github.com/KaikunGao/tripsplit" target="_blank" rel="noopener">GitHub</a>
-    </div>
-  </article>
-
   <!-- Tuji -->
   <article class="card feature">
     <header>
@@ -190,6 +146,50 @@
     </div>
   </article>
 
+
+  <!-- TripSplit -->
+  <article class="card feature">
+    <header>
+      <h3>TripSplit 旅游分账 Agent</h3>
+      <span class="badge">已上线 · 开源</span>
+      <span class="meta">多人自由行 AA 记账与核账助手 · 个人项目 · 2025.09 — 2025.12</span>
+    </header>
+    <p class="one-liner">一句话、一张支付截图或一段语音就能记一笔；账目由只读的核账 Agent 查重、查漏、查异常，修改建议逐条由用户确认；最后给出最少转账的结算方案。</p>
+    <div class="pos">
+      <span><b>给谁</b>2–6 人结伴自由行、轮流垫付的小团体；记账的人和付钱的人常常不是同一个</span>
+      <span><b>解决什么</b>消费记录分散、垫付关系复杂、参与人容易记错、结算前核对繁琐</span>
+      <span><b>怎么衡量</b>录入自动入账率与字段准确率；核账查全率；结算前残留异常数；线上响应时长</span>
+    </div>
+    <div class="browser">
+      <div class="bar" aria-hidden="true"><i></i><i></i><i></i><span class="url">tripsplit-jet.vercel.app · 示例账本核账结果</span></div>
+      <div class="screen" id="tripsplit-demo">
+        <img src="assets/tripsplit-reconcile-hd.jpg" alt="TripSplit 桌面双栏：左侧账本，右侧核账 Agent 的结论、按严重度计数与可逐条确认的修改建议" width="1280" height="853">
+        <button type="button" class="demo-btn" data-src="https://tripsplit-jet.vercel.app/" data-title="TripSplit 在线试用">直接试用：在这里打开线上应用</button>
+      </div>
+    </div>
+    <p class="try-note"><span>点击后在窗口内加载真实应用，自带一本埋了 5 处异常的示例账本：在「录入」写一句"阿强付的火锅 412，大家 AA"，再到「核账」点开始核账，看 Agent 如何引用证据并给出修改预览。</span><a href="https://tripsplit-jet.vercel.app/" target="_blank" rel="noopener">新窗口打开 ↗</a></p>
+    <div class="metrics">
+      <div class="metric"><b>3 种录入</b><span>文字 / 支付截图 / 语音，统一走置信度决策：自动入账或追问补全</span></div>
+      <div class="metric"><b>5 / 5</b><span>核账 Agent 找出示例账本全部埋设异常，每条结论引用具体证据</span></div>
+      <div class="metric"><b>18 / 20</b><span>录入评测集通过数；金额、付款人、参与人、分类字段准确率 100%</span></div>
+    </div>
+    <div class="flow">
+      <span>创建旅行</span><i>→</i><span>消费录入</span><i>→</i><span>账本管理</span><i>→</i><span>核账</span><i>→</i><span>结算</span>
+    </div>
+    <div class="grid4 grid6">
+      <div class="cell"><b class="k">01 · 项目背景</b><strong>结伴旅行的账，难点不在记，而在记全和算对。</strong>消费散在不同人的支付记录里，谁垫付、谁参与每笔都不一样；回来结算时靠聊天记录和记忆核对，漏记、重复记、参与人记错都很常见，现有分账工具只解决"算"，不解决"记"和"核"。</div>
+      <div class="cell"><b class="k">02 · 痛点挖掘</b><strong>把成本拆成两段：记录成本与核对成本。</strong>记录成本用多模态录入降低，怎么方便怎么记；核对成本交给 Agent，但边界定死为"只读账目、提出建议、由用户确认修改"，宁可多问一句，也不替用户改账。</div>
+      <div class="cell"><b class="k">03 · 需求与优先级</b><strong>先把一条动线跑通，再谈拓展。</strong>PRD 梳理"创建旅行 → 消费录入 → 账本管理 → 核账 → 结算"全流程，逐页写页面交互、业务规则、异常处理与验收标准；MVP 只做录入、检索、核账、结算四件事，云同步、分摊规则、多币种、预算等 11 项列为第二期并排出优先级。</div>
+      <div class="cell"><b class="k">04 · 方案产出</b><strong>模型给判断，代码做算术，用户做决定。</strong>录入由多模态模型抽取金额、付款人、参与人并逐字段给置信度，按阈值与字段完整性决定自动入账还是追问；检索把模糊描述解析成日期、金额、成员条件再做语义排序，回答带证据引用和字段级修改预览；核账 Agent 走 Planning → 只读工具调用 → 结构化输出的链路。</div>
+      <div class="cell"><b class="k">05 · 开发上线</b><strong>Agent 在技术上就改不了账。</strong>服务端只接收账本快照、只返回建议，没有写接口；核账工具全是快照上的纯函数，结论必须以 submit_findings 严格结构提交。第二期补上 libsql 云同步、每次模型调用的耗时与成本遥测、20 例录入评测集与运营后台；借助 Claude Code 开发，Vercel 上线。</div>
+      <div class="cell"><b class="k">06 · 结果与迭代</b><strong>评测 18 / 20，核账在示例账本上查全 5 处异常。</strong>录入评测字段准确率 100%，两例失败是"靠推断得到的付款人该不该追问"的标注边界；线上实测录入 4–6 秒、核账约 30 秒。第二期上线云同步、请客与不均摊、多币种、预算、还款跟踪、批量导入、服务端语音、Agent 规则记忆。</div>
+    </div>
+    <div class="links">
+      <a class="more" href="projects/tripsplit.html">查看详情 →</a>
+      <a href="https://tripsplit-jet.vercel.app/" target="_blank" rel="noopener">线上产品</a>
+      <a href="https://github.com/KaikunGao/tripsplit" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </article>
 
 </section>
 
