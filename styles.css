@@ -201,6 +201,13 @@ pre { background: var(--tag); border-radius: 10px; padding: 12px 14px; font-size
 .showcase .phone .demo-btn { bottom: 26px; font-size: 14px; padding: 11px 18px; }
 .showcase .phone .demo-btn::before { content: "▶"; font-size: 10px; margin-right: 8px; }
 .showcase .phone iframe { width: 390px; height: 844px; transform: scale(.6462); transform-origin: 0 0; }
+/* Detail pages are 780px wide: smaller phones that never shrink, so screenshots are not cropped at the sides. */
+@media screen {
+  .detail .showcase { gap: 18px; padding: 26px 16px 0; }
+  .detail .showcase .phone { flex: 0 0 auto; width: 200px; height: 400px; }
+  .detail .showcase .phone.big { width: 236px; height: 480px; }
+  .detail .showcase .phone iframe { transform: scale(.559); }
+}
 
 @media (max-width: 720px) {
   .hero { grid-template-columns: 1fr; }
@@ -224,7 +231,7 @@ pre { background: var(--tag); border-radius: 10px; padding: 12px 14px; font-size
   .browser .screen .demo-btn { white-space: normal; max-width: 90%; }
   .phone-note, .cover-note { text-align: center; }
   .nav ul { gap: 12px; }
-  .tbl td:first-child { white-space: normal; }
+  .tbl td:first-child { white-space: normal; min-width: 4.5em; }
 }
 
 /* print: a clean PDF portfolio */
@@ -247,6 +254,8 @@ pre { background: var(--tag); border-radius: 10px; padding: 12px 14px; font-size
   .grid4 { gap: 6px; }
   .grid4 .cell { padding: 8px 10px; font-size: 11px; line-height: 1.55; break-inside: auto; }
   .grid6 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  /* the last row moves to the next page whole instead of leaving two title lines behind */
+  .grid6 .cell:nth-last-child(-n+2) { break-inside: avoid; }
   .demo > div + div { margin-top: 8px; }
   .cover.shots { display: flex; gap: 8px; width: auto; }
   .cover.shots img { width: 200px; margin: 0; }

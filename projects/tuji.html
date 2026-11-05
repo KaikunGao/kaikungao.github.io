@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>途迹 Tuji Travel · 项目详情</title>
-<meta name="description" content="途迹 Tuji Travel 的项目背景、痛点挖掘、需求优先级、方案产出、开发上线过程与结果复盘。">
+<meta name="description" content="途迹 Tuji Travel 的项目背景、痛点挖掘、需求优先级、方案产出、开发上线过程与结果。">
 <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
@@ -12,99 +12,103 @@
 <main class="wrap detail">
 <a class="back" href="../index.html#projects">← 返回作品集</a>
 <h1>途迹 Tuji Travel</h1>
-<p class="meta">不走回头路的城市旅行规划工具 · 个人项目，产品设计与全栈开发 · 2026.09 — 2026.10 · <a href="https://kaikungao.github.io/tuji-travel-planner/" target="_blank" rel="noopener">线上产品</a> · <a href="https://github.com/KaikunGao/tuji-travel-planner" target="_blank" rel="noopener">GitHub</a></p>
-<p class="lead">输入一座城市，得到不走回头路、可直接执行的逐日行程：按地理分天、精确最短路径排序、按开放时间排程、沿途配餐。无需注册，行程保存在自己的浏览器里。</p>
+<p class="meta">旅行行程变更工具 · 个人项目，产品设计与全栈开发 · 2026.09 — 2026.11 · <a href="https://kaikungao.github.io/tuji-travel-planner/" target="_blank" rel="noopener">线上产品</a> · <a href="https://github.com/KaikunGao/tuji-travel-planner" target="_blank" rel="noopener">GitHub</a></p>
+<p class="lead">先标必去、可选、可放弃，途迹排出逐日行程，并把下雨、排队、走不动时的预案提前算好；路上出了状况，只改受影响的那一段，代价算给你看。无需注册，行程保存在自己的浏览器里。</p>
 <div class="metrics">
-  <div class="metric"><b>198</b><span>内置景点，9 座城市 172 家餐厅</span></div>
-  <div class="metric"><b>4 套</b><span>方案并排对比：推荐 / 省时 / 省钱 / 打卡多</span></div>
-  <div class="metric"><b>−23%</b><span>省钱方案人均成本（北京 3 日实测）</span></div>
+  <div class="metric"><b>271 / 271</b><span>景点去不了时有替代或换天方案（9 城 27 份行程）</span></div>
+  <div class="metric"><b>62 / 70</b><span>含露天景点的行程日有雨天改法</span></div>
+  <div class="metric"><b>2 步</b><span>7 个改动入口中 6 个按设计 2 步内完成</span></div>
 </div>
-<div class="browser"><div class="bar" aria-hidden="true"><i></i><i></i><i></i><span class="url">kaikungao.github.io/tuji-travel-planner · 北京 3 日示例</span></div><div class="screen"><img src="../assets/tuji-plan-hd.jpg" alt="途迹行程页：左侧按天的时间线，右侧地图上按天着色的路线与编号站点" width="1600" height="1067"><button type="button" class="demo-btn" data-src="https://kaikungao.github.io/tuji-travel-planner/" data-title="途迹 在线试用">直接试用：在这里打开线上应用</button></div></div>
-<p class="try-note"><span>点击后在窗口内加载真实应用，可直接生成行程。</span><a href="https://kaikungao.github.io/tuji-travel-planner/" target="_blank" rel="noopener">新窗口打开 ↗</a></p>
-<div class="shots cap two"><figure><img src="../assets/tuji-home-hd.jpg" alt="途迹首页" width="1600" height="1067"><figcaption>首页：说一个城市，剩下的交给途迹；9 座内置城市卡片，其他城市由 AI 生成。</figcaption></figure><figure><img src="../assets/tuji-plan-hd.jpg" alt="途迹行程页" width="1600" height="1067"><figcaption>行程页：左侧按天的时间线可拖拽调序，右侧地图按天着色、编号站点；顶部一行是景点数、餐厅数、总路程、人均预算。</figcaption></figure></div>
-<div class="toc"><a href="#bg">项目背景</a><a href="#pain">痛点挖掘</a><a href="#priority">需求与优先级</a><a href="#solution">方案产出</a><a href="#ship">开发上线与项目管理</a><a href="#eval">用户测评</a><a href="#result">结果与迭代</a><a href="#stack">技术</a></div>
+<div class="browser"><div class="bar" aria-hidden="true"><i></i><i></i><i></i><span class="url">kaikungao.github.io/tuji-travel-planner · 北京 3 日示例</span></div><div class="screen"><img src="../assets/tuji-plan-hd.jpg" alt="途迹行程页：砍掉一个景点之后的代价回执，右侧地图上圈出受影响的站点" width="1600" height="1067"><button type="button" class="demo-btn" data-src="https://kaikungao.github.io/tuji-travel-planner/" data-title="途迹 在线试用">直接试用：在这里打开线上应用</button></div></div>
+<p class="try-note"><span>点击后在窗口内加载真实应用，可直接生成行程，试试砍点、换点和预案。</span><a href="https://kaikungao.github.io/tuji-travel-planner/" target="_blank" rel="noopener">新窗口打开 ↗</a></p>
+<div class="shots cap two"><figure><img src="../assets/tuji-home-hd.jpg" alt="途迹首页" width="1600" height="1067"><figcaption>首页：一句话承诺"计划赶不上变化，行程改一下就好"；9 座内置城市。</figcaption></figure><figure><img src="../assets/tuji-backup-hd.jpg" alt="途迹预案页" width="1600" height="1067"><figcaption>预案页：下雨、走不动了、某个点去不了、排队太久，每种状况都列出方案和代价，一键采用。</figcaption></figure></div>
+<div class="toc"><a href="#bg">项目背景</a><a href="#pain">痛点挖掘</a><a href="#priority">需求与优先级</a><a href="#solution">方案产出</a><a href="#ship">开发上线与验证</a><a href="#result">结果与迭代</a><a href="#stack">技术</a></div>
 
 <h2 id="bg">项目背景</h2>
-<p>和同学做城市自由行攻略时，景点散落在收藏夹和小红书笔记里，先后顺序靠人脑拼。常见结果有三种：走回头路，上午在城东、中午跑城西、下午又回城东；到门口才发现闭馆或当天不开放；到了饭点就近凑合，错过本来想吃的店。</p>
-<p>现有攻略 App 擅长"去哪里"，给的是景点列表和评分，但不回答"先去哪、后去哪"。排顺序这件事既机械又容易出错，正好适合交给算法；而"要不要去"这种判断，应该留给用户。</p>
+<p>做自由行攻略，花几个小时把景点、顺序、餐厅排好之后，真正难受的是"要改"：出门发现下雨，热门景点排队一个小时，同行的人下午走不动了。这时候只有两个选择：全部重排，前面花的时间归零；或者将就着走，体验打折。</p>
+<p>结合 OTA 行研复盘现有做法：对话式的 AI 助手靠多轮对话重新生成整份行程；通用 AI 给的是一段文本，不能校验，也不能只改一处；手动拖拽类工具把重排的计算留给了用户。它们都在优化"第一次排得准"，没有产品在降低"改一下"的成本。</p>
 
 <h2 id="pain">痛点挖掘与定位</h2>
 <table class="tbl">
 <tr><th>目标用户</th><th>典型场景</th><th>核心诉求</th></tr>
-<tr><td>自由行学生</td><td>2–4 天去一座陌生城市，预算有限，想多看几个地方</td><td>不走冤枉路，别因为闭馆白跑，吃得顺路</td></tr>
-<tr><td>带家人出行的人</td><td>节奏要可控，景点间不能太折腾</td><td>每天的路线一眼能看懂、能改</td></tr>
-<tr><td>美食导向的旅行者</td><td>景点是顺带的，餐厅是重点</td><td>午晚餐和下午茶都顺路，且有靠谱的评价</td></tr>
+<tr><td>自由行学生</td><td>2–4 天去一座城市，行程排得满，遇到下雨或排队就乱</td><td>不用从头再排，知道砍掉哪个损失最小</td></tr>
+<tr><td>带家人出行的人</td><td>老人孩子下午走不动，要临时减量</td><td>必去的保住，其余的砍得有理有据</td></tr>
+<tr><td>订了票的旅行者</td><td>某个点没约上票，或者当天临时闭馆</td><td>换一天去，或者换个相近的，别影响其他安排</td></tr>
 </table>
-<p>判断：核心痛点不在"找景点"而在"排顺序"，于是把产品承诺定为一句话：<b>不走回头路</b>。攻略被拆成五个可验证的步骤，每一步对应一条规则，而不是一个黑盒推荐。</p>
-<div class="flow"><span>取舍</span><i>→</i><span>分天</span><i>→</i><span>排序</span><i>→</i><span>排程</span><i>→</i><span>配餐</span></div>
+<p>判断：核心痛点是<b>排完不敢改</b>，于是把产品承诺定为一句话：<b>行程改一下就好</b>。北极星指标是改动轮次，即一次变更从想改到改完的操作次数，目标 ≤2；同时看放弃率和撤销次数，防止靠"把改动做难"来压低轮次。</p>
+<div class="flow"><span>标三档</span><i>→</i><span>排行程</span><i>→</i><span>备预案</span><i>→</i><span>只改一段</span><i>→</i><span>看代价</span></div>
 
 <h2 id="priority">需求分析与优先级决策</h2>
-<p>需求池按"价值 / 实现思路 / 难度"三栏维护在仓库的 PROGRESS.md 里，分近期、中期、远期三档。决策原则：先把不依赖外部服务的事做完，依赖外部 API 或账号体系的明确后置。</p>
+<p>把"改得动"拆成 6 项能力，按依赖顺序排成三周，每周设一个闸门；过不了闸门就回去改算法，不加功能。</p>
 <table class="tbl">
-<tr><th>档位</th><th>内容</th><th>状态</th></tr>
-<tr><td>第一优先</td><td>路线引擎（分天、排序、排程、配餐）与 9 座城市的景点、餐厅数据</td><td>完成</td></tr>
-<tr><td>近期拓展</td><td>拖拽排序、饮食偏好、出行方式、多方案对比、分享链接、导出日历、酒店 / 出发点搜索，共 7 项</td><td>完成</td></tr>
-<tr><td>免门槛</td><td>访客不填 API Key 也能用 AI 生成任意城市</td><td>完成</td></tr>
-<tr><td>中期（需外部服务）</td><td>真实路径与公交线路、天气与节假日、景点图片、对话式修改行程</td><td>后置</td></tr>
-<tr><td>远期（产品化）</td><td>账号与云同步、多人协作、多城市联程、PWA 离线、个性化推荐</td><td>后置</td></tr>
+<tr><th>周次</th><th>能力</th><th>闸门</th></tr>
+<tr><td>第 1 周</td><td>三档意愿（必去 / 可选 / 可放弃）、代价量化</td><td>能演示"砍一个点损失多少"，讲得清</td></tr>
+<tr><td>第 2 周</td><td>替代点检索、四类预案</td><td>每个景点去不了时，都有砍掉以外的方案</td></tr>
+<tr><td>第 3 周</td><td>行中重排（只重算没走的站）、改动轮次埋点</td><td>轮次可统计、可导出</td></tr>
 </table>
+<p>同时做减法，与"改得动"无关的不上线：</p>
+<ul>
+<li><b>AI 生成任意城市：</b>生成的数据没法核验，和"算不准的不下断言"冲突。</li>
+<li><b>多方案对比：</b>切换方案会丢掉手动调整，和"改得动"正好相反。</li>
+<li><b>预算页、贴士页、分享二维码：</b>与变更无关。每天和整份行程的花费合计保留，因为改动代价要用到它。</li>
+<li><b>城市：</b>只做有内置数据的 9 座。</li>
+</ul>
 
 <h2 id="solution">方案产出</h2>
-<h3>路线引擎</h3>
-<ol>
-<li><b>打分与取舍：</b>按评分、必去、兴趣标签和方案偏好给景点打分，组成兼顾地理紧凑度的候选池。</li>
-<li><b>分天：</b>k-means 按位置把景点聚成每一天（最远点初始化），再做簇间平衡：必去优先、时间预算、就近挪动。</li>
-<li><b>排序：</b>Held-Karp 精确求每天的最短开放路径，叠加时段偏好惩罚，夜景压轴、上午景点在前。</li>
-<li><b>排程：</b>按开放时间排程，闭馆日自动避开，接近闭园时提醒并尝试调整顺序；沿途就近插入午餐、晚餐和下午茶。</li>
-<li><b>远郊：</b>离市中心 20 公里以上的景点单独成天，单程时长设上限，往返过久的不硬排。</li>
-</ol>
-<h3>体验原则：算法给初稿，用户有决定权</h3>
+<h3>三档意愿</h3>
+<p>每个景点标必去 / 可选 / 可放弃。必去是硬约束，任何自动方案都不会替换或砍掉它；可放弃是预备牺牲品，时间不够先砍它；没标的都是可选。</p>
+<h3>改动代价</h3>
+<p>砍一个点之前先看代价：少看什么、腾出多久（少逛 + 路上）、几点收工、路程和花费怎么变、后面哪几站的时间跟着动、有没有新的时间冲突。每次改动之后留一张回执，可以一键撤销。</p>
+<h3>四类预案</h3>
+<table class="tbl">
+<tr><th>状况</th><th>给出的方案</th></tr>
+<tr><td>这天下雨</td><td>露天的点换成室内的，必去不动；或者和露天更少的那天整天对调</td></tr>
+<tr><td>走不动了</td><td>按三档列出先砍谁，可放弃的排最前，各带能腾出的时间</td></tr>
+<tr><td>某个点去不了</td><td>必去先给换天，可放弃先给砍掉，其余先给相近的替代</td></tr>
+<tr><td>某个点排队太久</td><td>最晚几点必须进场或离开、再晚哪一站会出问题；然后是再排一会儿、放弃、换附近的、改天</td></tr>
+</table>
+<h3>三条设计原则</h3>
 <ul>
-<li>拖拽调序、上移下移、移除 / 添加景点、换餐厅、重新优化，所有时间自动重算。</li>
-<li>同一偏好按不同目标出 4 套方案（推荐 / 省时省力 / 省钱 / 打卡多），并排显示景点数、总路程、人均花费、最晚结束，一键切换。</li>
-<li>偏好显式可设：出行方式、饮食偏好（不吃辣、素食、清真、忌口、人均上限）、出发点（酒店地址或地图点选）。</li>
-<li>餐厅评价是"一句话总评 + 大家喜欢 / 注意与吐槽 + 适合场景"的中立综合，并附跳转小红书看真实笔记的链接。</li>
+<li><b>给约束，不给预测：</b>不报"13:47 到"，只报"最晚 14:59 进场，再晚闭园前就逛不完"，并留出余量。</li>
+<li><b>只动必要的：</b>一次改动只重排受影响的那一天；路上走完一站点一下，之后只重算还没走的站。</li>
+<li><b>算不准的不下断言：</b>下不下雨、排不排队由用户自己说，途迹不接天气和排队数据；路上的时间是估算，界面上只说"约"。</li>
 </ul>
-<div class="callout"><b>AI 的边界。</b>核心规划全部在浏览器本地用确定性算法完成，没有后端。只有"内置数据没有的城市"才调用 Claude，分两步结构化生成景点与餐厅数据，并经过与内置城市相同的校验。</div>
+<div class="callout"><b>算法的边界。</b>行程规划、改动代价和预案全部在浏览器本地用确定性算法完成，没有后端，也不调用模型。替代和换天方案如果会带来新的时间冲突（闭馆、赶不上闭园），就不列出来。</div>
 
-<h2 id="ship">开发上线与项目管理</h2>
+<h2 id="ship">开发上线与验证</h2>
 <ul>
-<li><b>版本记录：</b>每个版本在 PROGRESS.md 记录问题、改动与验证方式，路线图随之更新；发布前固定跑类型检查、城市数据校验与构建。</li>
-<li><b>数据质量门槛：</b>9 座城市共 198 个景点、172 家餐厅的数据由并行子任务编写，必须通过校验脚本做到 0 错误才能注册进应用；坐标、票价把握不足的条目单独记录。</li>
-<li><b>用户反馈闭环：</b>远郊一日游（迪士尼、长城这类）有人爱有人嫌，改成行程里的开关并说明"会单独占一天"；出发点一开始只是模糊的市中心，按反馈加了酒店地址搜索与地图点选，每天从住处出发；有人纠结打车还是步行，于是加了均衡 / 多步行 / 公共交通 / 打车优先四种出行方式，时间估算和交通预算同步变化。</li>
-<li><b>成本与安全：</b>为让访客免填 Key，自建 Cloudflare Worker 代理持有站长密钥，按人每日 3 次、全站每日 40 次限流，模型白名单，上游失败退回额度。</li>
-<li><b>发布：</b>GitHub Actions 自动构建并发布到 GitHub Pages；中英双语 README、MIT 许可证，开放城市数据贡献。</li>
+<li><b>版本记录：</b>每个版本在 PROGRESS.md 记录问题、改动与验证方式；发布前固定跑类型检查、城市数据校验与构建。</li>
+<li><b>闸门是实测出来的：</b>第 2 周原定的闸门是"每个必去点配一个替代"。用北京、成都、西安 68 个景点实测，颐和园、长城、熊猫基地按规则找不到替代，找得到的也多是"故宫换北海公园"这种用户不会接受的。于是改成"必去只换天，其余才找替代"，再扩到 9 城 198 个景点。</li>
+<li><b>覆盖检查进仓库：</b>一个脚本对任意一份行程打印全部预案，并统计每个景点去不了时有没有砍掉以外的方案、每个雨天有没有改法，结果可复现。</li>
+<li><b>数据：</b>9 座城市 198 个景点、172 家餐厅通过校验脚本；每个景点标了室内 / 半室内 / 露天，雨天预案据此判断。</li>
+<li><b>发布：</b>GitHub Actions 自动构建并发布到 GitHub Pages；中英双语 README、MIT 许可证。</li>
 </ul>
-
-<h2 id="eval">用户画像测评</h2>
-<p>对线上版本做了一轮 107 个用户画像的测评（学生、家庭、美食导向、无障碍需求、远郊游客等）：每个画像走一个具体场景，按 10 个维度打分并提出改进建议，再按 P0–P3 归并。均分 4.65 / 5；保存分享、预算决策得分最高，路线排程、餐饮推荐、AI 能力相对偏低；归并出 15 项 P0、45 项 P1。</p>
-<p>排在最前面的 P0：忌口 / 过敏 / 清真 / 素食要把"软匹配"和"严格安全要求"分开，不确定时提示人工核实；交通时间标明是估算，优先接真实导航校核；保存后提醒备份、换方案自动快照、支持恢复；分享前提示酒店住址等可能公开的信息并允许匿名化；AI 生成的城市显示剩余额度、来源与时间戳。</p>
 
 <h2 id="result">结果与迭代</h2>
 <table class="tbl">
 <tr><th>指标</th><th>结果</th></tr>
-<tr><td>内置数据</td><td>9 座城市、198 个景点、172 家餐厅，全部通过校验</td></tr>
-<tr><td>方案差异（北京 3 日实测）</td><td>推荐 9 景点 ¥1052 → 省钱 ¥806（−23%）→ 打卡多 12 景点</td></tr>
-<tr><td>AI 生成任意城市</td><td>上线当天实测南京：16 个景点，约 2 分钟</td></tr>
-<tr><td>用户反馈迭代</td><td>远郊一日游开关、酒店精确出发点、四种出行方式对比</td></tr>
+<tr><td>去不了时的方案覆盖</td><td>9 城 2 / 3 / 4 日游共 27 份行程、271 个景点，全部有替代或换天方案</td></tr>
+<tr><td>雨天改法覆盖</td><td>70 个含露天景点的行程日中 62 个有改法；其余 8 个只能带伞或砍点，界面上如实说明</td></tr>
+<tr><td>改动轮次（按设计）</td><td>7 个改动入口中 6 个 2 步内完成：拖拽换序 1 步；砍点、先砍谁、出状况了、换餐厅、添加景点 2 步；从预案页针对某一站操作 3 步</td></tr>
+<tr><td>轮次统计</td><td>已上线：记录每次变更的轮次、耗时、类型，以及放弃率和撤销次数，可导出</td></tr>
 </table>
-<p>下一步按优先级：</p>
-<ol>
-<li>处理 15 项 P0，先做忌口安全提示、交通时间标注与行程备份。</li>
-<li>做 5 人对照测试：同一城市 3 日行程，手工做攻略 vs 用途迹，记录耗时与回头路次数。</li>
-<li>接入真实路径与公交线路、天气与节假日提示，把"直线 × 系数"的时间估算换成真实路况。</li>
-<li>补单元测试与 CI，改算法时不再靠手工试跑。</li>
-</ol>
+<p>已知局限：</p>
+<ul>
+<li>路上的时间按直线距离 × 1.3 估算，没有真实路况；"最晚几点"留了余量，但仍是估算。</li>
+<li>景点的室内 / 半室内 / 露天是凭常识标注的，没有逐一核验。</li>
+<li>没有"已订票、别动"的锁：必去不会被替换或砍掉，但换天方案仍可能挪动一个已订票的点。</li>
+</ul>
 
 <h2>明确未做的边界</h2>
 <ul>
-<li>不做账号与云同步，v1 行程只存本机，分享用链接 + 二维码。</li>
+<li>不接天气、排队、路况等实时数据，状况由用户自己声明。</li>
+<li>不做账号与云同步，行程只存本机，分享用链接。</li>
 <li>不抓取真实评论，餐厅评价是综合整理的中立陈述并标明来源性质。</li>
 <li>不做多城市联程与多人协作。</li>
 </ul>
 
 <h2 id="stack">技术</h2>
-<p>Vite 8、React 19、TypeScript、Tailwind CSS 4、Leaflet 地图（高德底图，已做坐标转换）、dnd-kit 拖拽、lz-string 分享编码；Anthropic SDK 结构化输出；Cloudflare Workers 代理；GitHub Actions + GitHub Pages 部署。借助 Claude Code 独立完成全栈开发。</p>
+<p>Vite 8、React 19、TypeScript、Tailwind CSS 4、Leaflet 地图（高德底图，已做坐标转换）、dnd-kit 拖拽、lz-string 分享编码；GitHub Actions + GitHub Pages 部署。借助 Claude Code 独立完成全栈开发。</p>
 <p><a class="back" href="../index.html#projects">← 返回作品集</a></p>
 </main>
 <footer class="wrap">© 2026 高凯堃</footer>

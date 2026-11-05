@@ -35,7 +35,7 @@
     </ul>
     <ul class="strengths">
       <li><b>端到端产品能力：</b>独立完成三个 AI 产品从用户研究、竞品分析、PRD 到原型、上线与数据埋点的全流程，具备需求优先级判断与范围取舍能力，并以北极星指标和评测体系衡量结果。</li>
-      <li><b>评测驱动与数据决策：</b>在功能开发前建立真值评测集与上线标准；科研中通过显著性检验与消融实验界定 LLM 信号的适用边界，结论以数据为依据。</li>
+      <li><b>评测驱动与数据决策：</b>开发前在 PRD 里写明验收标准，上线后用评测集和真实数据检验；科研中通过显著性检验与消融实验界定 LLM 信号的适用边界，结论以数据为依据。</li>
       <li><b>技术与数据基础：</b>数据科学、统计学双学位，计算机科学硕士在读；熟悉代码实现与指标计算，可与研发高效协作。</li>
     </ul>
     <ul class="facts">
@@ -54,44 +54,44 @@
 
 <section id="projects">
   <h2 class="sec-title">项目</h2>
-  <p class="sec-sub">每个项目先说明目标用户、要解决的问题和衡量方式，再按统一的产品流程展开：背景、痛点、需求优先级、方案产出、开发上线、结果与迭代。所有数字均来自运行记录、用户测评或公开数据核对；尚未取得的数据标注为下一步计划。</p>
+  <p class="sec-sub">每个项目先说明目标用户、要解决的问题和衡量方式，再按统一的产品流程展开：背景、痛点、需求优先级、方案产出、开发上线、结果与迭代。所有数字均来自运行记录或公开数据核对。</p>
 
   <!-- Tuji -->
   <article class="card feature">
     <header>
       <h3>途迹 Tuji Travel</h3>
       <span class="badge">已上线 · 开源</span>
-      <span class="meta">不走回头路的城市旅行规划工具 · 个人项目 · 2026.09 — 2026.10</span>
+      <span class="meta">旅行行程变更工具 · 个人项目 · 2026.09 — 2026.11</span>
     </header>
-    <p class="one-liner">说一个城市，得到不走回头路、可直接执行的逐日行程：按地理分天、精确最短路径排序、按开放时间排程、沿途配餐。无需注册，打开就能用。</p>
+    <p class="one-liner">先标必去、可选、可放弃，途迹排出行程并把预案算好；下雨、排队、有人累了，只改受影响的那一段，并把代价算给你看。无需注册，打开就能用。</p>
     <div class="pos">
-      <span><b>给谁</b>2–4 天去一座陌生城市的自由行用户，预算有限、想少走冤枉路</span>
-      <span><b>解决什么</b>攻略里的景点怎么排顺序：不走回头路、不扑空闭馆、吃得顺路</span>
-      <span><b>怎么衡量</b>每套方案的总路程、人均花费、最晚结束时间；下一步测规划耗时与回头路次数</span>
+      <span><b>给谁</b>2–4 天去一座城市的自由行用户，行程排好之后最怕临时有变</span>
+      <span><b>解决什么</b>行程出状况时怎么改：只动必要的那一段，改之前先看到代价</span>
+      <span><b>怎么衡量</b>改动轮次（一次变更从想改到改完的操作次数，目标 ≤2）、放弃率、撤销次数</span>
     </div>
     <div class="browser">
       <div class="bar" aria-hidden="true"><i></i><i></i><i></i><span class="url">kaikungao.github.io/tuji-travel-planner · 北京 3 日示例</span></div>
       <div class="screen" id="tuji-demo">
-        <img src="assets/tuji-plan-hd.jpg" alt="途迹行程页：左侧按天的时间线，右侧地图上按天着色的路线与编号站点" width="1440" height="960">
+        <img src="assets/tuji-plan-hd.jpg" alt="途迹行程页：砍掉一个景点之后的代价回执，右侧地图上圈出受影响的站点" width="1440" height="960">
         <button type="button" class="demo-btn" data-src="https://kaikungao.github.io/tuji-travel-planner/" data-title="途迹 在线试用">直接试用：在这里打开线上应用</button>
       </div>
     </div>
-    <p class="try-note"><span>点击后在窗口内加载真实应用，选一座城市、点"开始规划"即可生成行程，拖拽调序、换餐厅、切换方案都能试。</span><a href="https://kaikungao.github.io/tuji-travel-planner/" target="_blank" rel="noopener">新窗口打开 ↗</a></p>
+    <p class="try-note"><span>点击后在窗口内加载真实应用，选一座城市、点"开始规划"生成行程，砍点看代价、"出状况了"换点、预案页都能试。</span><a href="https://kaikungao.github.io/tuji-travel-planner/" target="_blank" rel="noopener">新窗口打开 ↗</a></p>
     <div class="metrics">
-      <div class="metric"><b>198</b><span>内置景点，9 座城市 172 家餐厅，全部通过校验</span></div>
-      <div class="metric"><b>4.65 / 5</b><span>107 个用户画像测评均分</span></div>
-      <div class="metric"><b>−23%</b><span>省钱方案人均成本（北京 3 日：¥1052 → ¥806）</span></div>
+      <div class="metric"><b>271 / 271</b><span>景点去不了时有替代或换天方案（9 城 27 份行程）</span></div>
+      <div class="metric"><b>62 / 70</b><span>含露天景点的行程日有雨天改法</span></div>
+      <div class="metric"><b>2 步</b><span>7 个改动入口中 6 个按设计 2 步内完成</span></div>
     </div>
     <div class="flow">
-      <span>取舍</span><i>→</i><span>分天</span><i>→</i><span>排序</span><i>→</i><span>排程</span><i>→</i><span>配餐</span>
+      <span>标三档</span><i>→</i><span>排行程</span><i>→</i><span>备预案</span><i>→</i><span>只改一段</span><i>→</i><span>看代价</span>
     </div>
     <div class="grid4 grid6">
-      <div class="cell"><b class="k">01 · 项目背景</b><strong>和同学复盘做攻略：景点有了，顺序靠人脑拼。</strong>反复出现走回头路、闭馆扑空、饭点凑合三类问题；现有攻略产品给的是景点列表和评分，不回答"先去哪、后去哪"。</div>
-      <div class="cell"><b class="k">02 · 痛点挖掘</b><strong>一句话产品承诺："不走回头路"。</strong>锁定"2–4 天去一座陌生城市"的自由行用户；核心痛点不在找景点而在排顺序，于是把攻略拆成"取舍→分天→排序→排程→配餐"5 步，每步对应一条可验证的规则。</div>
-      <div class="cell"><b class="k">03 · 需求与优先级</b><strong>需求池 + 价值 / 难度两维排路线图。</strong>先做路线引擎与 9 座城市数据，再做拖拽、饮食偏好、多方案对比、分享等 7 项拓展；天气、真实路况、账号等依赖外部服务的明确后置。</div>
-      <div class="cell"><b class="k">04 · 方案产出</b><strong>不画静态原型图，直接做可试用的产品。</strong>借助 Claude Code 把方案做成可点击的真实产品给同学用；路线用 k-means 分天 + Held-Karp 最短路径 + 时段偏好排程，AI 只用于生成无内置数据的城市；原则是"算法给初稿、用户有决定权"。</div>
-      <div class="cell"><b class="k">05 · 开发上线</b><strong>数据不过校验不上线。</strong>198 个景点、172 家餐厅经校验脚本 <span class="num">0 错误</span>后才注册进应用；自建 Cloudflare 代理让访客免填 Key，按人 / 全站每日限流控成本；GitHub Pages 自动部署，无需注册即可用。</div>
-      <div class="cell"><b class="k">06 · 结果与迭代</b><strong>107 个用户画像测评：均分 4.65 / 5。</strong>保存分享、预算决策得分最高，路线排程、餐饮推荐、AI 能力相对偏低；北京 3 日实测省钱方案人均 ¥1052→¥806（<span class="num">−23%</span>）。按反馈增加远郊一日游开关、酒店精确出发点、出行方式对比；归并出 15 项 P0 排入下一版：忌口安全提示、真实交通时间、行程备份与恢复、分享脱敏、AI 生成城市的可信度标识。</div>
+      <div class="cell"><b class="k">01 · 项目背景</b><strong>行程排好了，最怕的是要改。</strong>复盘做自由行攻略的过程并结合 OTA 行研发现：OTA 的 AI 助手和通用 AI 都在优化"一次排得准"，但用户排行程本来就要反复改，没有产品在降低"改一下"的成本。</div>
+      <div class="cell"><b class="k">02 · 痛点挖掘</b><strong>一句话产品承诺："行程改一下就好"。</strong>锁定痛点"排完不敢改"：花几小时排好的行程，遇到下雨、排队、同伴累了，只能全部重排或将就着走。北极星指标定为改动轮次 ≤2，并用放弃率、撤销次数作护栏。</div>
+      <div class="cell"><b class="k">03 · 需求与优先级</b><strong>6 项能力按依赖排成三周，各设闸门。</strong>三档意愿与代价量化 → 替代点与预案 → 行中重排与轮次埋点；同时做减法：AI 生成任意城市、多方案对比、预算等 5 项与"改得动"无关的功能不上线，城市只做有内置数据的 9 座。</div>
+      <div class="cell"><b class="k">04 · 方案产出</b><strong>给约束，不给预测。</strong>用户先标必去 / 可选 / 可放弃；下雨、去不了、排队太久、走不动四类预案各带方案和代价，必去只换天不替换；不报"13:47 到"，只报"最晚 14:59 进场"；每次改动只重算受影响的那一段，可撤销。</div>
+      <div class="cell"><b class="k">05 · 开发上线</b><strong>闸门是实测出来的。</strong>借助 Claude Code 开发并上线，代码开源；先用三城 68 个景点实测，发现"每个必去点配一个替代"不成立（颐和园、长城、熊猫基地没有合理替代），把闸门改为"替代或换天"且不得引入新的时间冲突，再扩到 9 城 198 个景点。</div>
+      <div class="cell"><b class="k">06 · 结果与迭代</b><strong>9 城 271 个景点，去不了时都有替代或换天方案。</strong>27 份行程实测；70 个含露天景点的行程日中 62 个有雨天改法，其余如实提示带伞或砍点；7 个改动入口中 6 个按设计 2 步内完成；已内置改动轮次统计，可导出每次变更的轮次、耗时与放弃率。</div>
     </div>
     <div class="links">
       <a class="more" href="projects/tuji.html">查看详情 →</a>
@@ -105,43 +105,46 @@
     <header>
       <h3>蛋白钱包 ProteinWallet</h3>
       <span class="badge">已上线</span>
-      <span class="meta">面向大学生的 AI 饮食记账工具 · 个人项目 · 2026.07 — 2026.08</span>
+      <span class="meta">按预算选餐的 AI 工具 · 个人项目 · 2026.07 — 2026.08</span>
     </header>
-    <p class="one-liner">拍一张餐食或小票，同时记账与记营养。给生活费有限、想增肌的在校大学生回答一个问题：每一美元换到了多少克蛋白质。</p>
+    <p class="one-liner">填体重和每天的饭钱，常去的店拍一次菜单；之后每天打开首页，就能看到今天预算内、蛋白最划算的几样，点一下记上。给月生活费 2000–2500 元、想增肌的大学生，在有限的饭钱里吃够蛋白。</p>
     <div class="pos">
-      <span><b>给谁</b>生活费有限、想增肌的在校大学生；v1 做美国校园，国内版在路线图</span>
-      <span><b>解决什么</b>食堂、连锁、外卖没法称重，营养和钱分在两个 App 里</span>
-      <span><b>怎么衡量</b>北极星：周人均记录餐次；评测：区间命中率与宽度；线上：修正率、份量按钮点击率</span>
+      <span><b>给谁</b>月生活费 2000–2500 元、想增肌的在校大学生，三餐靠食堂、连锁和外卖</span>
+      <span><b>解决什么</b>同一克蛋白在三餐里相差 10 倍，钱该花在哪顿饭上，下单前看不出来</span>
+      <span><b>怎么衡量</b>每周记录天数（目标 ≥5 天）、首页清单的点选次数、周报一问"这周有没有因为它换过一次吃的"</span>
     </div>
     <div class="showcase">
       <figure class="phone big" id="pw-demo">
-        <img src="assets/pw-today.jpg" alt="ProteinWallet 今日页：蛋白质环形进度、本周预算与今天的记录" width="780" height="1688">
-        <button type="button" class="demo-btn" data-src="https://protein-wallet.vercel.app/" data-title="ProteinWallet 在线试用">在手机里试用</button>
+        <img src="assets/pw-today.jpg" alt="蛋白钱包首页：今天的蛋白差额和预算，下面是今天预算内、按每块钱蛋白排好的三样选择" width="780" height="1688">
+        <button type="button" class="demo-btn" data-src="https://protein-wallet.vercel.app/?demo=1" data-title="蛋白钱包 在线试用">在手机里试用</button>
       </figure>
       <figure class="phone">
-        <img src="assets/pw-confirm.jpg" alt="ProteinWallet 确认卡：食堂菜单来源、置信度与一键份量修正" width="780" height="1688">
+        <img src="assets/pw-menu.jpg" alt="蛋白钱包菜单页：存过的地方按每块钱换多少克蛋白排好，每样带价格、蛋白区间和数据来源" width="780" height="1688">
       </figure>
       <figure class="phone">
-        <img src="assets/pw-weekly.jpg" alt="ProteinWallet 周报：花销 vs 预算、蛋白质达标天数、蛋白质单价排行榜" width="780" height="1688">
+        <img src="assets/pw-weekly.jpg" alt="蛋白钱包周报：本周花销与预算、蛋白达标天数、蛋白质单价排行榜" width="780" height="1688">
       </figure>
     </div>
-    <p class="try-note"><span>点"在手机里试用"后，第一部手机内会加载真实应用：写一句"Chipotle 鸡肉碗 $11.5"或选一个食堂拍餐盘，就能看到区间、置信度和依据。</span><a href="https://protein-wallet.vercel.app/" target="_blank" rel="noopener">新窗口打开 ↗</a></p>
+    <p class="try-note"><span>点"在手机里试用"后，第一部手机内会加载真实应用，打开就是 13 张真实外卖订单解析出的示例：首页列出今天预算内的几样选择，点一样就记上；也可以到"拍菜单"里看存过的地方。</span><a href="https://protein-wallet.vercel.app/?demo=1" target="_blank" rel="noopener">新窗口打开 ↗</a></p>
     <div class="metrics">
-      <div class="metric"><b>3 级</b><span>估算：连锁官方表 → 食堂菜品库 → 模型目测</span></div>
-      <div class="metric"><b>640 道</b><span>食堂官方菜品库（芝大 4 个食堂）</span></div>
-      <div class="metric"><b>4.68 / 5</b><span>76 个用户画像测评均分，61% 打 4 分以上</span></div>
+      <div class="metric"><b>10 倍</b><span>同一克蛋白在三餐里的价差：鸡蛋约 9 分/g，外卖约 100 分/g</span></div>
+      <div class="metric"><b>13 / 13</b><span>真实外卖订单截图，金额和菜名全部识别正确</span></div>
+      <div class="metric"><b>18% → 6%</b><span>这 13 单里 18% 的钱花在蛋白很少的菜上，只贡献 6% 的蛋白</span></div>
+    </div>
+    <div class="flow">
+      <span>填体重和饭钱</span><i>→</i><span>拍一次菜单</span><i>→</i><span>每天看清单</span><i>→</i><span>点一下记上</span><i>→</i><span>花超提醒</span>
     </div>
     <div class="grid4 grid6">
-      <div class="cell"><b class="k">01 · 项目背景</b><strong>竞品各管一半："吃得健康"和"花得起"分在两个 App。</strong>生活费有限又想增肌的在校大学生，三餐多靠食堂、连锁和外卖，无法称重；MyFitnessPal、Keep 等营养 App 靠条目搜索 + 手动克数且不管钱，记账 App 不管营养。</div>
-      <div class="cell"><b class="k">02 · 痛点挖掘</b><strong>每一美元换多少克蛋白质。</strong>把大学生饮食重新定义为约束优化问题，自创核心指标<span class="num">蛋白质单价（¢/g）</span>，把营养决策变成消费决策，这是与现有产品的根本差异。</div>
-      <div class="cell"><b class="k">03 · 需求与优先级</b><strong>单次记录 ≤10 秒是生死线。</strong>MVP 只保留"记录→估算→差额→周报"一个闭环，为此设计拍小票、拍餐食、一句话、自炊双记录 4 种输入；优先把食堂这一最高频场景的估算做准，饮食推荐、热量警告等明确不做。</div>
-      <div class="cell"><b class="k">04 · 方案产出</b><strong>PRD + 三级估算 + "诚实的模糊"。</strong>连锁官方营养表 → 学校食堂官方菜品库（<span class="num">640 道菜</span>）→ 模型目测，模型只做识别、算术交给代码；界面统一呈现区间 + 置信度 + 依据，模型对份量没把握时做成一键追问（×0.5 / 1 / 1.5 / 2）。</div>
-      <div class="cell"><b class="k">05 · 开发上线</b><strong>数据来源分级，核实不了的不许叫"官方"。</strong>PRD 拆成 4 周 14 个 Step，每步写死验收标准；17 家连锁里只有逐行核对过官网的 5 家能标"官方数据"，9 家未核实的降级为"参考数据·未核实"；借助 Claude Code 开发，上线 Vercel。</div>
-      <div class="cell"><b class="k">06 · 结果与迭代</b><strong>76 个用户画像测评：均分 4.68 / 5，61% 打 4 分以上。</strong>预算与性价比得分最高，拍餐盘识别、长期可靠性相对偏低；36% 的反馈要求估算可确认、可修正，据此上线份量一键追问、记录可编辑、"再来一份"。评测区间命中连锁 17/17、食堂 4/4。5 项 P0 集中在照片与小票隐私、数据导出，排入下一版。</div>
+      <div class="cell"><b class="k">01 · 项目背景</b><strong>有限的饭钱里，怎么吃够蛋白。</strong>月生活费 2000–2500 元、想增肌的大学生，三餐靠食堂、连锁和外卖；蛋白粉一天一勺只补得上需求的两成，剩下的要从三餐来。蛋白钱包按每天的预算，给出吃得起、蛋白多的几样选择。</div>
+      <div class="cell"><b class="k">02 · 痛点挖掘</b><strong>同一克蛋白，在三餐里相差 10 倍。</strong>访谈 8 名国内高校健身房同学并检索小红书"穷鬼增肌"帖；整理价格表发现：鸡蛋约 9 分/g，食堂 25–50，外卖和快餐约 100。问题出在"哪顿饭"怎么选。</div>
+      <div class="cell"><b class="k">03 · 需求与优先级</b><strong>把操作成本排第一。</strong>对比薄荷健康、豆包：前者按条目搜索加克数或拍照记录，单位是千卡不是钱；后者每次都要重新问，不累计、不知道价格。于是菜单每家店只拍一次，日常一次点击；只给选择、不替用户决定。</div>
+      <div class="cell"><b class="k">04 · 方案产出</b><strong>用法四步。</strong>①填体重和每天饭钱；②常去的店拍一次菜单；③每天打开首页，看到今天预算内、蛋白最划算的几样，点一下记上；④花超不拦，但会提醒。内置的连锁菜品（麦当劳中国官方营养表 76 道）蛋白直接计入；其他菜第一次由 AI 读菜单算出蛋白，之后反复复用。</div>
+      <div class="cell"><b class="k">05 · 开发上线</b><strong>模型只读菜单，蛋白和排序由代码计算。</strong>撰写 PRD，借助 Claude Code 开发并上线，已埋点。模型读出菜名、价格和每道菜的蛋白来源，代码查食材表算出蛋白区间，再按每块钱换多少克蛋白排序；营养一律给区间并标明数据来源。</div>
+      <div class="cell"><b class="k">06 · 结果与迭代</b><strong>13 张真实外卖订单截图，金额和菜名全部识别正确。</strong>分析这 13 单发现，18% 的钱花在了蛋白很少的菜上（汤、寿司卷、洋葱圈这类），只贡献了 6% 的蛋白。这 13 单做成了首屏示例，第一次打开就能看到。</div>
     </div>
     <div class="links">
       <a class="more" href="projects/protein-wallet.html">查看详情 →</a>
-      <a href="https://protein-wallet.vercel.app/" target="_blank" rel="noopener">线上产品</a>
+      <a href="https://protein-wallet.vercel.app/?demo=1" target="_blank" rel="noopener">线上产品</a>
       <a href="https://github.com/KaikunGao/protein-wallet" target="_blank" rel="noopener">GitHub</a>
     </div>
   </article>
@@ -152,11 +155,11 @@
     <header>
       <h3>TripSplit 旅游分账 Agent</h3>
       <span class="badge">已上线 · 开源</span>
-      <span class="meta">多人自由行 AA 记账与核账助手 · 个人项目 · 2025.09 — 2025.12</span>
+      <span class="meta">多人自由行 AA 记账与核账工具 · 个人项目 · 2025.09 — 2025.12</span>
     </header>
     <p class="one-liner">一句话、一张支付截图或一段语音就能记一笔；账目由只读的核账 Agent 查重、查漏、查异常，修改建议逐条由用户确认；最后给出最少转账的结算方案。</p>
     <div class="pos">
-      <span><b>给谁</b>2–6 人结伴自由行、轮流垫付的小团体；记账的人和付钱的人常常不是同一个</span>
+      <span><b>给谁</b>2–8 人结伴自由行里负责记账的"管账人"；钱是轮流垫的，记账的人和付钱的人常常不是同一个</span>
       <span><b>解决什么</b>消费记录分散、垫付关系复杂、参与人容易记错、结算前核对繁琐</span>
       <span><b>怎么衡量</b>录入自动入账率与字段准确率；核账查全率；结算前残留异常数；线上响应时长</span>
     </div>
@@ -177,12 +180,12 @@
       <span>创建旅行</span><i>→</i><span>消费录入</span><i>→</i><span>账本管理</span><i>→</i><span>核账</span><i>→</i><span>结算</span>
     </div>
     <div class="grid4 grid6">
-      <div class="cell"><b class="k">01 · 项目背景</b><strong>结伴旅行的账，难点不在记，而在记全和算对。</strong>消费散在不同人的支付记录里，谁垫付、谁参与每笔都不一样；回来结算时靠聊天记录和记忆核对，漏记、重复记、参与人记错都很常见，现有分账工具只解决"算"，不解决"记"和"核"。</div>
-      <div class="cell"><b class="k">02 · 痛点挖掘</b><strong>把成本拆成两段：记录成本与核对成本。</strong>记录成本用多模态录入降低，怎么方便怎么记；核对成本交给 Agent，但边界定死为"只读账目、提出建议、由用户确认修改"，宁可多问一句，也不替用户改账。</div>
-      <div class="cell"><b class="k">03 · 需求与优先级</b><strong>先把一条动线跑通，再谈拓展。</strong>PRD 梳理"创建旅行 → 消费录入 → 账本管理 → 核账 → 结算"全流程，逐页写页面交互、业务规则、异常处理与验收标准；MVP 只做录入、检索、核账、结算四件事，云同步、分摊规则、多币种、预算等 10 项列为第二期并排出优先级。</div>
-      <div class="cell"><b class="k">04 · 方案产出</b><strong>模型给判断，代码做算术，用户做决定。</strong>录入由多模态模型抽取金额、付款人、参与人并逐字段给置信度，按阈值与字段完整性决定自动入账还是追问；检索把模糊描述解析成日期、金额、成员条件再做语义排序，回答带证据引用和字段级修改预览；核账 Agent 走 Planning → 只读工具调用 → 结构化输出的链路。</div>
-      <div class="cell"><b class="k">05 · 开发上线</b><strong>Agent 在技术上就改不了账。</strong>服务端只接收账本快照、只返回建议，没有写接口；核账工具全是快照上的纯函数，结论必须以 submit_findings 严格结构提交。第二期补上 libsql 云同步、每次模型调用的耗时与成本遥测、20 例录入评测集与运营后台；借助 Claude Code 开发，Vercel 上线。</div>
-      <div class="cell"><b class="k">06 · 结果与迭代</b><strong>评测 18 / 20，核账在示例账本上查全 5 处异常。</strong>录入评测字段准确率 100%，两例失败是"靠推断得到的付款人该不该追问"的标注边界；线上实测录入 4–6 秒、核账约 30 秒。第二期上线云同步、请客与不均摊、多币种、预算、还款跟踪、批量导入、服务端语音、Agent 规则记忆。</div>
+      <div class="cell"><b class="k">01 · 项目背景</b><strong>麻烦的不是最后怎么算，而是前面记不全、核不清。</strong>多人结伴自由行轮流垫付，消费散在群聊、支付截图和口头约定里；结算时反复出现记录凑不齐、垫付关系算错、参与人记错、核对要翻完整本账四类问题。</div>
+      <div class="cell"><b class="k">02 · 痛点挖掘</b><strong>把问题拆成三类成本：记录、核对、信任。</strong>记录成本用多模态录入降低，怎么方便怎么记；核对成本交给 Agent；信任成本靠边界解决：用户不敢让 AI 直接改账，所以 Agent 只读账目、只提建议，修改由用户确认。产品原则定为一句话：模型给判断、代码做算术、用户做决定。</div>
+      <div class="cell"><b class="k">03 · 需求与优先级</b><strong>先把一条动线跑通，再谈拓展。</strong>MVP 只保留"录入 → 账本 → 核账 → 结算"一条动线和多模态录入、历史检索、核账 Agent、最少转账 4 项能力；以单笔 ≤10 秒入账为目标设计文字、截图、语音 3 种录入；云同步、多币种、平台直连列为非目标后置。</div>
+      <div class="cell"><b class="k">04 · 方案产出</b><strong>逐字段给置信度，过线才自动入账。</strong>撰写完整 PRD，含 14 类异常处理与 19 条验收标准；录入由模型抽取金额、付款人、参与人并逐字段给置信度，金额过 0.8、付款人与参与人过 0.7 才自动入账，否则只追问缺失的那一项；检索把模糊描述解析成日期、金额、成员条件再按文本相似度排序；检索与核账的修改一律做成字段级前后对比，由用户确认。</div>
+      <div class="cell"><b class="k">05 · 开发上线</b><strong>Agent 在技术上就改不了账。</strong>核账 Agent 按"提示词封装 → Planning → 工具调用 → 结构化输出"搭建，只配 7 个只读工具，覆盖查重与 7 项规则体检，工具全是账本快照上的纯函数；AI 接口只返回建议，修改经用户确认后才写入。借助 Claude Code 开发并上线，代码开源。</div>
+      <div class="cell"><b class="k">06 · 结果与迭代</b><strong>录入评测 18 / 20，核账 Agent 稳定找出示例账本埋设的 5 / 5 处异常。</strong>录入评测字段准确率 100%，两例失败是"靠推断得到的付款人该不该追问"的标注边界；线上实测录入 4–6 秒、核账约 30 秒。第二期补齐云同步、请客与不均摊、多币种、预算、还款跟踪、批量导入、服务端语音、Agent 规则记忆，并建运营后台跟踪成功率、耗时与成本。</div>
     </div>
     <div class="links">
       <a class="more" href="projects/tripsplit.html">查看详情 →</a>
@@ -199,7 +202,7 @@
   <article class="card research">
     <header>
       <h3>共享单车运营管理平台</h3>
-      <span class="meta">导师：芝加哥大学 Ahmed Khaled · 基于芝加哥 Divvy 公开数据的需求定位与后台设计 · 2026.10 — 至今</span>
+      <span class="meta">基于芝加哥 Divvy 公开数据 · 课程项目 · 2026.10 — 2026.11</span>
     </header>
     <div class="browser">
       <div class="bar" aria-hidden="true"><i></i><i></i><i></i><span class="url">运营后台原型 · 站点与调度（按高峰时段）</span></div>
@@ -214,10 +217,9 @@
       <div class="metric"><b>74 / 94</b><span>回测提前找到的潮汐站，按月仅 41 个</span></div>
     </div>
     <ul style="margin:0; padding-left:18px;">
-      <li><b>问题与数据：</b>到站无车可借、无桩可还是有桩共享单车的公认痛点，但它发生在哪些站、什么时段没有现成答案。用芝加哥 Divvy 官方 13.9 万条行程定位：出发量 75.2% 集中在前 20% 站点，5 个高峰小时占 40.5%。</li>
-      <li><b>发现：</b>通勤站早晚流向相反，按月相加互相抵消：44 个高峰净流量过百的潮汐站里，34 个按月统计看不到。核对实时接口时把 42% 的空站率按站点类型拆开，实体站实为 10.7%。</li>
-      <li><b>方案：</b>设计 9 张表的数据模型、16 条运营查询（MySQL 与 SQLite 结果一致）与 12 页可点击原型；调度页从按月改为按高峰时段，看板每个指标对应一个运营动作。</li>
-      <li><b>回测与结论：</b>用前 18 个工作日识别出的 36 个潮汐站，最后一周方向全部一致；量级随骑行量上浮约 45%，据此把调度数量改为按预计骑行量缩放。下一步加入桩位容量，测算各站高峰时的实际缺口。</li>
+      <li><b>数据与搭建：</b>接入 Divvy 官方 13.9 万条行程记录与站点实时快照，清洗后建成 9 张表的运营数据库；编写 16 条运营查询，搭建数据看板与 12 页可点击原型。</li>
+      <li><b>分析与发现：</b>按工作日早晚高峰计算站点净流量，识别 44 个潮汐站点；通勤站早晚流向相反、按月汇总相互抵消，其中 34 个在月度口径下无法识别。</li>
+      <li><b>回测验证：</b>前 18 个工作日识别的 36 个潮汐站，最后一周方向全部一致；同等名单长度下高峰口径命中当周 94 个潮汐站中的 74 个，月度口径仅 41 个。</li>
     </ul>
   </article>
   <article class="card research">
@@ -260,7 +262,7 @@
 <section id="skills">
   <h2 class="sec-title">技能与工具</h2>
   <div class="skills">
-    <div class="skill"><b class="k">产品</b><div class="tags"><span>需求分析</span><span>竞品分析</span><span>PRD 撰写</span><span>指标体系与埋点</span><span>Prompt 设计</span><span>LLM 评测方案</span></div></div>
+    <div class="skill"><b class="k">产品</b><div class="tags"><span>用户调研</span><span>需求分析</span><span>竞品分析</span><span>PRD 撰写</span><span>指标体系与埋点</span><span>Prompt 设计</span><span>LLM 评测方案</span></div></div>
     <div class="skill"><b class="k">AI 与原型工具</b><div class="tags"><span>Claude Code</span><span>Codex</span><span>Anthropic API</span><span>结构化输出</span><span>Figma</span><span>Axure</span><span>墨刀</span></div></div>
     <div class="skill"><b class="k">数据与工程</b><div class="tags"><span>Python</span><span>SQL</span><span>TypeScript / Next.js</span><span>FastAPI</span><span>Excel</span><span>Tableau / Power BI</span></div></div>
     <div class="skill"><b class="k">语言</b><div class="tags"><span>中文母语</span><span>英语可作为工作语言</span></div></div>
@@ -271,8 +273,8 @@
   <h2 class="sec-title">工作方式</h2>
   <div class="ways">
     <div class="cell"><b class="k">用 Claude Code 构建</b>三个项目的大部分代码由 Claude Code 生成。我负责问题定义、PRD、评测设计、范围取舍与验收；每一项取舍都有明确的理由和记录。</div>
-    <div class="cell"><b class="k">评测先于上线</b>先建立真值评测集和上线标准，再开发功能。ProteinWallet 的评测集与数据来源分级、途迹的城市数据校验脚本、TripSplit 的录入评测集，均为上线前的准入条件。</div>
-    <div class="cell"><b class="k">模型与代码的分工</b>识别、分类、摘要交给模型；算术、校验、发布决策交给代码。这是三个项目共同的架构原则，也是控制幻觉的主要手段。途迹的路线规划完全采用确定性算法，仅在生成无内置数据的城市时调用模型；TripSplit 的核账 Agent 只持有只读工具，所有修改经用户确认后由客户端写入。</div>
+    <div class="cell"><b class="k">先写验收标准，再用实测检验</b>开发前在 PRD 里写明验收标准，做完用实测检验。TripSplit 的 19 条验收标准与 20 例录入评测集、途迹每周的闸门与 27 份行程的预案覆盖检查、蛋白钱包 13 张真实外卖订单截图的识别测试，都是这样做的。</div>
+    <div class="cell"><b class="k">模型与代码的分工</b>识别、分类、摘要交给模型；算术、校验、发布决策交给代码。这是三个项目共同的架构原则，也是控制幻觉的主要手段。蛋白钱包的模型只读菜单，蛋白和排序由代码计算；途迹的行程规划、改动代价和预案全部采用确定性算法，不调用模型；TripSplit 的核账 Agent 只持有只读工具，所有修改经用户确认后由客户端写入。</div>
     <div class="cell"><b class="k">工具与关注方向</b>日常使用 Claude Code、Codex 等编码智能体；持续跟踪 Coding Agent 与 Agent 类产品的形态演进，并整理为竞品分析。</div>
   </div>
 </section>
