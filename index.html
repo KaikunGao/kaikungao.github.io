@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>高凯堃 · AI 产品作品集</title>
-<meta name="description" content="高凯堃的 AI 产品作品集：TripSplit 旅游分账 Agent、途迹 Tuji Travel、ProteinWallet 三个项目，每个按背景、痛点、需求优先级、方案、开发上线、结果与迭代展示，以及 LLM 新闻信号与投资组合决策研究。">
+<meta name="description" content="高凯堃的 AI 产品作品集：TripSplit 旅游分账 Agent、途迹 Tuji Travel、ProteinWallet 三个项目，每个按背景、痛点、需求优先级、方案、开发上线、结果与迭代展示，以及共享单车供需潮汐定位、LLM 新闻信号与投资组合决策等研究。">
 <meta property="og:title" content="高凯堃 · AI 产品作品集">
-<meta property="og:description" content="三个从痛点、PRD 到上线与复盘的 AI 产品项目，两段数据与评测驱动的科研。">
+<meta property="og:description" content="三个从痛点、PRD 到上线与复盘的 AI 产品项目，三段数据与评测驱动的科研。">
 <meta property="og:type" content="website">
 <link rel="stylesheet" href="styles.css">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>◎</text></svg>">
@@ -195,7 +195,31 @@
 
 <section id="research">
   <h2 class="sec-title">科研</h2>
-  <p class="sec-sub">两段数据驱动的研究：一段关于 LLM 信号的边界，一段关于传统机器学习的特征与模型选择。</p>
+  <p class="sec-sub">三段数据驱动的研究：一段定位共享单车的供需潮汐，一段关于 LLM 信号的边界，一段关于传统机器学习的特征与模型选择。</p>
+  <article class="card research">
+    <header>
+      <h3>共享单车运营管理平台</h3>
+      <span class="meta">导师：芝加哥大学 Ahmed Khaled · 基于芝加哥 Divvy 公开数据的需求定位与后台设计 · 2026.10 — 至今</span>
+    </header>
+    <div class="browser">
+      <div class="bar" aria-hidden="true"><i></i><i></i><i></i><span class="url">运营后台原型 · 站点与调度（按高峰时段）</span></div>
+      <div class="screen natural">
+        <img src="assets/divvy-dispatch-hd.jpg" alt="运营后台调度页：左表是早高峰净流出的站点，右表是早高峰净流入的站点，各列为早高峰、晚高峰与全月净流量，下方是调度任务草稿" width="1160" height="720">
+      </div>
+    </div>
+    <p class="try-note"><span>调度页原型：左侧是早高峰缺车的站，右侧是早高峰堆车的站；"全月"一列是按月统计的净流量，放在旁边对照。</span></p>
+    <div class="metrics">
+      <div class="metric"><b>13.9 万</b><span>条官方真实行程，2025 年 1 月</span></div>
+      <div class="metric"><b>34 / 44</b><span>个潮汐站按月统计看不到</span></div>
+      <div class="metric"><b>74 / 94</b><span>回测提前找到的潮汐站，按月仅 41 个</span></div>
+    </div>
+    <ul style="margin:0; padding-left:18px;">
+      <li><b>问题与数据：</b>到站无车可借、无桩可还是有桩共享单车的公认痛点，但它发生在哪些站、什么时段没有现成答案。用芝加哥 Divvy 官方 13.9 万条行程定位：出发量 75.2% 集中在前 20% 站点，5 个高峰小时占 40.5%。</li>
+      <li><b>发现：</b>通勤站早晚流向相反，按月相加互相抵消：44 个高峰净流量过百的潮汐站里，34 个按月统计看不到。核对实时接口时把 42% 的空站率按站点类型拆开，实体站实为 10.7%。</li>
+      <li><b>方案：</b>设计 9 张表的数据模型、16 条运营查询（MySQL 与 SQLite 结果一致）与 12 页可点击原型；调度页从按月改为按高峰时段，看板每个指标对应一个运营动作。</li>
+      <li><b>回测与结论：</b>用前 18 个工作日识别出的 36 个潮汐站，最后一周方向全部一致；量级随骑行量上浮约 45%，据此把调度数量改为按预计骑行量缩放。下一步加入桩位容量，测算各站高峰时的实际缺口。</li>
+    </ul>
+  </article>
   <article class="card research">
     <header>
       <h3>LLM 辅助的序列决策与投资组合研究</h3>
