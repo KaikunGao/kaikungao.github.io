@@ -12,12 +12,12 @@
 <main class="wrap detail">
 <a class="back" href="../index.html#projects">← 返回作品集</a>
 <h1>TripSplit 旅游分账 Agent</h1>
-<p class="meta">多人自由行 AA 记账与核账工具 · 个人项目，产品设计与全栈开发 · 2025.09 — 2025.12 · <a href="https://tripsplit-app.pages.dev/" target="_blank" rel="noopener">线上产品</a> · <a href="https://github.com/KaikunGao/tripsplit" target="_blank" rel="noopener">GitHub</a></p>
+<p class="meta">AA 记账与核账工具 · 个人项目，产品设计与独立开发 · 2026 · <a href="https://tripsplit-app.pages.dev/" target="_blank" rel="noopener">线上产品</a> · <a href="https://github.com/KaikunGao/tripsplit" target="_blank" rel="noopener">GitHub</a></p>
 <p class="lead">一句话、一张支付截图或一段语音就能记一笔；账目由只读的核账 Agent 查重、查漏、查异常，修改建议逐条由用户确认；最后给出最少转账的结算方案。开启云同步后，同行的人各自用手机记账，账目实时合并。</p>
 <div class="metrics">
-  <div class="metric"><b>3 种录入</b><span>文字 / 支付截图 / 语音，统一置信度决策</span></div>
-  <div class="metric"><b>5 / 5</b><span>核账 Agent 找出示例账本全部埋设异常</span></div>
-  <div class="metric"><b>18 / 20</b><span>录入评测通过，字段准确率 100%</span></div>
+  <div class="metric"><b>90% → 97%</b><span>录入解析通过率，补全"请客"规则前后（100 例构造评测集）</span></div>
+  <div class="metric"><b>1.3 美分</b><span>sonnet 的录入单条成本，opus 为 6.9 美分，通过率相当</span></div>
+  <div class="metric"><b>5 / 5</b><span>核账 Agent 查出示例账本全部埋设异常</span></div>
 </div>
 <div class="browser"><div class="bar" aria-hidden="true"><i></i><i></i><i></i><span class="url">tripsplit-app.pages.dev · 示例账本核账结果</span></div><div class="screen"><img src="../assets/tripsplit-reconcile-hd.jpg" alt="TripSplit 桌面双栏：左侧账本，右侧核账 Agent 的结论与修改建议" width="1280" height="853"><button type="button" class="demo-btn" data-src="https://tripsplit-app.pages.dev/" data-title="TripSplit 在线试用">直接试用：在这里打开线上应用</button></div></div>
 <p class="try-note"><span>点击后在窗口内加载真实应用，自带一本埋了 5 处异常的示例账本。</span><a href="https://tripsplit-app.pages.dev/" target="_blank" rel="noopener">新窗口打开 ↗</a></p>
@@ -35,6 +35,7 @@
 <tr><td>核对成本</td><td>重复录入、参与人为空、付款人不在参与人里、疑似多打一个零、日期不在行程内，人眼很难在几十笔里找出来</td><td>核账 Agent 用只读工具逐项核查，每条结论引用具体证据，修改建议做成字段级预览让用户确认</td></tr>
 <tr><td>信任成本</td><td>如果 AI 能直接改账，用户不敢把账交给它</td><td>硬边界：Agent 只读账目、只提建议；所有修改经用户确认由客户端写入并留审计记录；AI 接口只返回建议</td></tr>
 </table>
+<p>判断：产品不能只算末端的分账，要覆盖旅中录入、账目沉淀、结算前核账和最终结算，主链路定为"录入 → 账本 → 核账 → 结算"。</p>
 <div class="callout"><b>一句话原则：模型给判断，代码做算术，用户做决定。</b>金额分摊、结算方案、聚合统计全部由确定性代码完成；模型负责识别、分类、从模糊描述里抽条件和写结论。</div>
 
 <h2 id="priority">需求分析与优先级</h2>
@@ -48,6 +49,8 @@
 <p>MVP 阶段把云同步、多币种、平台直连列为非目标；第二期补齐 10 项：云同步（分账产品的核心是每个人用自己手机记）、分摊规则与请客、多币种、预算与趋势、还款跟踪与锁账、分享与导出、截图批量与账单导入、服务端语音与离线队列、Agent 规则记忆、评测与可观测。全部已在第二期完成，见下文。</p>
 
 <h2 id="solution">方案产出</h2>
+<h3>哪里用 Agent，哪里不用</h3>
+<p>录入是固定流程：抽字段、看置信度，再决定自动入账、追问或待补全，结构化输出加规则就够，不需要 Agent。核账要查什么事先不固定，才用 Agent：只配 7 个只读工具，结论附证据，改账先展示字段差异、由用户确认；分摊与结算由代码完成。</p>
 <h3>录入决策</h3>
 <p>模型对每个关键字段输出值和置信度：输入里明确写出的给 0.9 以上，靠推断的（截图没写谁付、默认当前使用者）给 0.6–0.8，猜的填 null。服务端按阈值（金额 0.8、付款人 0.7、参与人 0.7）和字段完整性判定：三项都过线自动入账；任一缺失进入追问，只问缺的那一项；不是消费的输入（闲聊、风景照）直接拒绝并说明原因。追问后的补充回答作为最高优先级修正上一轮结果。</p>
 <h3>检索与修改预览</h3>
@@ -62,16 +65,20 @@
 <li><b>边界落在架构上：</b>浏览器 localStorage 持有全部账本；四个 AI 接口只接收账本快照、只返回建议，没有写接口。云同步是唯一的服务端写路径，且只搬运用户已确认的账目，账目按最后写入胜合并、删除为墓碑。</li>
 <li><b>结构化输出：</b>录入、检索、报告走 zod 结构化输出；核账是手写 agent loop，只读工具与 submit_findings 都用 strict 模式，处理拒答、截断、无工具调用等异常停止原因，最多 12 轮。</li>
 <li><b>可观测：</b>每次模型调用记录路由、耗时、输入输出 token、成本估算与成功与否；运营后台按路由看 p50 / p90、成功率和成本，并保存评测历史。</li>
-<li><b>验收：</b>纯函数单测覆盖分摊规则、结算守恒、还款后的剩余方案、录入决策阈值、检索；PRD 附验收标准清单；发布前固定跑类型检查、lint、构建与单测。</li>
+<li><b>验收：</b>纯函数单测共 47 条断言，其中 22 条覆盖分摊与结算规则（均摊到分且合计相等、按份数 / 比例 / 指定金额、外币折算、请客不分摊、标记已转后的剩余方案、转账笔数不超过人数减一），其余覆盖录入决策阈值与检索；PRD 附验收标准清单；发布前固定跑类型检查、lint、构建与单测。</li>
+<li><b>模型选型：</b>录入解析按评测结果换成 sonnet；核账、检索、报告没做过同样的评测，模型保持不变。</li>
 <li><b>发布：</b>GitHub 公开仓库，推送即由 Vercel 自动部署；数据库用 Turso（libsql），语音识别走 Whisper 兼容接口，未配置时自动退回本机模式。</li>
 </ul>
 
 <h2 id="eval">评测</h2>
 <table class="tbl">
 <tr><th>项目</th><th>方法</th><th>结果</th></tr>
-<tr><td>录入解析</td><td>20 例人工标注用例（含请客、外币、需追问、应拒绝），逐字段比对</td><td>通过 18 / 20；金额、付款人、参与人、分类、请客字段准确率 100%，决策准确率 90%，两例失败是"靠推断得到的付款人该不该追问"的标注边界</td></tr>
-<tr><td>核账 Agent</td><td>示例账本故意埋 5 处异常：重复录入、付款人不在参与人内、参与人为空、疑似多打一个零、待补全</td><td>5 / 5 全部找出（多次运行均稳定），每次 2–3 轮、5–6 次工具调用，每条结论引用具体金额与时间差</td></tr>
-<tr><td>线上响应</td><td>生产环境实测</td><td>录入 4–6 秒，检索约 6 秒，核账约 30 秒</td></tr>
+<tr><td>录入解析</td><td>构造评测集从 20 例扩到 100 例，按 30 类表达方式打标；7 个字段维度：入账决策、金额、付款人、参与人、分类、请客、币种，一例全部字段都对才算通过</td><td>sonnet 基线通过率 90%；10 例失败中 5 例是"请客"语义</td></tr>
+<tr><td>一轮迭代</td><td>定位到提示词里的请客规则只覆盖显式句式；只改提示词，补全隐含说法和默认被请范围</td><td>sonnet 90% → 97%，opus 92% → 96%，haiku 84% → 88%；原 20 例无回退</td></tr>
+<tr><td>模型选型</td><td>同一份评测集、同一提示词横评三档模型，同时记单条成本和耗时</td><td>sonnet 97%、1.3 美分、1.7 秒；opus 96%、6.9 美分、2.8 秒；录入解析选 sonnet</td></tr>
+<tr><td>规则层</td><td>分摊、结算等纯函数的断言单测</td><td>47 条全过，其中 22 条覆盖分摊与结算</td></tr>
+<tr><td>核账 Agent</td><td>示例账本故意埋 5 处异常：重复录入、付款人不在参与人内、参与人为空、疑似多打一个零、待补全</td><td>5 / 5 全部查出，每条结论引用具体金额与时间差</td></tr>
+<tr><td>线上响应</td><td>生产环境实测</td><td>检索约 6 秒，核账约 30 秒</td></tr>
 </table>
 
 <h2 id="result">结果与迭代</h2>
@@ -80,6 +87,7 @@
 <tr><td>v1</td><td>多模态录入、检索与报告、核账 Agent、最少转账结算；PRD 与验收标准</td></tr>
 <tr><td>界面改版</td><td>头部压缩与头像圈、手机底部 tab、首页总览、账目卡瘦身、核账摘要与折叠卡、按住说话、空状态 / 骨架屏 / 深色模式、桌面双栏</td></tr>
 <tr><td>v2</td><td>云同步与邀请链接、分摊规则与请客、多币种汇率、预算与趋势、还款跟踪与锁账、图片 / CSV / PDF 导出、截图批量与账单 / 订单导入、服务端语音与离线队列、Agent 规则记忆与结算前自动核账、评测集与运营后台</td></tr>
+<tr><td>评测迭代</td><td>录入评测集 20 → 100 例、三档模型横评；补全请客规则后通过率 90% → 97%，录入解析换成 sonnet</td></tr>
 </table>
 <h2>明确未做的边界</h2>
 <ul>

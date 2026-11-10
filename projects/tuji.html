@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>途迹 Tuji Travel · 项目详情</title>
-<meta name="description" content="途迹 Tuji Travel 的项目背景、痛点挖掘、需求优先级、方案产出、开发上线过程与结果。">
+<meta name="description" content="途迹 Tuji Travel 的项目背景、需求洞察、需求优先级、方案产出、开发上线、重排合理率评测与结果。">
 <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
@@ -12,23 +12,23 @@
 <main class="wrap detail">
 <a class="back" href="../index.html#projects">← 返回作品集</a>
 <h1>途迹 Tuji Travel</h1>
-<p class="meta">旅行行程变更工具 · 个人项目，产品设计与全栈开发 · 2026.09 — 2026.11 · <a href="https://kaikungao.github.io/tuji-travel-planner/" target="_blank" rel="noopener">线上产品</a> · <a href="https://github.com/KaikunGao/tuji-travel-planner" target="_blank" rel="noopener">GitHub</a></p>
-<p class="lead">先标必去、可选、可放弃，途迹排出逐日行程，并把下雨、排队、走不动时的预案提前算好；路上出了状况，只改受影响的那一段，代价算给你看。无需注册，行程保存在自己的浏览器里。</p>
+<p class="meta">旅行行程变更工具 · 个人项目，产品设计与独立开发 · 2026 · <a href="https://kaikungao.github.io/tuji-travel-planner/" target="_blank" rel="noopener">线上产品</a> · <a href="https://github.com/KaikunGao/tuji-travel-planner" target="_blank" rel="noopener">GitHub</a></p>
+<p class="lead">先标必去、可选、可放弃，途迹排出逐日行程，并把到晚了、下雨、走不动、排队时的预案提前算好；路上出了状况，只改受影响的那一段，代价算给你看。无需注册，行程保存在自己的浏览器里。</p>
 <div class="metrics">
-  <div class="metric"><b>271 / 271</b><span>景点去不了时有替代或换天方案（9 城 27 份行程）</span></div>
-  <div class="metric"><b>62 / 70</b><span>含露天景点的行程日有雨天改法</span></div>
-  <div class="metric"><b>2 步</b><span>7 个改动入口中 6 个按设计 2 步内完成</span></div>
+  <div class="metric"><b>72.5% → 83.6%</b><span>"去不了"时第一推荐方案的合理率，修复两类问题前后（269 个景点位次）</span></div>
+  <div class="metric"><b>95.5%</b><span>修复后，前两个方案中至少一个合理</span></div>
+  <div class="metric"><b>203 篇</b><span>人工归因的小红书"行程被打乱"笔记，据此新增"到晚了"预案</span></div>
 </div>
 <div class="browser"><div class="bar" aria-hidden="true"><i></i><i></i><i></i><span class="url">kaikungao.github.io/tuji-travel-planner · 北京 3 日示例</span></div><div class="screen"><img src="../assets/tuji-plan-hd.jpg" alt="途迹行程页：砍掉一个景点之后的代价回执，右侧地图上圈出受影响的站点" width="1600" height="1067"><button type="button" class="demo-btn" data-src="https://kaikungao.github.io/tuji-travel-planner/" data-title="途迹 在线试用">直接试用：在这里打开线上应用</button></div></div>
 <p class="try-note"><span>点击后在窗口内加载真实应用，可直接生成行程，试试砍点、换点和预案。</span><a href="https://kaikungao.github.io/tuji-travel-planner/" target="_blank" rel="noopener">新窗口打开 ↗</a></p>
-<div class="shots cap two"><figure><img src="../assets/tuji-home-hd.jpg" alt="途迹首页" width="1600" height="1067"><figcaption>首页：一句话承诺"计划赶不上变化，行程改一下就好"；9 座内置城市。</figcaption></figure><figure><img src="../assets/tuji-backup-hd.jpg" alt="途迹预案页" width="1600" height="1067"><figcaption>预案页：下雨、走不动了、某个点去不了、排队太久，每种状况都列出方案和代价，一键采用。</figcaption></figure></div>
-<div class="toc"><a href="#bg">项目背景</a><a href="#pain">痛点挖掘</a><a href="#priority">需求与优先级</a><a href="#solution">方案产出</a><a href="#ship">开发上线与验证</a><a href="#result">结果与迭代</a><a href="#stack">技术</a></div>
+<div class="shots cap two"><figure><img src="../assets/tuji-home-hd.jpg" alt="途迹首页" width="1600" height="1067"><figcaption>首页：一句话承诺"计划赶不上变化，行程改一下就好"；9 座内置城市。</figcaption></figure><figure><img src="../assets/tuji-backup-hd.jpg" alt="途迹预案页" width="1600" height="1067"><figcaption>预案页：到晚了、下雨、走不动了、某个点去不了、排队太久，每种状况都列出方案和代价，一键采用。</figcaption></figure></div>
+<div class="toc"><a href="#bg">项目背景</a><a href="#pain">需求洞察</a><a href="#priority">需求与优先级</a><a href="#solution">方案产出</a><a href="#ship">开发上线与验证</a><a href="#eval">离线评测</a><a href="#result">结果与迭代</a><a href="#stack">技术</a></div>
 
 <h2 id="bg">项目背景</h2>
 <p>做自由行攻略，花几个小时把景点、顺序、餐厅排好之后，真正难受的是"要改"：出门发现下雨，热门景点排队一个小时，同行的人下午走不动了。这时候只有两个选择：全部重排，前面花的时间归零；或者将就着走，体验打折。</p>
-<p>结合 OTA 行研复盘现有做法：对话式的 AI 助手靠多轮对话重新生成整份行程；通用 AI 给的是一段文本，不能校验，也不能只改一处；手动拖拽类工具把重排的计算留给了用户。它们都在优化"第一次排得准"，没有产品在降低"改一下"的成本。</p>
+<p>行研也指向同一件事：AI 给出具体酒店或航班后，仍有 70.2% 的用户回到 OTA 或官方 App 重新核实（环球旅讯研究院《2026 下半年中国 AI 旅游应用趋势洞察报告》，n=3000）。用户不会照单全收 AI 的方案，计划排好之后还会持续变化。途迹因此把力气花在"改"上：用"主计划＋预案、局部重排、对比说明"降低每一次修改行程的成本。</p>
 
-<h2 id="pain">痛点挖掘与定位</h2>
+<h2 id="pain">需求洞察与定位</h2>
 <table class="tbl">
 <tr><th>目标用户</th><th>典型场景</th><th>核心诉求</th></tr>
 <tr><td>自由行学生</td><td>2–4 天去一座城市，行程排得满，遇到下雨或排队就乱</td><td>不用从头再排，知道砍掉哪个损失最小</td></tr>
@@ -36,6 +36,14 @@
 <tr><td>订了票的旅行者</td><td>某个点没约上票，或者当天临时闭馆</td><td>换一天去，或者换个相近的，别影响其他安排</td></tr>
 </table>
 <p>判断：核心痛点是<b>排完不敢改</b>，于是把产品承诺定为一句话：<b>行程改一下就好</b>。北极星指标是改动轮次，即一次变更从想改到改完的操作次数，目标 ≤2；同时看放弃率和撤销次数，防止靠"把改动做难"来压低轮次。</p>
+<p>先做哪些变更场景，用真实的帖子来定：人工归因 203 篇小红书"行程被打乱"相关笔记，得到 101 篇真实变更帖，其中旅途中 60 篇、出发前 41 篇。旅途中改行程的原因前三：</p>
+<table class="tbl">
+<tr><th>原因</th><th>占旅途中变更</th><th>原有预案</th></tr>
+<tr><td>交通延误、取消</td><td>52%</td><td>没有对应的预案</td></tr>
+<tr><td>天气</td><td>37%</td><td>下雨</td></tr>
+<tr><td>体力、生病</td><td>20%</td><td>走不动了</td></tr>
+</table>
+<p>原有的四类预案（下雨、走不动、去不了、排队）只覆盖 57% 的行中变更，排在第一位的交通延误不在其中。据此新增<b>"到晚了 / 起晚了"</b>预案，并把五类预案按真实频率排序。</p>
 <div class="flow"><span>标三档</span><i>→</i><span>排行程</span><i>→</i><span>备预案</span><i>→</i><span>只改一段</span><i>→</i><span>看代价</span></div>
 
 <h2 id="priority">需求分析与优先级决策</h2>
@@ -56,14 +64,24 @@
 
 <h2 id="solution">方案产出</h2>
 <h3>三档意愿</h3>
-<p>每个景点标必去 / 可选 / 可放弃。必去是硬约束，任何自动方案都不会替换或砍掉它；可放弃是预备牺牲品，时间不够先砍它；没标的都是可选。</p>
+<p>每个景点标必去 / 可选 / 可放弃，没标的都是可选。必去是硬约束：排行程时排不下必去先留，要删减时必去不动，必去的点去不了先给换天；可放弃是预备牺牲品，时间不够先砍它。</p>
+<h3>排行程时怎么取舍</h3>
+<p>景点按位置聚到各天，节奏决定每天的时长预算；排不下时必去先留，其余按兴趣和评分取舍。人气与攻略提及率也参与排序，但权重比兴趣低一个量级，保证用户意愿优先。</p>
+<table class="tbl">
+<tr><th>信号</th><th>来源</th><th>接入后的变化</th></tr>
+<tr><td>人气</td><td>携程点评数；9 城 198 个景点与携程景点数据对齐，匹配 84%</td><td>27 份默认行程中 21 份换点，共 60 个位次</td></tr>
+<tr><td>攻略提及率</td><td>北京、成都、西安 3 城 90 篇小红书高赞攻略；提及率 ≥30% 的定为核心景点，共 30 个</td><td>接入前默认 3 日路线只覆盖其中 22 个，还排进 3 个提及率不到 15% 的冷门站；接入后调整 16 个位次</td></tr>
+</table>
+<p>一个具体的例子：北京 3 日路线里原本有恭王府（北京 24 篇列出景点的攻略里 0 篇提到）和五道营胡同（2 篇提到），接入攻略提及率后换成了雍和宫、国子监。</p>
 <h3>改动代价</h3>
 <p>砍一个点之前先看代价：少看什么、腾出多久（少逛 + 路上）、几点收工、路程和花费怎么变、后面哪几站的时间跟着动、有没有新的时间冲突。每次改动之后留一张回执，可以一键撤销。</p>
-<h3>四类预案</h3>
+<h3>五类预案</h3>
+<p>最初是四类，按小红书采样的结果新增"到晚了 / 起晚了"；五类按旅途中真实发生的频率排序。</p>
 <table class="tbl">
 <tr><th>状况</th><th>给出的方案</th></tr>
+<tr><td>到晚了 / 起晚了</td><td>选一个实际出发的时刻：排得下就全保留，排不下就调顺序、砍价值低的点，或把赶不上的点换到别天；采用后直接进入行中重排</td></tr>
 <tr><td>这天下雨</td><td>露天的点换成室内的，必去不动；或者和露天更少的那天整天对调</td></tr>
-<tr><td>走不动了</td><td>按三档列出先砍谁，可放弃的排最前，各带能腾出的时间</td></tr>
+<tr><td>走不动了</td><td>按三档列出先砍谁：必去不动，可放弃的排最前，其余按损失从小到大，各带能腾出的时间</td></tr>
 <tr><td>某个点去不了</td><td>必去先给换天，可放弃先给砍掉，其余先给相近的替代</td></tr>
 <tr><td>某个点排队太久</td><td>最晚几点必须进场或离开、再晚哪一站会出问题；然后是再排一会儿、放弃、换附近的、改天</td></tr>
 </table>
@@ -78,17 +96,33 @@
 <h2 id="ship">开发上线与验证</h2>
 <ul>
 <li><b>版本记录：</b>每个版本在 PROGRESS.md 记录问题、改动与验证方式；发布前固定跑类型检查、城市数据校验与构建。</li>
-<li><b>闸门是实测出来的：</b>第 2 周原定的闸门是"每个必去点配一个替代"。用北京、成都、西安 68 个景点实测，颐和园、长城、熊猫基地按规则找不到替代，找得到的也多是"故宫换北海公园"这种用户不会接受的。于是改成"必去只换天，其余才找替代"，再扩到 9 城 198 个景点。</li>
+<li><b>闸门是实测出来的：</b>第 2 周原定的闸门是"每个必去点配一个替代"。用北京、成都、西安 68 个景点实测，颐和园、长城、熊猫基地按规则找不到替代，找得到的也多是"故宫换北海公园"这种用户不会接受的。于是改成"必去先给换天，其余才先找替代"，再扩到 9 城 198 个景点。</li>
 <li><b>覆盖检查进仓库：</b>一个脚本对任意一份行程打印全部预案，并统计每个景点去不了时有没有砍掉以外的方案、每个雨天有没有改法，结果可复现。</li>
+<li><b>合理率评测进仓库：</b>评测脚本对 27 份默认行程逐个位次模拟"去不了"，输出第一推荐方案和没过的判据；修复前后的两份报告都保留，见下一节。</li>
 <li><b>数据：</b>9 座城市 198 个景点、172 家餐厅通过校验脚本；每个景点标了室内 / 半室内 / 露天，雨天预案据此判断。</li>
 <li><b>发布：</b>GitHub Actions 自动构建并发布到 GitHub Pages；中英双语 README、MIT 许可证。</li>
 </ul>
 
+<h2 id="eval">离线评测：重排合理率</h2>
+<p>有替代或换天方案，不等于方案合理。所以先把"合理"定义清楚，再对每个景点位次逐个去测。</p>
+<table class="tbl">
+<tr><th>方案类型</th><th>算"合理"的条件</th></tr>
+<tr><td>换替代点</td><td>携程评分比原点低不超过 0.2；点评数不少于原点的三分之一或九城中位数；攻略档位最多低一档；不新增时间冲突</td></tr>
+<tr><td>换天</td><td>不新增时间冲突；目标那天多走不超过 30 分钟</td></tr>
+</table>
+<table class="tbl">
+<tr><th>步骤</th><th>做了什么</th><th>结果</th></tr>
+<tr><td>基线</td><td>对 9 城 27 份默认行程的 269 个景点位次逐个模拟"去不了"，只看预案给出的第一个方案</td><td>第一推荐方案合理率 72.5%</td></tr>
+<tr><td>定位</td><td>逐条看不合理的位次</td><td>两类问题：换天方案不限路程；替代点换成了攻略里没人去的点</td></tr>
+<tr><td>修复</td><td>换天加 30 分钟路程上限；替代点的攻略档位最多比原点低一档</td><td>第一推荐方案合理率 83.6%；前两个方案中至少一个合理 95.5%</td></tr>
+</table>
+
 <h2 id="result">结果与迭代</h2>
 <table class="tbl">
 <tr><th>指标</th><th>结果</th></tr>
-<tr><td>去不了时的方案覆盖</td><td>9 城 2 / 3 / 4 日游共 27 份行程、271 个景点，全部有替代或换天方案</td></tr>
-<tr><td>雨天改法覆盖</td><td>70 个含露天景点的行程日中 62 个有改法；其余 8 个只能带伞或砍点，界面上如实说明</td></tr>
+<tr><td>重排合理率</td><td>"去不了"时第一推荐方案 72.5% → 83.6%，前两个方案 95.5%（269 个景点位次）</td></tr>
+<tr><td>去不了时的方案覆盖</td><td>9 城 2 / 3 / 4 日游共 27 份行程、269 个景点位次，全部有替代或换天方案</td></tr>
+<tr><td>变更场景</td><td>203 篇小红书笔记人工归因后，原有四类预案只覆盖 57% 的行中变更；新增"到晚了"，五类按真实频率排序</td></tr>
 <tr><td>改动轮次（按设计）</td><td>7 个改动入口中 6 个 2 步内完成：拖拽换序 1 步；砍点、先砍谁、出状况了、换餐厅、添加景点 2 步；从预案页针对某一站操作 3 步</td></tr>
 <tr><td>轮次统计</td><td>已上线：记录每次变更的轮次、耗时、类型，以及放弃率和撤销次数，可导出</td></tr>
 </table>
@@ -103,7 +137,7 @@
 <ul>
 <li>不接天气、排队、路况等实时数据，状况由用户自己声明。</li>
 <li>不做账号与云同步，行程只存本机，分享用链接。</li>
-<li>不抓取真实评论，餐厅评价是综合整理的中立陈述并标明来源性质。</li>
+<li>不存评论和攻略的正文：携程只取评分与点评数，小红书只统计景点被提到的比例；餐厅评价是综合整理的中立陈述并标明来源性质。</li>
 <li>不做多城市联程与多人协作。</li>
 </ul>
 

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>蛋白钱包 ProteinWallet · 项目详情</title>
-<meta name="description" content="蛋白钱包 ProteinWallet 的项目背景、痛点挖掘、需求优先级、方案产出、开发上线过程与结果。">
+<meta name="description" content="蛋白钱包 ProteinWallet 的项目背景、痛点挖掘、需求优先级、方案产出、开发上线、估算准确度评测与模型选型。">
 <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
@@ -12,12 +12,12 @@
 <main class="wrap detail">
 <a class="back" href="../index.html#projects">← 返回作品集</a>
 <h1>蛋白钱包 ProteinWallet</h1>
-<p class="meta">按预算选餐的 AI 工具 · 个人项目，产品设计与开发 · 2026.07 — 2026.08 · <a href="https://protein-wallet.pages.dev/?demo=1" target="_blank" rel="noopener">线上产品</a> · <a href="https://github.com/KaikunGao/protein-wallet" target="_blank" rel="noopener">GitHub</a></p>
+<p class="meta">健身选餐工具 · 个人项目，产品设计与独立开发 · 2026 · <a href="https://protein-wallet.pages.dev/?demo=1" target="_blank" rel="noopener">线上产品</a> · <a href="https://github.com/KaikunGao/protein-wallet" target="_blank" rel="noopener">GitHub</a></p>
 <p class="lead">按每天的预算，给出吃得起、蛋白多的几样选择。填体重和每天的饭钱，常去的店拍一次菜单；之后每天打开首页，就能看到今天预算内、蛋白最划算的几样，点一下记上。选哪样由用户自己定。</p>
 <div class="metrics">
-  <div class="metric"><b>10 倍</b><span>同一克蛋白在三餐里的价差：鸡蛋约 9 分/g，外卖约 100 分/g</span></div>
-  <div class="metric"><b>13 / 13</b><span>真实外卖订单截图，金额和菜名全部识别正确</span></div>
-  <div class="metric"><b>18% → 6%</b><span>这 13 单里 18% 的钱花在蛋白很少的菜上，只贡献 6% 的蛋白</span></div>
+  <div class="metric"><b>10 倍</b><span>不同餐食来源每克蛋白的价差：鸡蛋约 9 分/g，外卖约 100 分/g</span></div>
+  <div class="metric"><b>30 / 30</b><span>接官方营养表后，30 份真值订单的蛋白区间全部命中；模型裸估 20 / 30</span></div>
+  <div class="metric"><b>2.8 秒</b><span>文字解析换成 sonnet 后的耗时，原来 6.5 秒</span></div>
 </div>
 <div class="showcase">
   <figure class="phone big" id="pw-demo">
@@ -32,7 +32,7 @@
   </figure>
 </div>
 <p class="try-note"><span>从左到右：首页（今天的预算和预算内的几样选择）、存过的菜单（按每块钱换多少克蛋白排好）、周报。点"在手机里试用"会加载真实应用，打开就是 13 张真实外卖订单解析出的示例。</span><a href="https://protein-wallet.pages.dev/?demo=1" target="_blank" rel="noopener">新窗口打开 ↗</a></p>
-<div class="toc"><a href="#bg">项目背景</a><a href="#pain">痛点挖掘</a><a href="#priority">需求与优先级</a><a href="#solution">方案产出</a><a href="#ship">开发上线</a><a href="#result">结果与迭代</a><a href="#scope">明确不做</a><a href="#stack">技术</a></div>
+<div class="toc"><a href="#bg">项目背景</a><a href="#pain">痛点挖掘</a><a href="#priority">需求与优先级</a><a href="#solution">方案产出</a><a href="#ship">开发上线</a><a href="#eval">评测与模型选型</a><a href="#result">结果与迭代</a><a href="#scope">明确不做</a><a href="#stack">技术</a></div>
 
 <h2 id="bg">项目背景</h2>
 <p>月生活费 2000–2500 元、想增肌的在校大学生，三餐主要靠食堂、连锁快餐和外卖。增肌每天要吃的蛋白按体重 × 1.6 g 估算，大约 100 g；便宜的蛋白粉一天一勺约 24 g，只补得上两成，却已经占到生活费的 10–15%，剩下的七八成只能从三餐来。</p>
@@ -66,9 +66,10 @@
 <p>对比之后，把操作成本排在第一位：</p>
 <ul>
 <li><b>菜单每家店只拍一次：</b>拍过的菜单存成"常去的地方"，之后每天直接用；同学拍过的可以用分享链接导入，不用再拍。</li>
-<li><b>日常一次点击：</b>首页点一样就记上，钱和蛋白同时记。</li>
+<li><b>日常一次点击：</b>首页点一样就记上，钱和蛋白同时记。常吃的餐食 1 步记上；没记过的新餐写一句话，3 步完成。</li>
 <li><b>只给选择、不替用户决定：</b>按每块钱换多少克蛋白排好，选哪样用户自己定；不生成食谱和配餐。</li>
 </ul>
+<p>目标与指标：产品聚焦在"预算内选餐"。核心价值目标是用户因此改变选餐，用周报里的一个问题来看；使用指标是每周记录餐次。</p>
 
 <h2 id="solution">方案产出</h2>
 <h3>用法四步</h3>
@@ -80,16 +81,19 @@
 </ol>
 <div class="flow"><span>填体重和饭钱</span><i>→</i><span>拍一次菜单</span><i>→</i><span>每天看清单</span><i>→</i><span>点一下记上</span><i>→</i><span>花超提醒</span></div>
 
-<h3>蛋白从哪来</h3>
+<h3>蛋白从哪来：三层估算</h3>
+<p>菜单上看不到份量，给一个精确的数容易误导，所以蛋白只给区间，并标注来源和置信度。</p>
 <table class="tbl">
-<tr><th>菜品</th><th>蛋白怎么得到</th><th>之后</th></tr>
-<tr><td>内置的连锁菜品</td><td>麦当劳中国官方营养表 76 道，逐行对过官网，蛋白直接计入</td><td>不需要 AI</td></tr>
-<tr><td>其他菜品：食堂窗口、小摊、外卖店</td><td>第一次由 AI 读菜单：读出菜名和价格，把每道菜拆成蛋白来源（一只鸡腿、一个蛋、一碗饭），代码查食材表加总，给出区间</td><td>结果存下来反复复用，不再调用 AI</td></tr>
+<tr><th>层级</th><th>适用的菜</th><th>蛋白怎么得到</th></tr>
+<tr><td>官方营养表</td><td>内置的连锁菜品：麦当劳中国官方营养表 76 道，逐行对过官网</td><td>直接引用，不需要 AI</td></tr>
+<tr><td>食材表</td><td>食堂窗口、小摊、外卖店里能拆成常见食材的菜</td><td>第一次由 AI 读菜单：读出菜名和价格，把每道菜拆成蛋白来源（一只鸡腿、一个蛋、一碗饭）；代码查 52 种食材的表加总，给 ±25% 的区间</td></tr>
+<tr><td>模型估算</td><td>前两层都查不到的</td><td>由模型估算，标低置信度</td></tr>
 </table>
-<div class="callout"><b>模型只读菜单，蛋白和排序由代码计算。</b>模型负责读出菜名、价格和蛋白来源；蛋白的加总、今天还能花多少、按每块钱换多少克蛋白排序，全部由代码完成。营养一律给区间并标明数据来源。</div>
+<p>读过的菜单存下来反复复用，不再调用 AI。</p>
+<div class="callout"><b>能查表的不让模型猜，算术交给代码。</b>模型负责读出菜名、价格和蛋白来源；查得到表的，蛋白由代码加总，查不到的才由模型估算并标低置信度。今天还能花多少、每克蛋白的价格和排序，全部由代码完成。营养一律给区间并标明数据来源。</div>
 
 <h3>每天的预算与花超提醒</h3>
-<p>首页显示今天的蛋白还差多少、今天预算还剩多少。"下一顿"卡片把存过的菜单和自己记过的餐放在一起，挑出今天的钱够买的，按每块钱换多少克蛋白排好。</p>
+<p>首页显示今天的蛋白还差多少、今天预算还剩多少。"下一顿"卡片把存过的菜单和近 30 天自己记过的餐放在一起，挑出今天的钱够买的，按每块钱换多少克蛋白排好，先显示前 3 样。</p>
 <p>花超不拦。提醒里写明这笔超出怎么算：本周前几天省下的够抵，后面几天就不变；不够抵，剩下几天每天少多少。超出今天额度的菜照样列出来、照样能点，只标一句"超出今天额度"。</p>
 
 <h3>清单以外的记法</h3>
@@ -103,6 +107,14 @@
 <li><b>首屏示例：</b>第一次打开直接看到 13 张真实外卖订单解析出的示例，存在单独的数据库里，不影响用户自己的记录。</li>
 <li><b>发布：</b>借助 Claude Code 开发，部署在 Vercel，可以装到手机主屏当 App 用；每次改动的内容和原因记在仓库的 CHANGELOG.md 里。</li>
 </ul>
+
+<h2 id="eval">评测与模型选型</h2>
+<table class="tbl">
+<tr><th>项目</th><th>方法</th><th>结果</th></tr>
+<tr><td>估算准确度</td><td>30 份有麦当劳中国官方营养真值的订单，文字输入，看给出的蛋白区间是否命中真值</td><td>接官方表后命中 30 / 30；去掉官方表让模型裸估，命中 20 / 30，中点误差中位 2 g，没命中的 10 份里 9 份是小份食物高估 1–4 g</td></tr>
+<tr><td>模型横评</td><td>同一份真值、同一提示词横评 Claude 三档模型（opus、sonnet、haiku），共 180 次调用</td><td>接官方表后三档都是 30 / 30；裸估的中点误差中位同为 2 g；sonnet 耗时 2.8 秒，opus 6.5 秒</td></tr>
+<tr><td>选型结论</td><td>准确度由数据层决定，模型按速度和成本选</td><td>文字路径换成更快的 sonnet</td></tr>
+</table>
 
 <h2 id="result">结果与迭代</h2>
 <table class="tbl">

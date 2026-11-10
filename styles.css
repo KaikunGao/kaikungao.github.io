@@ -196,6 +196,8 @@ pre { background: var(--tag); border-radius: 10px; padding: 12px 14px; font-size
 .pos b { display: block; font-size: 11.5px; letter-spacing: .12em; color: var(--muted); font-weight: 600; margin-bottom: 2px; }
 .cell strong { display: block; color: var(--ink); font-weight: 600; margin-bottom: 3px; }
 .grid6 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+/* project cards: a few long cells, each a full-width row */
+.grid4.rows { grid-template-columns: minmax(0, 1fr); gap: 10px; }
 
 /* browser frame with a live try-it entry */
 .browser { border: 1px solid var(--line); border-radius: 14px; overflow: hidden; background: #fff; box-shadow: 0 12px 34px rgba(0,0,0,.12); margin: 0 0 8px; }
@@ -277,7 +279,8 @@ pre { background: var(--tag); border-radius: 10px; padding: 12px 14px; font-size
   :root { --bg: #fff; --panel: #fff; --ink: #000; --muted: #444; --line: #bbb; --accent: #0f6e63; --accent-soft: #eef5f3; --tag: #f1f1f1; }
   .nav, .phone-note, .cover-note, .demo-btn, .no-print { display: none !important; }
   /* Heiti SC keeps a clean PDF text layer; PingFang and Songti map 高 etc. to Kangxi radicals, which breaks ATS text search */
-  body { font-size: 11.5px; line-height: 1.55; font-family: "Heiti SC", "Arial Unicode MS", "Noto Sans SC", "Microsoft YaHei", sans-serif; }
+  /* weight 300 = Heiti SC Light for body text, as in earlier PDFs: Chrome 157 resolves 400 to Heiti SC Medium, which made body and bold look the same */
+  body { font-size: 11.5px; line-height: 1.55; font-weight: 300; font-family: "Heiti SC", "Arial Unicode MS", "Noto Sans SC", "Microsoft YaHei", sans-serif; }
   .wrap { max-width: none; padding: 0; }
   /* print hero is kept short so the first project's screenshot shares page 1:
      contact moves up between the name block and the portrait, strengths put the icon beside the title */
@@ -305,7 +308,7 @@ pre { background: var(--tag); border-radius: 10px; padding: 12px 14px; font-size
   .hero .contact dl { display: block; }
   .hero .contact dl > div { display: flex; align-items: baseline; gap: 8px; padding: 0; border: 0; }
   .hero .contact dt { width: 36px; font-size: 8.5px; }
-  .hero .contact dd { font-size: 11px; line-height: 1.7; }
+  .hero .contact dd { font-size: 11px; line-height: 1.7; font-weight: 300; }
   .sec-title { font-size: 18px; }
   .sec-sub { font-size: 12.5px; margin-bottom: 12px; }
   .browser .bar { height: 24px; }
