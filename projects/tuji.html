@@ -17,7 +17,7 @@
 <div class="metrics">
   <div class="metric"><b>72.5% → 83.6%</b><span>"去不了"时第一推荐方案的合理率，修复两类问题前后（269 个景点位次）</span></div>
   <div class="metric"><b>95.5%</b><span>修复后，前两个方案中至少一个合理</span></div>
-  <div class="metric"><b>203 篇</b><span>人工归因的小红书"行程被打乱"笔记，据此新增"到晚了"预案</span></div>
+  <div class="metric"><b>57%</b><span>原有四类预案对行中变更的覆盖率（203 篇小红书笔记人工归因），据此新增"到晚了"</span></div>
 </div>
 <div class="browser"><div class="bar" aria-hidden="true"><i></i><i></i><i></i><span class="url">kaikungao.github.io/tuji-travel-planner · 北京 3 日示例</span></div><div class="screen"><img src="../assets/tuji-plan-hd.jpg" alt="途迹行程页：砍掉一个景点之后的代价回执，右侧地图上圈出受影响的站点" width="1600" height="1067"><button type="button" class="demo-btn" data-src="https://kaikungao.github.io/tuji-travel-planner/" data-title="途迹 在线试用">直接试用：在这里打开线上应用</button></div></div>
 <p class="try-note"><span>点击后在窗口内加载真实应用，可直接生成行程，试试砍点、换点和预案。</span><a href="https://kaikungao.github.io/tuji-travel-planner/" target="_blank" rel="noopener">新窗口打开 ↗</a></p>
@@ -26,7 +26,7 @@
 
 <h2 id="bg">项目背景</h2>
 <p>做自由行攻略，花几个小时把景点、顺序、餐厅排好之后，真正难受的是"要改"：出门发现下雨，热门景点排队一个小时，同行的人下午走不动了。这时候只有两个选择：全部重排，前面花的时间归零；或者将就着走，体验打折。</p>
-<p>行研也指向同一件事：AI 给出具体酒店或航班后，仍有 70.2% 的用户回到 OTA 或官方 App 重新核实（环球旅讯研究院《2026 下半年中国 AI 旅游应用趋势洞察报告》，n=3000）。用户不会照单全收 AI 的方案，计划排好之后还会持续变化。途迹因此把力气花在"改"上：用"主计划＋预案、局部重排、对比说明"降低每一次修改行程的成本。</p>
+<p>行研给了另一个前提：AI 给出具体酒店或航班后，仍有 70.2% 的用户回到 OTA 或官方 App 重新核实（环球旅讯研究院《2026 下半年中国 AI 旅游应用趋势洞察报告》，n=3000），用户不会照单全收 AI 的方案。途迹因此把力气花在"改"上：用"主计划＋预案、局部重排、对比说明"降低每一次修改行程的成本。</p>
 
 <h2 id="pain">需求洞察与定位</h2>
 <table class="tbl">
@@ -36,6 +36,7 @@
 <tr><td>订了票的旅行者</td><td>某个点没约上票，或者当天临时闭馆</td><td>换一天去，或者换个相近的，别影响其他安排</td></tr>
 </table>
 <p>判断：核心痛点是<b>排完不敢改</b>，于是把产品承诺定为一句话：<b>行程改一下就好</b>。北极星指标是改动轮次，即一次变更从想改到改完的操作次数，目标 ≤2；同时看放弃率和撤销次数，防止靠"把改动做难"来压低轮次。</p>
+<p>和直接问通用 AI 改行程相比，途迹保证三件事：改之前先看到代价（少看什么、几点收工、后面哪几站跟着变）；必去的点不会被自动换掉或砍掉；每次改动留一张回执，可以撤销。</p>
 <p>先做哪些变更场景，用真实的帖子来定：人工归因 203 篇小红书"行程被打乱"相关笔记，得到 101 篇真实变更帖，其中旅途中 60 篇、出发前 41 篇。旅途中改行程的原因前三：</p>
 <table class="tbl">
 <tr><th>原因</th><th>占旅途中变更</th><th>原有预案</th></tr>
