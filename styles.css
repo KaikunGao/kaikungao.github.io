@@ -316,6 +316,8 @@ pre { background: var(--tag); border-radius: 10px; padding: 12px 14px; font-size
   .browser .bar .url { font-size: 10px; padding: 1px 8px; }
   section { padding: 10px 0; }
   .card { break-inside: auto; padding: 12px 14px; margin-bottom: 10px; }
+  /* metas now carry month ranges (2026.06 — 2026.07): one size down keeps title, badge and meta on one line in the PDF */
+  .card .meta { font-size: 13px; }
   .card header, .cell, .phone, .cover, .research li, .ways .cell, .metrics, .skill { break-inside: avoid; }
   .sec-title { break-after: avoid; }
   .grid4 { gap: 8px; }
